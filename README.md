@@ -29,7 +29,7 @@
 |      | [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/) | 40.7%  | 简单 |         |           |
 |      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 |         |           |
 |      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 |         |           |
-|      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 |         |           |
+|      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       |           |
 |      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           |
 |      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           |
 |      | [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 41.1%  | 困难 |         |           |
@@ -86,7 +86,7 @@
 |      | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 61.4%  | 中等 |         |           |
 |      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |
 |      | [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/) | 46.2%  | 困难 |         |           |
-|      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 |         |           |
+|      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           |
 |      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |
 |      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           |
 |      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           |
@@ -123,7 +123,7 @@
 | ---- | ------------------------------------------------------------ | ------ | ---- | ------- | --------- |
 |      | [218. 天际线问题](https://leetcode-cn.com/problems/the-skyline-problem/) | 46.9%  | 困难 |         |           |
 |      | [227. 基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii/) | 43.4%  | 中等 |         |           |
-|      | [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | 73.5%  | 中等 |         |           |
+|      | [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | 73.5%  | 中等 | ✔️       |           |
 |      | [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) | 47.8%  | 简单 |         |           |
 |      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 |         |           |
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |
