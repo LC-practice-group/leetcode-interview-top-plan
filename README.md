@@ -7,9 +7,9 @@
 
 |      | 题目                                                         | 通过率 | 难度 | okJiang | tanzhikun |
 | ---- | ------------------------------------------------------------ | ------ | ---- | ------- | --------- |
-|      | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 51.2%  | 简单 | ✔️       |           |
-|      | [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/) | 40.2%  | 中等 | ✔️       |           |
-|      | [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) | 37.2%  | 中等 |         |           |
+|      | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 51.2%  | 简单 | ✔️       | ✔️         |
+|      | [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/) | 40.2%  | 中等 | ✔️       | ✔️         |
+|      | [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) | 37.2%  | 中等 |         | ✔️         |
 |      | [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) | 40.2%  | 困难 |         |           |
 |      | [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | 34.3%  | 中等 |         |           |
 |      | [7. 整数反转](https://leetcode-cn.com/problems/reverse-integer/) | 35.4%  | 简单 |         |           |
