@@ -457,7 +457,146 @@ public:
 
 ## [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
 
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* preNode = head;
+        ListNode* vhead = new ListNode(0,head);
+        
+        for(int i=0;i<n;++i) preNode = preNode->next;
+        
+        ListNode* dNode = head;
+        ListNode* pp = vhead;
+        while(preNode){
+            preNode = preNode->next;
+            pp = dNode;
+            dNode = dNode->next;
+        }
+        
+        pp->next  = dNode->next;
+        
+        delete dNode;
+        
+        return vhead->next;
+    }
+};
 ```
 
+##　[20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+
+```c++
+class Solution {
+public:
+    bool isValid(string s) {
+        //栈应用
+        unordered_map<char,char> mp ={
+            {')','('},
+            {']','['},
+            {'}','{'}
+        };
+        
+        int n = s.size();
+        stack<char> st;
+        for(int i =0;i<n;++i){
+            if(!mp.count(s[i])) st.push(s[i]);
+            else{
+                if(st.empty()||st.top()!=mp[s[i]]) return false;
+                else st.pop();
+            }
+        }
+        return st.empty(); //为空匹配成功
+    }
+};
+```
+
+## [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // if(l1.size()>l2.size()){
+        //     ListNode* tmp = l1;
+        //     l1 = l2;
+        //     l2 = tmp;
+        // }//让L1默认长
+        
+        ListNode* cur = new ListNode(0);
+        ListNode* hair = cur;
+        while(l1&&l2){
+            if(l1->val<l2->val){
+                cur->next = l1;
+                l1=l1->next;
+            }
+            else{
+                cur->next = l2;
+                l2 = l2->next;
+            }
+            cur = cur->next;  
+        }
+        
+        while(l1){
+            cur->next = l1;
+            l1=l1->next;
+            cur = cur->next;
+        }
+        
+        
+        while(l2){
+            cur->next = l2;
+            l2=l2->next;
+            cur = cur->next;
+        }
+        
+        
+        return hair->next;
+    }
+};
+```
+
+## [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+
+```c++
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        //原地采用移动法
+        int n=nums.size();
+        if(!n) return 0;
+        int pos = 0;//现在去重到的位置
+        for(int i=0;i<n;){
+            if(nums[i]==nums[pos]){
+                i++;
+            }
+            else{
+                pos++;
+                nums[pos] = nums[i];
+            }
+        }
+
+        return pos+1;
+    }
+};
 ```
 

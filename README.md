@@ -27,10 +27,10 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 8/100   | 7/100     | 11/100 | 19/100  |
+| all         | 8/100   | 7/100     | 16/100 | 19/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
-| 5/26(today) | 3       | 4         | 9      | 19      |
+| 5/26(today) | 3       | 4         | 13     | 19      |
 | 5/27        |         |           |        |         |
 | 5/28        |         |           |        |         |
 | 5/29        |         |           |        |         |
@@ -86,12 +86,12 @@
 |      | [14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/) | 39.7%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 32.2%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 56.6%  | 中等 |         |           | ✔️     | ✔️       |
-|      | [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/) | 41.9%  | 中等 |         |           |       | ✔️       |
-|      | [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) | 44.1%  | 简单 |         |           |       | ✔️       |
-|      | [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | 66.0%  | 简单 | ✔️       |           |       | ✔️       |
-|      | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 77.1%  | 中等 |         |           |       | ✔️       |
+|      | [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/) | 41.9%  | 中等 |         |           | ✔️     | ✔️       |
+|      | [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) | 44.1%  | 简单 |         |           | ✔️     | ✔️       |
+|      | [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | 66.0%  | 简单 | ✔️       |           | ✔️     | ✔️       |
+|      | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 77.1%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) | 55.1%  | 困难 |         |           |       | ✔️       |
-|      | [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 54.0%  | 简单 |         |           |       | ✔️       |
+|      | [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 54.0%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/) | 40.7%  | 简单 |         |           |       |         |
 |      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 |         |           |       |         |
 |      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 |         |           |       | ✔️       |
