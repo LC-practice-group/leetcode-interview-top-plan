@@ -13,6 +13,16 @@
 2. 然后每天更新自己的记录就行了
 3. 另外的代码记录（也就是本目录下的 okJiang记录.md）更不更新都可，看自己~更新的话自己创建文件即可。
 
+## 标签
+
+- ✔️：表示自己能够 ac 
+- ✖️：表示自己没能 ac ，需要看题解才能 ac 
+- ⭐️：表示自己想要收藏的题目
+- ❤️：表示还需要练习更好的解法
+- ❕：表示做出的时间过长（大于半小时）
+
+> 有其他自己想要添加的标签，欢迎添加
+
 ## 进度
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
@@ -184,7 +194,7 @@
 |      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 |         |           |       |
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |       |
 |      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 |         |           |       |
-|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️       |           |       |
+|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️💗      |           |       |
 |      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 |         |           |       |
 |      | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 63.9%  | 简单 |         |           |       |
 |      | [251. 展开二维向量](https://leetcode-cn.com/problems/flatten-2d-vector/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 53.7%  | 中等 |         |           |       |
