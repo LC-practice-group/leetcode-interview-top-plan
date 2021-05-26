@@ -114,3 +114,350 @@ public:
 };
 ```
 
+## [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+
+```
+
+```
+
+
+
+## [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+
+```c++
+class Solution {
+public:
+    string longestPalindrome(string s) { 
+        //dp dp[i][j]表示从 下标i到j的最长回文串 包含ij
+        //如果 s[i]==s[j] dp[i][j] = dp[i+1][j-1]+1
+        //如果 != dp[i][j] = max(dp[i+1][j],dp[i][j-1])
+        //因为递推关系是 从左下来 所以i要从后往前 j要从前往后
+        int n = s.size();
+        // cout<<n<<endl;
+        if(!n) return 0;
+        vector<vector<bool>> dp(n,vector<bool>(n,false));
+
+        for(int i =0;i<n;++i){
+            dp[i][i]=true;
+        }
+        
+        int min_l = 0;
+        int max_r = 0;
+
+        for(int i=n-1;i>=0;--i){
+            for(int j=i+1;j<n;++j){
+                if(s[i]==s[j]){
+                    if(dp[i+1][j-1]||j-i==1){
+                        dp[i][j]=true;
+                        if(j-i>max_r-min_l){
+                            max_r = j;
+                            min_l = i;
+                        }
+                    }
+                    else dp[i][j] =false;
+                }
+                else dp[i][j] = false;
+            }
+        }
+
+        string ans = "";
+        for(int i =min_l;i<=max_r;++i){
+            ans+=s[i];
+        }
+
+        return ans;
+    }
+};
+```
+
+
+
+## [7. 整数反转](https://leetcode-cn.com/problems/reverse-integer/)
+
+```c++
+class Solution {
+public:
+    int reverse(int x) {
+        long long tmp = 0;
+        int sign =1;
+        if(x<0) sign = -1;
+        x = abs(x);
+        while(x>0){
+            int pos = x%10;
+            x = x/10;
+            tmp = tmp*10+pos;
+        }
+
+        if(tmp>INT_MAX) return 0;
+        else return tmp*sign;
+    }
+};
+```
+
+
+
+## [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)
+
+```c++
+class Solution {
+public:
+    int myAtoi(string s) {
+        int n = s.size();
+        int cur = 0;
+        //读入丢弃所有前置空格
+        while(cur<n&&s[cur]==' ') ++cur;
+        
+        //处理符号
+        int sign = 1;
+        if(s[cur]=='-'){
+            sign=-1;
+            ++cur;
+        }
+        else if(s[cur]=='+'){
+            ++cur;
+        }
+        
+        
+        //处理数字
+        long long ans = 0;
+        for(int i=cur;i<n;++i){
+            // cout<<s[i]<<endl;
+            if('0'<=s[i]&&s[i]<='9'){
+                ans = ans*10+s[i]-'0';
+                if(ans>=INT_MAX||ans<=INT_MIN) break; //炸longlong判断
+            }
+            else break;
+        }
+        
+        ans = ans * sign;
+        if(ans<INT_MIN) ans = INT_MIN;
+        if(ans>INT_MAX) ans = INT_MAX;
+        return ans;
+    }
+};
+```
+
+## [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
+
+```
+
+```
+
+
+
+## [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
+
+```c++
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int n = height.size();
+        if(!n) return 0;
+        
+        int max_c = 0;
+        //双指针 利用起来 移动谁？ 左右较小的才需要移动 移动小的值才可能变大
+        int l = 0;
+        int r = n-1;
+        
+        while(r>l){
+            int c = min(height[r],height[l])*(r-l);
+            max_c = max(max_c,c);
+            if(height[r]>height[l]) ++l;
+            else --r;  
+        }
+        
+        return max_c;
+
+    }
+};
+```
+
+## [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer/)
+
+```c++
+class Solution {
+public:
+    int romanToInt(string s) {
+        // char ch[7] = {'M','D','C','L','X','V','I'};
+        // int num[7] = {1000,500,100,50,10,5,1};
+
+        unordered_map<char,int> mp = {{'M',1000},{'D',500},{'C',100},{'L',50},{'X',10},{'V',5},{'I',1}};
+
+        int n = s.size();
+        int ans =0;
+        
+        for(int i=0;i<n;++i){
+            char now = s[i];
+            char next = ' ';
+            if(i+1<n) next = s[i+1];
+            if(next!=' '&&mp[next]>mp[now]) {
+                ans+= mp[next]-mp[now];
+                ++i;//把后面的i消费掉
+            }
+            else ans+= mp[now];
+        }
+        return ans;
+    }
+};
+```
+
+
+
+## [14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/) 
+
+```c++
+class Solution {
+public:
+    //trie裸题
+    
+    struct trieNode{
+        int num =0;//经过此节点的数量
+        trieNode* next[26];
+        trieNode(){
+            memset(next,0,sizeof(next));
+        }
+    };
+    
+    class trie{
+        public:
+        trieNode* root;
+        trie(int n){
+            root = new trieNode();
+            root->num = n;//虚头的数量得和全部得数量相等
+        }
+        void insert(string s){
+            int n = s.size();
+            trieNode* cur = root;
+            for(int i=0;i<n;++i){
+                if(!cur->next[s[i]-'a']){
+                    cur->next[s[i]-'a'] = new trieNode();
+                }
+                cur = cur->next[s[i]-'a'];
+                ++(cur->num);
+            }
+        }
+        
+        string search(){
+            string ans = "";
+            trieNode* cur = root;
+            while(cur){
+                bool flag = false;
+                for(int i=0;i<26;++i){
+                    if(cur->next[i]&&cur->next[i]->num==root->num){
+                        ans+='a'+i;
+                        cur=cur->next[i];
+                        flag = true;
+                    }
+                }
+                if(!flag) cur=nullptr;//一个也没找到就要退出循环
+            }
+            
+            return ans;
+        }
+        
+    };
+    
+    string longestCommonPrefix(vector<string>& strs) {
+        int n = strs.size();
+        if(!n) return "";
+        string ans = "";
+            
+        trie tr = trie(n);//初始化字典树
+        for(int i=0;i<n;++i){
+            tr.insert(strs[i]);
+        }
+        
+        ans = tr.search();
+        
+        return ans;
+    }
+};
+```
+
+## [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
+
+```c++
+class Solution {
+public:
+    void find(vector<int> num,int cur,int target,vector<vector<int>>& ans){
+        int n = num.size();
+        int l = cur+1;
+        int r = n-1;
+        while(r>l){
+            if(num[l]+num[r]==target) {
+                //注意去重
+                ans.push_back({-target,num[l],num[r]});
+                while(l+1<n-1&&num[l+1]==num[l]) ++l;
+                ++l;
+                while(r-1>l&&num[r-1]==num[r]) --r;
+                --r;
+            }
+            else if(num[l]+num[r]<target){
+                while(l+1<n-1&&num[l+1]==num[l]) ++l;
+                ++l;
+            } 
+            else {
+                while(r-1>l&&num[r-1]==num[r]) --r;
+                --r;
+            }
+        }
+    }
+    
+    
+    
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        //选择出一个数字之后 就会下降为两数之和问题
+        int n = nums.size();
+        
+        //去重 需要sort
+        sort(nums.begin(),nums.end());
+        
+        vector<vector<int>> ans;
+        
+        for(int i=0;i<n-2;++i){//给后面的数字留下两个位置
+            find(nums,i,-nums[i],ans);
+            while((i+1<n-2)&&(nums[i+1]==nums[i])) ++i;//去重
+        }
+        
+        return ans;
+    }
+};
+```
+
+## [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
+
+```c++
+class Solution {
+public:
+    vector<string> ans;
+    unordered_map<char,string> mp={{'2',"abc"},{'3',"def"},{'4',"ghi"},{'5',"jkl"},{'6',"mno"},{'7',"pqrs"},{'8',"tuv"},{'9',"wxyz"}};
+    
+    void dfs(int cur,int n,string now,string digits){
+        if(cur==n){
+            ans.push_back(now);
+            return;
+        }
+        string sg = mp[digits[cur]];
+        for(auto s:sg){
+            now +=s;
+            dfs(cur+1,n,now,digits);
+            now.pop_back();
+        }
+    }
+    vector<string> letterCombinations(string digits) {
+        //1.字典树快速查出 指数级 
+        //2.回溯
+        int n = digits.size();
+        if(!n) return {};
+        dfs(0,n,"",digits);
+        return ans;
+    }
+};
+```
+
+## [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+
+```
+
+```
+
