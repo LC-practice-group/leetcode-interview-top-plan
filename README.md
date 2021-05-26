@@ -15,47 +15,47 @@
 
 ## 进度
 
-| 日期          | okJiang | tanzhikun | chaos |
-| ------------- | ------- | --------- | ----- |
-| all           | 5/100   | 3/100     | 3/100 |
-| 5/24          | 2       |           |       |
-| 5/25          | 3       | 3         | 3     |
-| 5/26(today)   |         |           |       |
-| 5/27          |         |           |       |
-| 5/28          |         |           |       |
-| 5/29          |         |           |       |
-| 5/30          |         |           |       |
-| 5/31          |         |           |       |
-| 6/1           |         |           |       |
-| 6/2           |         |           |       |
-| 6/3           |         |           |       |
-| 6/4           |         |           |       |
-| 6/5           |         |           |       |
-| 6/6           |         |           |       |
-| 6/7           |         |           |       |
-| 6/8           |         |           |       |
-| 6/9           |         |           |       |
-| 6/10          |         |           |       |
-| 6/11          |         |           |       |
-| 6/12          |         |           |       |
-| 6/13          |         |           |       |
-| 6/14          |         |           |       |
-| 6/15          |         |           |       |
-| 6/16          |         |           |       |
-| 6/17          |         |           |       |
-| 6/18          |         |           |       |
-| 6/19          |         |           |       |
-| 6/20          |         |           |       |
-| 6/21          |         |           |       |
-| 6/22          |         |           |       |
-| 6/23          |         |           |       |
-| 6/24          |         |           |       |
-| 6/25          |         |           |       |
-| 6/26          |         |           |       |
-| 6/27          |         |           |       |
-| 6/28          |         |           |       |
-| 6/29          |         |           |       |
-| 6/30          |         |           |       |
+| 日期        | okJiang | tanzhikun | chaos |
+| ----------- | ------- | --------- | ----- |
+| all         | 8/100   | 7/100     | 3/100 |
+| 5/24        | 2       |           |       |
+| 5/25        | 3       | 3         | 3     |
+| 5/26(today) | 3       | 4         |       |
+| 5/27        |         |           |       |
+| 5/28        |         |           |       |
+| 5/29        |         |           |       |
+| 5/30        |         |           |       |
+| 5/31        |         |           |       |
+| 6/1         |         |           |       |
+| 6/2         |         |           |       |
+| 6/3         |         |           |       |
+| 6/4         |         |           |       |
+| 6/5         |         |           |       |
+| 6/6         |         |           |       |
+| 6/7         |         |           |       |
+| 6/8         |         |           |       |
+| 6/9         |         |           |       |
+| 6/10        |         |           |       |
+| 6/11        |         |           |       |
+| 6/12        |         |           |       |
+| 6/13        |         |           |       |
+| 6/14        |         |           |       |
+| 6/15        |         |           |       |
+| 6/16        |         |           |       |
+| 6/17        |         |           |       |
+| 6/18        |         |           |       |
+| 6/19        |         |           |       |
+| 6/20        |         |           |       |
+| 6/21        |         |           |       |
+| 6/22        |         |           |       |
+| 6/23        |         |           |       |
+| 6/24        |         |           |       |
+| 6/25        |         |           |       |
+| 6/26        |         |           |       |
+| 6/27        |         |           |       |
+| 6/28        |         |           |       |
+| 6/29        |         |           |       |
+| 6/30        |         |           |       |
 
 
 
@@ -66,10 +66,10 @@
 |      | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 51.2%  | 简单 | ✔️       | ✔️         | ✔️     |
 |      | [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/) | 40.2%  | 中等 | ✔️       | ✔️         | ✔️     |
 |      | [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) | 37.2%  | 中等 |         | ✔️         | ✔️     |
-|      | [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) | 40.2%  | 困难 |         |           |       |
-|      | [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | 34.3%  | 中等 |         |           |       |
-|      | [7. 整数反转](https://leetcode-cn.com/problems/reverse-integer/) | 35.4%  | 简单 |         |           |       |
-|      | [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | 21.5%  | 中等 |         |           |       |
+|      | [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) | 40.2%  | 困难 |         | ✔️         |       |
+|      | [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | 34.3%  | 中等 |         | ✔️         |       |
+|      | [7. 整数反转](https://leetcode-cn.com/problems/reverse-integer/) | 35.4%  | 简单 |         | ✔️         |       |
+|      | [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | 21.5%  | 中等 |         | ✔️         |       |
 |      | [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/) | 31.2%  | 困难 |         |           |       |
 |      | [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 64.0%  | 中等 |         |           |       |
 |      | [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer/) | 63.3%  | 简单 |         |           |       |
@@ -78,7 +78,7 @@
 |      | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 56.6%  | 中等 |         |           |       |
 |      | [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/) | 41.9%  | 中等 |         |           |       |
 |      | [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) | 44.1%  | 简单 |         |           |       |
-|      | [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | 66.0%  | 简单 |         |           |       |
+|      | [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | 66.0%  | 简单 | ✔️       |           |       |
 |      | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 77.1%  | 中等 |         |           |       |
 |      | [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) | 55.1%  | 困难 |         |           |       |
 |      | [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 54.0%  | 简单 |         |           |       |
@@ -107,7 +107,7 @@
 |      | [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors/) | 58.6%  | 中等 |         |           |       |
 |      | [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) | 41.4%  | 困难 |         |           |       |
 |      | [78. 子集](https://leetcode-cn.com/problems/subsets/)        | 79.8%  | 中等 |         |           |       |
-|      | [79. 单词搜索](https://leetcode-cn.com/problems/word-search/) | 45.0%  | 中等 |         |           |       |
+|      | [79. 单词搜索](https://leetcode-cn.com/problems/word-search/) | 45.0%  | 中等 | ✔️       |           |       |
 |      | [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/) | 42.9%  | 困难 |         |           |       |
 |      | [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | 50.9%  | 简单 |         |           |       |
 |      | [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) | 29.5%  | 中等 |         |           |       |
@@ -184,7 +184,7 @@
 |      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 |         |           |       |
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |       |
 |      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 |         |           |       |
-|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 |         |           |       |
+|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️       |           |       |
 |      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 |         |           |       |
 |      | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 63.9%  | 简单 |         |           |       |
 |      | [251. 展开二维向量](https://leetcode-cn.com/problems/flatten-2d-vector/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 53.7%  | 中等 |         |           |       |

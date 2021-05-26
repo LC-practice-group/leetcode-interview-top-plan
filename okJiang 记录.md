@@ -61,6 +61,47 @@ public:
 };
 ```
 
+## [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if (!l1) return l2;
+        if (!l2) return l1;
+        if (l1->val > l2->val) swap(l1, l2);
+        ListNode* ans = l1;
+        while (l1 && l2) {
+            if (l1->val <= l2->val && l1->next && l1->next->val >= l2->val) {
+                ListNode* temp = l2->next;
+                l2->next = l1->next;
+                l1->next = l2;
+                l2 = temp;
+            } else {
+                if (!l1->next) {
+                    l1->next = l2;
+                    break;
+                }
+                l1 = l1->next;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+
+
 ## [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 ```cpp
@@ -233,4 +274,132 @@ public:
   ```
 
   
+
+## [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
+
+- 用 `map` 维护窗口：`key` 是 `nums[i]`
+
+  ```cpp
+  class Solution {
+  public:
+      vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+          map<int, int> m;
+          int left = 0, right = 0, len = nums.size();
+          while (right < k) {
+              m[nums[right++]] ++;
+          }
+          vector<int> ans;
+          ans.push_back((m.rbegin())->first);
+          while (right < len) {
+              if (--m[nums[left]] == 0) {
+                  m.erase(nums[left]);
+              }
+              m[nums[right]] ++;
+              left ++;
+              right ++;
+              
+              ans.push_back((m.rbegin())->first);
+          }
+          return ans;
+      }
+  };
+  ```
+
+- 用最大堆维护窗口：内部元素是 `nums[i]` 和 `i` 的 `pair`
+
+  ```cpp
+  class Solution {
+  public:
+      vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+          priority_queue<pair<int, int>> stack;
+          for (int i = 0; i < k; i ++) {
+              stack.push({nums[i], i});
+          }
+          vector<int> ans = {stack.top().first};
+          for (int i = k; i < nums.size(); ++ i) {
+              stack.push({nums[i], i});
+              while (stack.top().second <= i-k) {
+                  stack.pop();
+              }
+              ans.push_back(stack.top().first);
+          }
+          return ans;
+      }
+  };
+  ```
+
+- 用单调队列维护窗口：内部元素是下标
+
+  ```cpp
+  class Solution {
+  public:
+      vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+          deque<int> dq;
+          for (int i = 0; i < k; ++ i) {
+              while (!dq.empty() && nums[i] > nums[dq.back()]) {
+                  dq.pop_back();
+              }
+              dq.push_back(i);
+          }
+          vector<int> ans = {nums[dq.front()]};
+          for (int i = k; i < nums.size(); ++ i) {
+              while (!dq.empty() && nums[i] > nums[dq.back()]) {
+                  dq.pop_back();
+              }
+              dq.push_back(i);
+              while (dq.front() <= i-k) {
+                  dq.pop_front();
+              }
+              ans.push_back(nums[dq.front()]);
+          }
+          return ans;
+      }
+  };
+  ```
+
+
+
+## [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
+
+```cpp
+class Solution {
+public:
+    string s;
+    int n, m;
+    vector<vector<int>> next = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    bool dfs(vector<vector<char>>& board, vector<vector<bool>>& flag, int x, int y, int cnt) {
+        if (cnt == s.length()) return true;
+        for (int i = 0; i < next.size(); ++ i) {
+            int dx = x + next[i][0];
+            int dy = y + next[i][1];
+            if (dx >= 0&&dx < n&&dy >= 0&&dy < m&&s[cnt] == board[dx][dy]&&!flag[dx][dy]) {
+                flag[dx][dy] = true;
+                if (dfs(board, flag, dx, dy, cnt+1))
+                    return true;
+                flag[dx][dy] = false;
+            }
+        }
+        return false;
+    }
+    bool exist(vector<vector<char>>& board, string word) {
+        n = board.size();
+        m = board[0].size();
+        vector<vector<bool>> flag(n, vector<bool>(m, false));
+        s = word;
+        for (int i = 0; i < n; ++ i) {
+            for (int j = 0; j < m; ++ j) {
+                if (board[i][j] == word[0]) {
+                    flag[i][j] = true;
+                    if (dfs(board, flag, i, j, 1))
+                        return true;
+                    flag[i][j] = false;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+
 
