@@ -88,3 +88,98 @@ public:
 };
 ```
 
+## 4. 寻找两个正序数组的中位数
+
+```C++
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int m = nums1.size(), n = nums2.size();
+        if(m > n)
+            return findMedianSortedArrays(nums2, nums1);
+        int k = (m + n + 1) / 2;
+        int left = 0, right = m;
+        while(left < right){
+            int i = (left + right + 1) / 2;//取中位数
+            int j = k - i;
+            if(nums1[i - 1] > nums2[j]) right = i - 1;
+            else left = i;
+        }
+        int left2 = k - left;
+        int nums1LeftMax = left == 0 ? INT_MIN : nums1[left - 1];
+        int nums1RightMin = left == m ? INT_MAX : nums1[left];
+        int nums2LeftMax = left2 == 0? INT_MIN : nums2[left2 - 1];
+        int nums2RightMin = left2 == n ? INT_MAX : nums2[left2];
+
+        if((m + n) % 2)  return max(nums1LeftMax, nums2LeftMax);
+        else return (max(nums1LeftMax, nums2LeftMax) + min(nums1RightMin, nums2RightMin)) / 2.0;
+    }
+};
+```
+
+## 5. 最长回文串
+
+```C++
+class Solution {
+public:
+    pair<int, int> expand(const string& s, int l, int r){
+        while(l >= 0 && r < s.size() && s[l] == s[r]){
+            l--, r++;
+        }
+        return make_pair(l + 1, r - 1);
+    }
+    string longestPalindrome(string s) {
+        string temp = "";
+        for(int i = 0; i < s.size(); i++){
+            pair<int, int> a, b;
+            a = expand(s, i, i);
+            b = expand(s, i, i + 1);
+            if(a.second - a.first + 1 > temp.size()) temp = s.substr(a.first, a.second - a.first + 1);
+            if(b.second - b.first + 1 > temp.size()) temp = s.substr(b.first, b.second - b.first + 1);
+        }
+        return temp;
+    }
+};
+```
+
+## 7. 整数反转
+
+```C++
+class Solution {
+public:
+    int reverse(int x) {
+        int res = 0;
+        while(x){
+            if(res > INT_MAX / 10 || res < INT_MIN / 10) return 0;
+            res = res * 10 + x % 10;
+            x /= 10;
+        }
+        return res;
+    }
+};
+```
+
+## 8. 字符串转换整数
+
+```C++
+class Solution {
+public:
+    int myAtoi(string s) {
+        int i = 0;
+        while(s[i] == ' ') i++;
+        int posi = 1;//缺省为正数
+        if(s[i] == '+' || s[i] == '-'){
+            posi = s[i] == '-' ? -1 : 1;
+            i++;
+        }
+        long long res = 0;
+        while(i < s.size() && s[i] >= '0' && s[i] <= '9'){
+            res = res * 10 + s[i++] - '0';
+            if(posi * res > INT_MAX) return INT_MAX;
+            else if(posi * res < INT_MIN) return INT_MIN;
+        }
+        return posi * res;
+    }
+};
+```
+
