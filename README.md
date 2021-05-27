@@ -31,7 +31,7 @@
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
-| 5/27(today) |         |           |        |         |
+| 5/27(today) |         | 9         |        |         |
 | 5/28        |         |           |        |         |
 | 5/29        |         |           |        |         |
 | 5/30        |         |           |        |         |
@@ -84,17 +84,17 @@
 |      | [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 64.0%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer/) | 63.3%  | 简单 |         |           | ✔️     |         |
 |      | [14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/) | 39.7%  | 简单 |         |           | ✔️     | ✔️       |
-|      | [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 32.2%  | 中等 |         |           | ✔️     | ✔️       |
-|      | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 56.6%  | 中等 |         |           | ✔️     | ✔️       |
-|      | [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/) | 41.9%  | 中等 |         |           | ✔️     | ✔️       |
+|      | [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 32.2%  | 中等 |         | ✔️         | ✔️     | ✔️       |
+|      | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 56.6%  | 中等 |         | ✔️         | ✔️     | ✔️       |
+|      | [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/) | 41.9%  | 中等 |         | ✔️         | ✔️     | ✔️       |
 |      | [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) | 44.1%  | 简单 |         |           | ✔️     | ✔️       |
-|      | [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | 66.0%  | 简单 | ✔️       |           | ✔️     | ✔️       |
-|      | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 77.1%  | 中等 |         |           | ✔️     | ✔️       |
-|      | [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) | 55.1%  | 困难 |         |           |       | ✔️       |
-|      | [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 54.0%  | 简单 |         |           | ✔️     | ✔️       |
-|      | [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/) | 40.7%  | 简单 |         |           |       |         |
+|      | [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | 66.0%  | 简单 | ✔️       | ✔️         | ✔️     | ✔️       |
+|      | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 77.1%  | 中等 |         | ✔️         | ✔️     | ✔️       |
+|      | [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) | 55.1%  | 困难 |         | ✔️         |       | ✔️       |
+|      | [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 54.0%  | 简单 |         | ✔️         | ✔️     | ✔️       |
+|      | [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/) | 40.7%  | 简单 |         | ✔️         |       |         |
 |      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 |         |           |       |         |
-|      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 |         |           |       | ✔️       |
+|      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 |         | ✔️         |       | ✔️       |
 |      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       |           |       | ✔️       |
 |      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           |       |         |
 |      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           |       | ✔️       |
