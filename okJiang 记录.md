@@ -401,5 +401,239 @@ public:
 };
 ```
 
+------
+
+## 2021/5/27
+
+### [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+
+- dp
+
+  ```cpp
+  class Solution {
+  public:
+      int lengthOfLIS(vector<int>& nums) {
+          int n = nums.size();
+          vector<int> dp(n, 1);
+          int ans = 1;
+          for (int i = 1; i < nums.size(); ++ i) {
+              for (int j = 0; j < i; ++ j) {
+                  if (nums[i] > nums[j]) 
+                      dp[i] = max(dp[i], dp[j]+1);
+              }
+              ans = max(ans, dp[i]);
+          }
+          return ans;
+      }
+  };
+  ```
+
+- 贪心+二分：主要是没想到怎么存之前到下标，一开始想到是用单调栈，但是行不通
+
+  ```cpp
+  class Solution {
+  public:
+      void binaryfind(vector<int>& minLast, int left, int right, int target) {
+          if (left == right) {
+              minLast[left] = target;
+              return;
+          }
+          int mid = (left + right) >> 1;
+          // cout << target << ": " << left << ' ' << mid << ' ' << right << endl;
+          if (minLast[mid] < target && minLast[mid+1] >= target) {
+              minLast[mid+1] = target;
+          } else if (minLast[mid-1] < target && minLast[mid] >= target) {
+              minLast[mid] = target;
+          } else if (minLast[mid] > target) {
+              binaryfind(minLast, left, mid-1, target);
+          } else if (minLast[mid] < target) {
+              binaryfind(minLast, mid+1, right, target);
+          }
+      }
+      int lengthOfLIS(vector<int>& nums) {
+          vector<int> minLast = {nums[0]};
+          for (int i = 1; i < nums.size(); ++ i) {
+              if (nums[i] == minLast.back()) 
+                  continue;
+              if (nums[i] <= minLast.front()) {
+                  minLast[0] = nums[i];
+              } else if (nums[i] > minLast.back()) {
+                  minLast.push_back(nums[i]);
+              } else {
+                  binaryfind(minLast, 0, minLast.size()-1, nums[i]);
+              }
+          }
+          return minLast.size();
+      }
+  };
+  ```
+
+### [66. 加一](https://leetcode-cn.com/problems/plus-one/)
+
+```cpp
+class Solution {
+public:
+    bool check9(vector<int>& digits) {
+        for (int i = 0; i < digits.size(); ++ i) {
+            if (digits[i] != 9) return false;
+        }
+        return true;
+    }
+    vector<int> plusOne(vector<int>& digits) {
+        if (check9(digits)) {
+            vector<int> ans(digits.size()+1, 0);
+            ans[0] = 1;
+            return ans;
+        }
+        int c = 1, cnt = digits.size()-1;
+        while (c) {
+            digits[cnt] ++;
+            c = digits[cnt]/10;
+            digits[cnt] = digits[cnt]%10;
+            -- cnt;
+        }
+        return digits;
+    }
+};
+```
+
+### [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
+
+```cpp
+class Solution {
+public:
+    int binaryFind(vector<int>& nums, int target, int left, int right) {
+        if (left > right) return -1;
+        int mid = (left + right) >> 1;
+        if (target < nums.back()) {
+            if (nums[mid] > nums.back()) return binaryFind(nums, target, mid+1, right);
+            if (nums[mid] < target) return binaryFind(nums, target, mid+1, right);
+            if (nums[mid] > target) return binaryFind(nums, target, left, mid-1);
+            return mid;
+        } else {
+            if (nums[mid] < nums.front()) return binaryFind(nums, target, left, mid-1);
+            if (nums[mid] < target) return binaryFind(nums, target, mid+1, right);
+            if (nums[mid] > target) return binaryFind(nums, target, left, mid-1);
+            return mid;
+        }
+    }
+    int search(vector<int>& nums, int target) {
+        if (target == nums.back()) return nums.size()-1;
+        if (target == nums.front()) return 0;
+        
+        return binaryFind(nums, target, 0, nums.size()-1);
+    }
+};
+```
+
+### [81. 搜索旋转排序数组 II](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/)
+
+```cpp
+class Solution {
+public:
+    bool binaryFind(vector<int>& nums, int target, int left, int right) {
+        if (left > right) return false;
+        int mid = (left + right) >> 1;
+        if (target < nums.back()) {
+            if (nums[mid] > nums.back()) return binaryFind(nums, target, mid+1, right);
+            if (nums[mid] == nums.back()) 
+                return binaryFind(nums, target, mid+1, right) 
+                    || binaryFind(nums, target, left, mid-1);
+            if (nums[mid] < target) return binaryFind(nums, target, mid+1, right);
+            if (nums[mid] > target) return binaryFind(nums, target, left, mid-1);
+            return true;
+        } else {
+            if (nums[mid] < nums.front()) return binaryFind(nums, target, left, mid-1);
+            if (nums[mid] == nums.front()) 
+                return binaryFind(nums, target, mid+1, right) 
+                    || binaryFind(nums, target, left, mid-1);
+            if (nums[mid] < target) return binaryFind(nums, target, mid+1, right);
+            if (nums[mid] > target) return binaryFind(nums, target, left, mid-1);
+            return true;
+        }
+    }
+    bool search(vector<int>& nums, int target) {
+        if (target == nums.back()) return true;
+        if (target == nums.front()) return true;
+        
+        return binaryFind(nums, target, 0, nums.size()-1);
+    }
+};
+```
+
+### [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)
+
+```cpp
+class Solution {
+public:
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        // 思考：
+        // 1. 把所有的 word 看成节点，word 之间的转换看成是节点之间的连通，所以可以建图
+        // 2. 建图之后就好做了，计算两个节点的最短路径
+        // 3. 通常的建图需要 O(n^2) 的时间复杂度，两两比较
+        // 4. 由于 word.length <= 10，一个字母有 26 种可能，那么一个单词可连通的节点最多只有 260 种
+        // 5. 所以可以遍历所有可能去建图，时间复杂度是 O(260n) = O(n)
+        
+        // 步骤：
+        // 1. 创建一个集合，存下所有的 wordlist
+        // 2. 遍历每个 word 的所有可能连通节点，查看是否存在集合中，建图
+        // 3. 建图用链表，减少空间复杂度
+        // 4. 之后使用 bfs 来计算最短路程
+        
+        // unordered_set<string> uss(wordList.begin(), wordList.end());
+        
+        unordered_map<string, int> umsi;
+        for (int i = 0; i < wordList.size(); ++ i) {
+            umsi[wordList[i]] = i;
+        }
+        if (umsi.find(beginWord) == umsi.end()) {
+            wordList.push_back(beginWord);
+            umsi[beginWord] = wordList.size()-1;
+        }
+        
+        vector<list<int>> vls(wordList.size(), list<int>());
+        
+        for (int j = 0; j < wordList.size(); ++ j) {
+            for (int i = 0; i < wordList[j].length(); ++ i) {
+                for (char ch = 'a'; ch <= 'z'; ++ ch) {
+                    if (wordList[j][i] == ch) continue;
+                    string temp = wordList[j];
+                    temp[i] = ch;
+                    if (umsi.find(temp) != umsi.end()) {
+                        vls[j].push_back(umsi[temp]);
+                    }
+                }
+            }    
+        }
+        // for (int i = 0; i < vls.size(); ++ i) {
+        //     cout << wordList[i] << ": ";
+        //     for (auto s: vls[i])
+        //         cout << wordList[s] << ' ';
+        //     cout << endl;
+        // }
+        // bfs
+        if (umsi.find(endWord) == umsi.end())
+            return 0;
+        int begin = umsi[beginWord];
+        int end = umsi[endWord];
+        vector<bool> visited(wordList.size(), false);
+        queue<pair<int, int>> q;
+        q.push({begin, 1});
+        visited[begin] = true;
+        while (!q.empty()) {
+            auto p = q.front();
+            q.pop();
+            for (auto i: vls[p.first]) {
+                if (i == end) return p.second+1;
+                if (visited[i]) continue;
+                q.push({i, p.second+1});
+                visited[i] = true;
+            }
+        }
+        return 0;
+    }
+};
+```
+
 
 

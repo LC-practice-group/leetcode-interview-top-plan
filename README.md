@@ -27,11 +27,11 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 8/100   | 7/100     | 16/100 | 19/100  |
+| all         | 12/100  | 16/100    | 16/100 | 19/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
-| 5/27(today) |         | 9         |        |         |
+| 5/27(today) | 4       | 9         |        |         |
 | 5/28        |         |           |        |         |
 | 5/29        |         |           |        |         |
 | 5/30        |         |           |        |         |
@@ -94,7 +94,7 @@
 |      | [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 54.0%  | 简单 |         | ✔️         | ✔️     | ✔️       |
 |      | [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/) | 40.7%  | 简单 |         | ✔️         |       |         |
 |      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 |         |           |       |         |
-|      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 |         | ✔️         |       | ✔️       |
+|      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 | ✔️       | ✔️         |       | ✔️       |
 |      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       |           |       | ✔️       |
 |      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           |       |         |
 |      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           |       | ✔️       |
@@ -110,7 +110,7 @@
 |      | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 42.2%  | 中等 |         |           |       |         |
 |      | [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) | 45.6%  | 中等 |         |           |       |         |
 |      | [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) | 65.1%  | 中等 |         |           |       |         |
-|      | [66. 加一](https://leetcode-cn.com/problems/plus-one/)       | 45.7%  | 简单 |         |           |       |         |
+|      | [66. 加一](https://leetcode-cn.com/problems/plus-one/)       | 45.7%  | 简单 | ✔️       |           |       |         |
 |      | [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 39.2%  | 简单 |         |           |       |         |
 |      | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | 52.0%  | 简单 |         |           |       |         |
 |      | [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/) | 59.3%  | 中等 |         |           |       |         |
@@ -143,7 +143,7 @@
 |      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 |         |           |       |
 |      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       |
 |      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           |       |
-|      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 |         |           |       |
+|      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 | ❕✔️      |           |       |
 |      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 |         |           |       |
 |      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           |       |
 |      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           |       |
@@ -194,7 +194,7 @@
 |      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 |         |           |       |
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |       |
 |      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 |         |           |       |
-|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️💗      |           |       |
+|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️❤️      |           |       |
 |      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 |         |           |       |
 |      | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 63.9%  | 简单 |         |           |       |
 |      | [251. 展开二维向量](https://leetcode-cn.com/problems/flatten-2d-vector/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 53.7%  | 中等 |         |           |       |
@@ -209,7 +209,7 @@
 |      | [289. 生命游戏](https://leetcode-cn.com/problems/game-of-life/) | 75.0%  | 中等 |         |           |       |
 |      | [295. 数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/) | 51.9%  | 困难 |         |           |       |
 |      | [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) | 54.8%  | 困难 |         |           |       |
-|      | [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | 49.6%  | 中等 |         |           |       |
+|      | [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | 49.6%  | 中等 | ✔️❤️      |           |       |
 |      | [308. 二维区域和检索 - 可变](https://leetcode-cn.com/problems/range-sum-query-2d-mutable/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 59.5%  | 困难 |         |           |       |
 |      | [315. 计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/) | 42.0%  | 困难 |         |           |       |
 |      | [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) | 43.4%  | 中等 |         |           |       |
