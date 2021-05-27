@@ -509,6 +509,30 @@ class Solution {
 }
 ```
 
+## 031. 下一个排列
+
+```java
+class Solution {
+    public void nextPermutation(int[] q) {
+        if (q.length == 1) return;
+        int l = q.length - 2;
+        while (l > -1 && q[l] >= q[l + 1]) l--;
+        if (l == -1) {
+            Arrays.sort(q);
+            return;
+        }
+        int r = l + 1;
+        while (r < q.length && q[r] > q[l]) r++;
+        swap(q, l, r - 1);
+        Arrays.sort(q, l + 1, q.length);
+    }
+
+    private void swap(int[] q, int l, int r) {
+        int t = q[l]; q[l] = q[r]; q[r] = t;
+    }
+}
+```
+
 ## 033. 搜索旋转排序数组
 
 ```java
@@ -588,6 +612,284 @@ class Solution {
         }
 
         return pre.toString();
+    }
+}
+```
+
+## 041. 缺失的第一个正数
+
+```java
+class Solution {
+    public int firstMissingPositive(int[] q) {
+        for (int i = 0; i < q.length; i++) {
+            while (q[i] > 0 && q[i] < q.length && q[i] - 1 != i && q[q[i] - 1] != q[i]) swap(q, i, q[i] - 1);
+        }
+
+        for (int i = 0; i < q.length; i++) {
+            if (q[i] != i + 1) return i + 1;
+        }
+
+        return q.length + 1;
+    }
+
+    private void swap(int[] q, int i, int j) {
+        int t = q[i]; q[i] = q[j]; q[j] = t;
+    }
+}
+```
+
+## 046. 全排列
+
+```java
+class Solution {
+    private boolean[] st = new boolean[10];
+    private List<List<Integer>> list = new ArrayList<>();
+
+    public List<List<Integer>> permute(int[] q) {
+        dfs(0, new int[q.length], q);
+
+        return list;
+    }
+
+    private void dfs(int u, int[] l, int[] q) {
+        if (u == q.length) {
+            List<Integer> tmp = new ArrayList<>();
+            for (var i : l) tmp.add(i);
+            list.add(tmp);
+            return;
+        }
+
+        for (int i = 0; i < q.length; i++) {
+            if (!st[i]) {
+                st[i] = true;
+                l[u] = q[i];
+                dfs(u + 1, l, q);
+                st[i] = false;
+            }
+        }
+    }
+}
+```
+
+## 048. 旋转图像
+
+```java
+class Solution {
+    public void rotate(int[][] q) {
+        int len = q.length - 1;
+
+        for (int i = 0; i < q.length; i++) {
+            for (int j = 0; j < len - i; j++) {
+                swap(q, i, j, len - j, len - i);
+            }
+        }
+
+        for (int i = 0; i < q.length / 2; i++) {
+            for (int j = 0; j < q.length; j++) {
+                swap(q, i, j, len - i, j);
+            }
+        }
+    }
+
+    private void swap(int[][] q, int i, int j, int l, int r) {
+        int t = q[i][j]; q[i][j] = q[l][r]; q[l][r] = t;
+    }
+}
+```
+
+## 049. 字母异位词分组
+
+```java
+class Solution {
+    private Map<String, List<String>> map = new HashMap<>();
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        for (String s : strs) {
+            char[] c = s.toCharArray();
+            Arrays.sort(c);
+            String t = new String(c);
+            if (map.containsKey(t)) map.get(t).add(s);
+            else {
+                map.put(t, new ArrayList<>());
+                map.get(t).add(s);
+            }
+        }
+
+        List<List<String>> ans = new ArrayList<>();
+        for (var entry : map.entrySet()) ans.add(entry.getValue());
+        return ans;
+    }
+}
+```
+
+## 050. Pow(x, n)
+
+```java
+class Solution {
+    public double myPow(double x, int n) {
+        if (n == 0) return 1;
+        boolean neg = n < 0;
+        long pow = n < 0 ? -((long) n) : (long) n;
+
+        double t = x, ans = 1;
+        for (long i = 0; (1L << i) <= pow; i++) {
+            if ((pow & (1 << i)) != 0) ans *= t;
+            t *= t;
+        }
+
+        return neg ? 1 / ans : ans;
+    }
+}
+```
+
+## 053. 最大子序和
+
+```java
+class Solution {
+    public int maxSubArray(int[] q) {
+        int sum = 0, max = -0x3f3f3f3f;
+
+        for (int i : q) {
+            sum += i;
+            max = Math.max(max, sum);
+            sum = sum < 0 ? 0 : sum;
+        }
+
+        return max;
+    }
+}
+```
+
+## 054. 螺旋矩阵
+
+```java
+class Solution {
+    private int[] dx = { 0, 1, 0, -1 }, dy = { 1, 0, -1, 0 };
+    private List<Integer> ans = new ArrayList<>();
+    private final int INF = 0x3f3f3f3f;
+
+    public List<Integer> spiralOrder(int[][] q) {
+        int row = q.length, col = q[0].length;
+        int x = 0, y = 0, d = 0;
+        for (int i = 0; i < row * col; i++) {
+            ans.add(q[x][y]);
+            q[x][y] = INF;
+            int a = x + dx[d], b = y + dy[d];
+            if (!(a > -1 && a < row && b > -1 && b < col && q[a][b] != INF)) {
+                d = (d + 1) % 4;
+                a = x + dx[d]; b = y + dy[d];
+            } 
+            x = a; y = b;
+        }
+
+        return ans;
+    }
+}
+```
+
+## 055. 跳跃游戏
+
+```java
+class Solution {
+    public boolean canJump(int[] q) {
+        if (q.length == 1) return true;
+        int max = q[0];
+
+        for (int i = 0; i <= max; i++) {
+            max = Math.max(max, q[i] + i);
+            if (max >= q.length - 1) return true;
+        }
+
+        return false;
+    }
+}
+```
+
+## 056. 合并区间
+
+```java
+class Solution {
+    private int[][] ans = new int[10010][2];
+    private int cnt = 0;
+
+    public int[][] merge(int[][] q) {
+        Arrays.sort(q, Comparator.comparing((int[] a) -> a[0]).thenComparing(a -> a[1]));
+        int st = -0x3f3f3f3f, ed = st;
+        for (var i : q) {
+            if (i[0] > ed) {
+                if (st != -0x3f3f3f3f) ans[cnt++] = new int[] {st, ed};
+                st = i[0]; ed = i[1];
+            } else {
+                ed = Math.max(ed, i[1]);
+            }
+        }
+        if (st != -0x3f3f3f3f) ans[cnt++] = new int[] {st, ed};
+
+        return Arrays.copyOfRange(ans, 0, cnt);
+    }
+}
+```
+
+## 062. 不同路径
+
+```java
+class Solution {
+    public int uniquePaths(int m, int n) {
+        int[][] q = new int[m + 1][n + 1];
+        q[0][1] = 1;
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                q[i][j] = q[i - 1][j] + q[i][j - 1];
+            }
+        }
+
+        return q[m][n];
+    }
+}
+```
+
+## 066. 加一
+
+```java
+class Solution {
+    public int[] plusOne(int[] q) {
+        int t = 0;
+        q[q.length - 1]++;
+        for (int i = q.length - 1; i > -1; i--) {
+            q[i] = q[i] + t;
+            t = q[i] / 10;
+            q[i] = q[i] % 10;
+        }
+        if (t != 0) {
+            int[] ans = new int[q.length + 1];
+            System.arraycopy(q, 0, ans, 1, q.length);
+            ans[0] = 1;
+            return ans;
+        }
+
+        return q;
+    }
+}
+```
+
+## 069. x 的平方根
+
+```java
+class Solution {
+    public int mySqrt(int x) {
+        if (x == 1) return 1;
+        double l = 0, r = x, ptr = x;
+
+        while (r - l > 1e-6) {
+            double mid = (l + r) / 2;
+            if (mid == ptr / mid) return (int) mid;
+            else if (mid < ptr / mid) l = mid;
+            else r = mid;
+        }
+        
+        if (l % 1.0 > 0.99999) return ((int) l) + 1;
+        return (int) l;
     }
 }
 ```
