@@ -575,6 +575,20 @@ public:
 };
 ```
 
+## [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+
+```
+
+```
+
+## [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+```
+
+```
+
+
+
 ## [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
 ```c++
@@ -596,6 +610,188 @@ public:
         }
 
         return pos+1;
+    }
+};
+```
+
+## [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+
+```c++
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n1 = haystack.size();
+        int n2 = needle.size();
+        if(!n2) return 0;
+        if(n2>n1) return -1;//剪枝
+        
+        int cur1 = 0;
+        int cur2 = 0;
+        while(cur1<n1){
+            if(haystack[cur1]==needle[cur2]) {
+                ++cur1;
+                ++cur2;
+                if(cur2==n2) return cur1-cur2;
+            }
+            else{//回退
+                cur1 = cur1-cur2+1;//跳过原来的位置
+                cur2 = 0;//回退到0
+            }
+        }
+        return -1;//找不到-1
+    }
+};
+```
+
+## [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/)
+
+```c++
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        //倍增法 位运算不算乘除法
+        //二分查找
+        //边界条件 判断一下溢出的情况
+        if(dividend==INT_MIN&&divisor==-1) return INT_MAX;
+        if(divisor==1) return dividend;
+        if(divisor==-1) return -dividend;
+
+
+        long long a = dividend;
+        long long b = divisor;
+        //确定一下符号 全部变成正数
+        int sign = 1;
+        if(a<0){
+            sign=-sign;
+            a=-a;
+        }
+        if(b<0){
+            sign=-sign;
+            b=-b;
+        }
+
+        // if(b>a) return 0;
+
+        
+        //确定初始二分区间
+        long long l= 0;
+        long long r= a;
+
+        while(r>l){
+            int mid = (l+r)>>1;
+            if(mul(mid,b)>a){
+                r = mid;
+            }
+            else{
+                l = mid+1;
+            }
+        }
+        if(sign>0) return l-1;
+        else return 1-l;
+    }
+
+    long long mul(long long a,long long b){
+        //倍增乘法
+        long long x = a;
+        long long y = b;
+        
+        long long ans =0;
+        while(x){
+            if(x&1) ans+=y;
+            x=x>>1;
+            y = y+y;
+        }
+        return ans;
+    }
+};
+```
+
+## [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
+
+```c++
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        //变种二分 讨论清楚每种情况的区间转移
+        int n = nums.size();
+        int l = 0;
+        int r = n-1;
+        while(r>=l){
+            int mid = (r+l)>>1;
+            // cout<<"l: "<<l<<endl;
+            // cout<<"r: "<<r<<endl;
+            // cout<<"mid: "<<mid<<endl;
+            //存在旋转
+            if(nums[mid]==target) return mid;
+            if(nums[mid]>=nums[0]&&target>=nums[l]&&target<nums[mid]){
+                //左边有序
+                r = mid-1;//找左边
+            }
+            else if(nums[mid]>=nums[0]&&(target>nums[mid]||target<nums[l])){
+                l = mid+1;//找右边
+            }
+            //出来右边有序
+            else if(target>nums[mid]&&target<=nums[r]){
+                l= mid+1;
+            }
+            else{
+                r = mid-1;
+            }
+        }
+            return -1;
+
+    }
+};
+```
+
+## [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+```c++
+class Solution {
+public:
+    int low_bound(vector<int>& nums, int target){
+        int n =nums.size();
+        int l =0;
+        int r =n-1;
+        while(r>l){
+            int mid = (l+r)>>1;
+            if(nums[mid]>=target){
+                r = mid;
+            }
+            else l= mid+1;
+        }
+
+
+        return l;
+    }
+
+    int up_bound(vector<int>& nums, int target){
+        int n =nums.size();
+        int l =0;
+        int r =n-1;
+
+         while(r>l){
+            int mid = (l+r)>>1;
+            if(nums[mid]>target){
+                r = mid;
+            }
+            else l= mid+1;
+        }
+        return l;
+    }
+
+
+
+    vector<int> searchRange(vector<int>& nums, int target) {
+        //upbound lowbound
+        if(!nums.size()) return {-1,-1};
+
+        int low  = low_bound(nums,target);
+        int up = up_bound(nums,target);
+    
+        if(nums[low]!=target) return {-1,-1};
+        if(nums[up]==target) return {low,up};
+        return {low,up-1};
     }
 };
 ```
