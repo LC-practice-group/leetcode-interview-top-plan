@@ -32,7 +32,7 @@
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
 | 5/27        | 4       | 9         | 4      | 13      |
-| 5/28(today) |         |           |        |         |
+| 5/28(today) |         |           | 2      |         |
 | 5/29        |         |           |        |         |
 | 5/30        |         |           |        |         |
 | 5/31        |         |           |        |         |
@@ -96,8 +96,8 @@
 |      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 |         |           | ✔️⭐️    |         |
 |      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 | ✔️       | ✔️         | ✔️     | ✔️       |
 |      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       | ✔️         | ✔️     | ✔️       |
-|      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           |       |         |
-|      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           |       | ✔️       |
+|      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           | ✔️     |         |
+|      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 41.1%  | 困难 |         |           |       | ✔️       |
 |      | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) | 55.8%  | 困难 |         |           |       |         |
 |      | [44. 通配符匹配](https://leetcode-cn.com/problems/wildcard-matching/) | 32.3%  | 困难 |         |           |       |         |

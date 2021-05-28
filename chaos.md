@@ -796,3 +796,79 @@ public:
 };
 ```
 
+## [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
+
+```c++
+class Solution {
+public:
+    bool row[9][9];
+    bool col[9][9];
+    bool block[3][3][9];
+
+    bool isValidSudoku(vector<vector<char>>& board) {
+        //分别储存行的分布情况 列的分布情况 块的分布情况
+        memset(row,0,sizeof(row));
+        memset(col,0,sizeof(col));
+        memset(block,0,sizeof(block));
+
+        for(int i=0;i<9;++i){
+            for(int j=0;j<9;++j){
+                if(board[i][j]=='.') continue;
+                else{
+                    int num = board[i][j]-'1';
+                    if(row[i][num]||col[j][num]||block[i/3][j/3][num]) return false;
+                    else{
+                        row[i][num]=col[j][num]=block[i/3][j/3][num]=true;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+};
+```
+
+## [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/)
+
+```c++
+class Solution {
+public:
+
+    string find(int n,string pre){
+        pre += 'a';//哨兵
+        char pre_ch = ' ';
+        int num = 0;
+        int ssize = pre.size();
+        string ans = "";
+
+        for(int i=0;i<ssize;++i){
+            if(pre[i]!=pre_ch){
+                if(num){
+                    ans+=num+'0';
+                    ans+= pre_ch;
+                }
+                pre_ch = pre[i];
+                num=1; 
+            }
+            else{
+                ++num;
+            }
+        }
+
+        return ans;
+
+    }
+
+    string countAndSay(int n) {
+        if(n==1) return "1";
+        string pre = "1";   
+        for(int i=1;i<n;++i){
+            pre = find(i,pre);
+        }
+
+        return pre;
+    }
+};
+```
+
