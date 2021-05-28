@@ -637,3 +637,133 @@ public:
 
 
 
+## 2021/5/28
+
+### [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)
+
+- 快慢指针
+
+```cpp
+class Solution {
+public:
+    // 一直在纠结 i == nums[i] 的情况，这种情况它就自循环了
+    // 其实不用纠结，首先它必须是从其他节点过来的，也就是有nums[j] == i
+    // 所以出现这种情况的时候，i就一定是重复节点了
+    int findDuplicate(vector<int>& nums) {
+        int slow = 0, fast = 0;
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+        
+        int l = 0;
+        while (l != slow) {
+            l = nums[l];
+            slow = nums[slow];
+        }
+        return slow;
+    }
+};
+```
+
+### [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)
+
+```cpp
+class Solution {
+public:
+    int mySqrt(int x) {
+        long long i = 1;
+        while (i*i <= x)
+            i ++;
+        return i-1;    
+    }
+};
+```
+
+### [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        for (int i = 0; i < n; i ++) {
+            nums1[i+m] = nums2[i];
+        }
+        sort(nums1.begin(), nums1.end());
+    }
+};
+```
+
+### [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+
+- 递归
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    void dfs(TreeNode* root, vector<int>& v) {
+        if (!root) return;
+        dfs(root->left, v);
+        v.push_back(root->val);
+        dfs(root->right, v);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        dfs(root, ans);
+        return ans;
+    }
+};
+```
+
+- 迭代
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        stack<TreeNode*> s;
+        s.push(root);
+        while (!s.empty()&&root) {
+            root = s.top();
+            while (root->left) {
+                s.push(root->left);
+                root->left = nullptr;
+                root = s.top();
+            }
+            
+            ans.push_back(root->val);
+            s.pop();
+            if (root->right) {
+                s.push(root->right);
+                root->right = nullptr;
+            }
+            // cout << root->val << ' ' << s.empty() << endl;
+        }
+        return ans;
+    }
+};
+```
+

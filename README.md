@@ -5,7 +5,7 @@
 >
 > 超额计划：6/30 前刷完 145 题
 >
-> 剩余：34 天
+> 剩余：33 天
 
 ## 说明
 
@@ -32,8 +32,8 @@
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
 | 5/27        | 4       | 9         | 4      | 13      |
-| 5/28(today) |         |           |        |         |
-| 5/29        |         |           |        |         |
+| 5/28        | 4       |           |        |         |
+| 5/29(today) |         |           |        |         |
 | 5/30        |         |           |        |         |
 | 5/31        |         |           |        |         |
 | 6/1         |         |           |        |         |
@@ -111,7 +111,7 @@
 |      | [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) | 45.6%  | 中等 |         |           |       | ✔️       |
 |      | [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) | 65.1%  | 中等 |         |           |       | ✔️       |
 |      | [66. 加一](https://leetcode-cn.com/problems/plus-one/)       | 45.7%  | 简单 | ✔️       |           |       | ✔️       |
-|      | [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 39.2%  | 简单 |         |           |       | ✔️       |
+|      | [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 39.2%  | 简单 | ✔️       |           |       | ✔️       |
 |      | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | 52.0%  | 简单 |         |           |       |         |
 |      | [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/) | 59.3%  | 中等 |         |           |       |         |
 |      | [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors/) | 58.6%  | 中等 |         |           |       |         |
@@ -119,9 +119,9 @@
 |      | [78. 子集](https://leetcode-cn.com/problems/subsets/)        | 79.8%  | 中等 |         |           |       |         |
 |      | [79. 单词搜索](https://leetcode-cn.com/problems/word-search/) | 45.0%  | 中等 | ✔️       |           |       |         |
 |      | [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/) | 42.9%  | 困难 |         |           |       |         |
-|      | [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | 50.9%  | 简单 |         |           |       |         |
+|      | [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | 50.9%  | 简单 | ✔️❤️      |           |       |         |
 |      | [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) | 29.5%  | 中等 |         |           |       |         |
-|      | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 75.4%  | 简单 |         |           |       |         |
+|      | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 75.4%  | 简单 | ✔️       |           |       |         |
 |      | [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/) | 34.3%  | 中等 |         |           |       |         |
 |      |                                                              |        |      |         |           |       |         |
 
@@ -205,7 +205,7 @@
 |      | [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/) | 60.5%  | 中等 |         |           |       |
 |      | [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/) | 63.8%  | 简单 |         |           |       |
 |      | [285. 二叉搜索树中的中序后继](https://leetcode-cn.com/problems/inorder-successor-in-bst/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 63.3%  | 中等 |         |           |       |
-|      | [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | 66.8%  | 中等 |         |           |       |
+|      | [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | 66.8%  | 中等 | ✖️       |           |       |
 |      | [289. 生命游戏](https://leetcode-cn.com/problems/game-of-life/) | 75.0%  | 中等 |         |           |       |
 |      | [295. 数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/) | 51.9%  | 困难 |         |           |       |
 |      | [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) | 54.8%  | 困难 |         |           |       |
