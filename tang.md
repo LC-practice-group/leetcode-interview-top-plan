@@ -446,3 +446,160 @@ public:
 };
 ```
 
+## 34. 在排序数组中查找元素的第一个和最后一个位置
+
+```C++
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int l = 0, r = nums.size() - 1;
+        int mid;
+        while(l <= r){
+            mid = l + r >> 1;
+            if(nums[mid] == target)
+                break;
+            else if(nums[mid] < target)
+                l = mid + 1;
+            else
+                r = mid - 1;
+        }
+        if(l > r) return vector<int>({-1, -1});
+        l = mid, r = mid;
+        while(l > 0 && nums[l] == nums[l - 1]) l--;
+        while(r < nums.size() - 1 && nums[r] == nums[r + 1]) r++;
+        return vector<int>({l, r});
+    }
+};
+```
+
+## 36.有效的数独
+
+```C++
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        int n = board.size();
+        vector<vector<bool>> row(n, vector<bool>(n + 1, false)), col(n, vector<bool>(n + 1, false)), mat(n, vector<bool>(n + 1, false));
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(board[i][j] == '.') continue;
+                int num = board[i][j] - '0';
+                int m = i / 3 + (j / 3) * 3;
+                if(row[i][num] || col[j][num] || mat[m][num]) return false;
+                row[i][num] = true;
+                col[j][num] = true;
+                mat[m][num] = true;
+            }
+        }
+        return true;
+    }
+};
+```
+
+## 198. 打家劫舍
+
+经典DP问题
+
+```C++
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 0) return 0;
+        if(n == 1) return nums[0];
+        vector<int> f(n, 0);
+        f[0] = nums[0], f[1] = max(nums[0], nums[1]);
+        for(int i = 2; i < n; i++){
+            f[i] = max(f[i - 2] + nums[i], f[i - 1]);
+        }
+        return f[n - 1];
+    }
+};
+```
+
+## 200.岛屿问题
+
+```C++
+class Solution {
+public:
+    vector<int> x = {1, -1, 0, 0};
+    vector<int> y = {0, 0, 1, -1};
+    void sinklands(vector<vector<char>>& grid, int i, int j, int& m, int& n){
+        if(i < 0 || i >= m || j < 0 || j >= n || grid[i][j] != '1') return;//边界外或者不等于‘1’
+        grid[i][j] = '0';
+        for(int k = 0; k < 4; k++)
+            sinklands(grid, i + x[k], j + y[k], m, n);
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int count = 0;
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == '1'){
+                    count++;
+                    sinklands(grid, i, j, m, n);
+                }
+            }
+        }
+        return count;
+    }
+};
+```
+
+## 208. 实现Trie（前缀树）
+
+```C++
+class Trie {
+private:
+    bool isEnd;
+    Trie* Next[26];
+public:
+    /** Initialize your data structure here. */
+    Trie() {
+        isEnd = false;
+        memset(Next, 0, sizeof(Next));
+    }
+    
+    /** Inserts a word into the trie. */
+    void insert(string word) {
+        Trie* node = this;
+        for(char ch : word){
+            if(node->Next[ch - 'a'] == nullptr)
+                node->Next[ch - 'a'] = new Trie;
+            node = node->Next[ch - 'a'];
+        }
+        node->isEnd = true;
+    }
+    
+    /** Returns if the word is in the trie. */
+    bool search(string word) {
+        Trie* node = this;
+        for(char ch: word){
+            node = node->Next[ch - 'a'];
+            if(node == nullptr) return false;
+        }
+        return node->isEnd;
+    }
+    
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    bool startsWith(string prefix) {
+        Trie* node = this;
+        for (char c : prefix) {
+            node = node->Next[c-'a'];
+            if (node == NULL) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
+```
+

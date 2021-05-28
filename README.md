@@ -95,7 +95,7 @@
 |      | [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/) | 40.7%  | 简单 |         | ✔️         | ✔️     |         |
 |      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 |         |           | ✔️⭐️    |         |
 |      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 | ✔️       | ✔️         | ✔️     | ✔️       |
-|      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       |           | ✔️     | ✔️       |
+|      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       | ✔️         | ✔️     | ✔️       |
 |      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           |       |         |
 |      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           |       | ✔️       |
 |      | [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 41.1%  | 困难 |         |           |       | ✔️       |
@@ -170,13 +170,13 @@
 |      | [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) | 45.7%  | 中等 |         |           |       |
 |      | [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/) | 68.8%  | 简单 |         |           |       |
 |      | [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/) | 74.0%  | 简单 |         |           |       |
-|      | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 49.6%  | 中等 |         |           |       |
-|      | [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 53.9%  | 中等 |         |           |       |
+|      | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 49.6%  | 中等 |         | ✔️         |       |
+|      | [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 53.9%  | 中等 |         | ✔️         |       |
 |      | [202. 快乐数](https://leetcode-cn.com/problems/happy-number/) | 61.4%  | 简单 |         |           |       |
 |      | [204. 计数质数](https://leetcode-cn.com/problems/count-primes/) | 38.3%  | 简单 |         |           |       |
 |      | [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 71.7%  | 简单 |         |           |       |
 |      | [207. 课程表](https://leetcode-cn.com/problems/course-schedule/) | 54.6%  | 中等 |         |           |       |
-|      | [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/) | 71.6%  | 中等 |         |           |       |
+|      | [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/) | 71.6%  | 中等 |         | ✔️         |       |
 |      | [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | 53.4%  | 中等 |         |           |       |
 |      | [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/) | 45.4%  | 困难 |         |           |       |
 |      | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 64.6%  | 中等 |         |           |       |
