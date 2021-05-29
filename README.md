@@ -5,7 +5,7 @@
 >
 > 超额计划：6/30 前刷完 145 题
 >
-> 剩余：33 天
+> 剩余：32 天
 
 ## 说明
 
@@ -27,14 +27,14 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 16/100  | 16/100    | 22/100 | 32/100  |
+| all         | 18/100  | 16/100    | 22/100 | 32/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
 | 5/27        | 4       | 9         | 4      | 13      |
 | 5/28        | 4       |           | 2      |         |
-| 5/29(today) |         |           |        |         |
-| 5/30        |         |           |        |         |
+| 5/29        | 2       |           |        |         |
+| 5/30(today) |         |           |        |         |
 | 5/31        |         |           |        |         |
 | 6/1         |         |           |        |         |
 | 6/2         |         |           |        |         |
@@ -136,7 +136,7 @@
 |      | [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/) | 57.1%  | 中等 |         |           |       |
 |      | [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | 76.2%  | 简单 |         |           |       |
 |      | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 69.7%  | 中等 |         |           |       |
-|      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 |         |           |       |
+|      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 | ✔️       |           |       |
 |      | [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) | 69.5%  | 中等 |         |           |       |
 |      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           |       |
 |      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 |         |           |       |
@@ -193,7 +193,7 @@
 |      | [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) | 47.8%  | 简单 |         |           |       |
 |      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 |         |           |       |
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |       |
-|      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 |         |           |       |
+|      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 | ✖️       |           |       |
 |      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️❤️      |           |       |
 |      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 |         |           |       |
 |      | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 63.9%  | 简单 |         |           |       |

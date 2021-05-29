@@ -767,3 +767,63 @@ public:
 };
 ```
 
+## 2021/5/29
+
+### [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* dfs(vector<int>& nums, int left, int right) {
+        if (left > right) return nullptr;
+        int mid = (left + right) >> 1;
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->left = dfs(nums, left, mid-1);
+        root->right = dfs(nums, mid+1, right);
+        return root;
+    }
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        return dfs(nums, 0, nums.size()-1);
+    }
+};
+```
+
+### [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/)
+
+```cpp
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int> ans(nums.size(), 1);
+        for (int i = 1; i < nums.size(); ++ i) {
+            ans[i] = ans[i-1]*nums[i-1];
+            // cout << ans[i] << ' ';
+        }
+        
+        int R = 1;
+        for (int i = nums.size()-1; i >= 0; -- i) {
+            if (i == 0) {
+                ans[i] = R;
+                break;
+            }
+            ans[i] = ans[i]*R;
+            R = R*nums[i];
+        }
+        return ans;
+    }
+};
+```
+
+
+
