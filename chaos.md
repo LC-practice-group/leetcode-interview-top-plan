@@ -872,3 +872,208 @@ public:
 };
 ```
 
+## [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/)
+
+```c++
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        for(int i=0;i<nums.size();++i){
+            while(nums[i]<nums.size()&&nums[i]>0&&nums[nums[i]-1]!=nums[i]){
+                swap(nums[i],nums[nums[i]-1]);
+            }
+        }
+
+        for(int i=0;i<nums.size();++i){
+            if(nums[i]!=i+1) return i+1;
+        }
+        return nums.size()+1;
+    }
+};
+```
+
+## [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
+
+```c++
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n = height.size();
+        vector<int> lmax(n,0);
+        vector<int> rmax(n,0);
+
+        int l = 0;
+        int r = 0;
+        for(int i=0;i<n;++i){
+            lmax[i] = l;
+            l = max(height[i],l);
+        }
+        for(int i=n-1;i>=0;--i){
+            rmax[i] = r;
+            r = max(height[i],r);
+        }
+
+        int ans = 0;
+        for(int i=0;i<n;++i){
+            if(height[i]<min(lmax[i],rmax[i])){
+                ans+= min(lmax[i],rmax[i])-height[i];
+            } 
+        }
+
+        return ans;
+    }
+};
+```
+
+
+
+## [46. 全排列](https://leetcode-cn.com/problems/permutations/)
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> ans;
+    void dfs(int cur,vector<int>& now,vector<int> mark,vector<int>& nums){
+        // cout<<now.size()<<endl;
+        if(cur==nums.size()){
+            ans.push_back(now);
+            return;
+        }
+        for(int i=0;i<nums.size();++i){
+            if(!mark[i]){//没有使用过
+                now.push_back(nums[i]);
+                mark[i]=1;
+                dfs(cur+1,now,mark,nums);
+                mark[i]=0;
+                now.pop_back();
+            }
+        }
+
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<int> now;
+        vector<int> mark(nums.size(),0);
+        dfs(0,now,mark,nums);
+        return ans;
+    }
+};
+```
+
+
+
+## [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/)
+
+```c++
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        //先沿对角线对称 再上下反转
+        int n =matrix.size();
+
+        //对角线对称
+        for(int i=0;i<n;++i){
+            for(int j=0;j<n-i-1;++j){
+                swap(matrix[i][j],matrix[n-j-1][n-i-1]);
+            }
+        }
+        //上下反转
+        for(int i=0;i<n/2;++i){
+            for(int j=0;j<n;++j){
+                swap(matrix[i][j],matrix[n-i-1][j]);
+            }
+        }
+    }
+};
+```
+
+## [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+
+```c++
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        //排序当作key不能直接用hash因为无序
+        unordered_map<string,vector<string>> mp;
+        for(auto s:strs){
+            string tmp =s;
+            sort(tmp.begin(),tmp.end());
+            mp[tmp].push_back(s);
+        }
+        vector<vector<string>> ans;
+        for(auto [str,ans_p]:mp){
+            ans.push_back(ans_p);
+        }
+        return ans;
+    }
+};
+```
+
+## [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+
+```c++
+//递归
+class Solution {
+public:
+    double myPow(double x, int n) {
+        //快速幂
+        if(n==0) return 1;
+        if(n==1) return x;
+        int flag = 1;
+        if(n<0){
+            flag = 0;
+            n = abs(n);
+        }
+        double p = myPow(x,n/2);
+        double tmp = n%2==1?x*p*p:p*p;
+        return flag?tmp:1/tmp;
+    }
+};
+//迭代解
+class Solution {
+public:
+    double quickMul(double x,long long n){
+        double ans = 1.0;
+        //当前需要计入的x幂次
+        double q = x;
+        while(n){
+            if(n%2==1){
+                ans *= q;
+            }
+            q *=q;
+            n /=2;
+        }
+        return ans;
+    }
+
+
+    double myPow(double x, int n) {
+        long long N=n;//防爆
+        return N>0?quickMul(x,N):1/quickMul(x,-N);
+    }
+};
+```
+
+
+
+## [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
+
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        //dp
+        int n = nums.size();
+        if(!n) return 0;
+        vector<int> dp(n+1);
+        int sum_max = INT_MIN;
+        for(int i =0;i<n;++i){
+            dp[i+1] = max(dp[i]+nums[i],nums[i]);
+            sum_max = max(sum_max,dp[i+1]);
+        }
+        return sum_max;
+    }
+};
+```
+
+## 
+
