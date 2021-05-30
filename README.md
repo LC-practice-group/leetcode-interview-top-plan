@@ -27,14 +27,14 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 18/100  | 16/100    | 22/100 | 32/100  |
+| all         | 20/100  | 16/100    | 22/100 | 32/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
 | 5/27        | 4       | 9         | 4      | 13      |
 | 5/28        | 4       |           | 2      |         |
 | 5/29        | 2       |           |        |         |
-| 5/30(today) |         |           |        |         |
+| 5/30(today) | 2       |           |        |         |
 | 5/31        |         |           |        |         |
 | 6/1         |         |           |        |         |
 | 6/2         |         |           |        |         |
@@ -139,8 +139,8 @@
 |      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 | ✔️       |           |       |
 |      | [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) | 69.5%  | 中等 |         |           |       |
 |      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           |       |
-|      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 |         |           |       |
-|      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 |         |           |       |
+|      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 | ✔️       |           |       |
+|      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 | ✔️       |           |       |
 |      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       |
 |      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           |       |
 |      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 | ❕✔️      |           |       |

@@ -825,5 +825,44 @@ public:
 };
 ```
 
+## 2021/5/30
+
+### [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int m = prices[0];
+        int ans = 0;
+        
+        for (int i = 0; i < prices.size(); ++ i) {
+            ans = max(ans, prices[i]-m);
+            m = min(m, prices[i]);
+        }
+        return ans;
+    }
+};
+```
+
+### [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans = 0;
+        int buy = prices[0];
+        for (int i = 1; i < prices.size(); ++ i) {
+            if (prices[i] > prices[i-1]) {
+                ans += prices[i] - buy;
+            }
+            buy = prices[i];
+        }
+        return ans;
+    }
+};
+```
+
 
 
