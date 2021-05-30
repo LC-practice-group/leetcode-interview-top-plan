@@ -892,6 +892,102 @@ public:
 };
 ```
 
+## [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
+
+```c++
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n = height.size();
+        vector<int> lmax(n,0);
+        vector<int> rmax(n,0);
+
+        int l = 0;
+        int r = 0;
+        for(int i=0;i<n;++i){
+            lmax[i] = l;
+            l = max(height[i],l);
+        }
+        for(int i=n-1;i>=0;--i){
+            rmax[i] = r;
+            r = max(height[i],r);
+        }
+
+        int ans = 0;
+        for(int i=0;i<n;++i){
+            if(height[i]<min(lmax[i],rmax[i])){
+                ans+= min(lmax[i],rmax[i])-height[i];
+            } 
+        }
+
+        return ans;
+    }
+};
+```
+
+
+
+## [46. 全排列](https://leetcode-cn.com/problems/permutations/)
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> ans;
+    void dfs(int cur,vector<int>& now,vector<int> mark,vector<int>& nums){
+        // cout<<now.size()<<endl;
+        if(cur==nums.size()){
+            ans.push_back(now);
+            return;
+        }
+        for(int i=0;i<nums.size();++i){
+            if(!mark[i]){//没有使用过
+                now.push_back(nums[i]);
+                mark[i]=1;
+                dfs(cur+1,now,mark,nums);
+                mark[i]=0;
+                now.pop_back();
+            }
+        }
+
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<int> now;
+        vector<int> mark(nums.size(),0);
+        dfs(0,now,mark,nums);
+        return ans;
+    }
+};
+```
+
+
+
+## [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/)
+
+```c++
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        //先沿对角线对称 再上下反转
+        int n =matrix.size();
+
+        //对角线对称
+        for(int i=0;i<n;++i){
+            for(int j=0;j<n-i-1;++j){
+                swap(matrix[i][j],matrix[n-j-1][n-i-1]);
+            }
+        }
+        //上下反转
+        for(int i=0;i<n/2;++i){
+            for(int j=0;j<n;++j){
+                swap(matrix[i][j],matrix[n-i-1][j]);
+            }
+        }
+    }
+};
+```
+
+
+
 ## [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
 
 ```c++
@@ -911,4 +1007,6 @@ public:
     }
 };
 ```
+
+## 
 

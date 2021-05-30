@@ -99,10 +99,10 @@
 |      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           | ✔️     |         |
 |      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 41.1%  | 困难 |         |           | ✔️     | ✔️       |
-|      | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) | 55.8%  | 困难 |         |           |       |         |
+|      | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) | 55.8%  | 困难 |         |           | ✔️     |         |
 |      | [44. 通配符匹配](https://leetcode-cn.com/problems/wildcard-matching/) | 32.3%  | 困难 |         |           |       |         |
-|      | [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 77.9%  | 中等 |         |           |       | ✔️       |
-|      | [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/) | 72.8%  | 中等 |         |           |       | ✔️       |
+|      | [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 77.9%  | 中等 |         |           | ✔️     | ✔️       |
+|      | [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/) | 72.8%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 65.8%  | 中等 |         |           |       | ✔️       |
 |      | [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)    | 37.5%  | 中等 |         |           |       | ✔️       |
 |      | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) | 54.2%  | 简单 |         |           | ✔️     | ✔️       |
