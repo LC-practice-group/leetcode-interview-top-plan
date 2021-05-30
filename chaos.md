@@ -986,6 +986,73 @@ public:
 };
 ```
 
+## [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+
+```c++
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        //排序当作key不能直接用hash因为无序
+        unordered_map<string,vector<string>> mp;
+        for(auto s:strs){
+            string tmp =s;
+            sort(tmp.begin(),tmp.end());
+            mp[tmp].push_back(s);
+        }
+        vector<vector<string>> ans;
+        for(auto [str,ans_p]:mp){
+            ans.push_back(ans_p);
+        }
+        return ans;
+    }
+};
+```
+
+## [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+
+```c++
+//递归
+class Solution {
+public:
+    double myPow(double x, int n) {
+        //快速幂
+        if(n==0) return 1;
+        if(n==1) return x;
+        int flag = 1;
+        if(n<0){
+            flag = 0;
+            n = abs(n);
+        }
+        double p = myPow(x,n/2);
+        double tmp = n%2==1?x*p*p:p*p;
+        return flag?tmp:1/tmp;
+    }
+};
+//迭代解
+class Solution {
+public:
+    double quickMul(double x,long long n){
+        double ans = 1.0;
+        //当前需要计入的x幂次
+        double q = x;
+        while(n){
+            if(n%2==1){
+                ans *= q;
+            }
+            q *=q;
+            n /=2;
+        }
+        return ans;
+    }
+
+
+    double myPow(double x, int n) {
+        long long N=n;//防爆
+        return N>0?quickMul(x,N):1/quickMul(x,-N);
+    }
+};
+```
+
 
 
 ## [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
