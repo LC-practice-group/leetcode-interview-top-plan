@@ -872,3 +872,43 @@ public:
 };
 ```
 
+## [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/)
+
+```c++
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        for(int i=0;i<nums.size();++i){
+            while(nums[i]<nums.size()&&nums[i]>0&&nums[nums[i]-1]!=nums[i]){
+                swap(nums[i],nums[nums[i]-1]);
+            }
+        }
+
+        for(int i=0;i<nums.size();++i){
+            if(nums[i]!=i+1) return i+1;
+        }
+        return nums.size()+1;
+    }
+};
+```
+
+## [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
+
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        //dp
+        int n = nums.size();
+        if(!n) return 0;
+        vector<int> dp(n+1);
+        int sum_max = INT_MIN;
+        for(int i =0;i<n;++i){
+            dp[i+1] = max(dp[i]+nums[i],nums[i]);
+            sum_max = max(sum_max,dp[i+1]);
+        }
+        return sum_max;
+    }
+};
+```
+

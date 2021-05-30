@@ -27,13 +27,13 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 18/100  | 16/100    | 22/100 | 32/100  |
+| all         | 18/100  | 16/100    | 24/100 | 32/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
 | 5/27        | 4       | 9         | 4      | 13      |
 | 5/28        | 4       |           | 2      |         |
-| 5/29        | 2       |           |        |         |
+| 5/29        | 2       |           | 2      |         |
 | 5/30(today) |         |           |        |         |
 | 5/31        |         |           |        |         |
 | 6/1         |         |           |        |         |
@@ -98,14 +98,14 @@
 |      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       | ✔️         | ✔️     | ✔️       |
 |      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           | ✔️     |         |
 |      | [38. 外观数列](https://leetcode-cn.com/problems/count-and-say/) | 57.6%  | 中等 |         |           | ✔️     | ✔️       |
-|      | [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 41.1%  | 困难 |         |           |       | ✔️       |
+|      | [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 41.1%  | 困难 |         |           | ✔️     | ✔️       |
 |      | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) | 55.8%  | 困难 |         |           |       |         |
 |      | [44. 通配符匹配](https://leetcode-cn.com/problems/wildcard-matching/) | 32.3%  | 困难 |         |           |       |         |
 |      | [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 77.9%  | 中等 |         |           |       | ✔️       |
 |      | [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/) | 72.8%  | 中等 |         |           |       | ✔️       |
 |      | [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 65.8%  | 中等 |         |           |       | ✔️       |
 |      | [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)    | 37.5%  | 中等 |         |           |       | ✔️       |
-|      | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) | 54.2%  | 简单 |         |           |       | ✔️       |
+|      | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) | 54.2%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/) | 47.0%  | 中等 |         |           |       | ✔️       |
 |      | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 42.2%  | 中等 |         |           |       | ✔️       |
 |      | [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) | 45.6%  | 中等 |         |           |       | ✔️       |
