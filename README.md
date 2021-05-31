@@ -27,7 +27,7 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 20/100  | 23/100    | 29/100 | 45/100  |
+| all         | 20/100  | 23/100    | 32/100 | 45/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
@@ -35,7 +35,7 @@
 | 5/28        | 4       | 4         | 2      | 2       |
 | 5/29        | 2       |           | 2      |         |
 | 5/30        | 2       |           | 5      |         |
-| 5/31(today) |         | 3         |        | 11      |
+| 5/31(today) |         | 3         | 3      | 11      |
 | 6/1         |         |           |        |         |
 | 6/2         |         |           |        |         |
 | 6/3         |         |           |        |         |
@@ -106,9 +106,9 @@
 |      | [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 65.8%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)    | 37.5%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) | 54.2%  | 简单 |         |           | ✔️     | ✔️       |
-|      | [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/) | 47.0%  | 中等 |         |           |       | ✔️       |
-|      | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 42.2%  | 中等 |         |           |       | ✔️       |
-|      | [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) | 45.6%  | 中等 |         |           |       | ✔️       |
+|      | [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/) | 47.0%  | 中等 |         |           | ✔️     | ✔️       |
+|      | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 42.2%  | 中等 |         |           | ✔️     | ✔️       |
+|      | [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) | 45.6%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) | 65.1%  | 中等 |         |           |       | ✔️       |
 |      | [66. 加一](https://leetcode-cn.com/problems/plus-one/)       | 45.7%  | 简单 | ✔️       |           |       | ✔️       |
 |      | [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 39.2%  | 简单 | ✔️       |           |       | ✔️       |

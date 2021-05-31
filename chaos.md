@@ -1077,3 +1077,116 @@ public:
 
 ## 
 
+## [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/)
+
+```c++
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        //方向数组
+        vector<int> dx = {0,1,0,-1};
+        vector<int> dy = {1,0,-1,0};
+        
+
+        vector<int> ans;
+
+        int n  = matrix.size();
+        int m  = matrix[0].size();
+        vector<vector<int>> mm(n,vector<int>(m,0));
+
+        int xx = dx[0];
+        int yy = dy[0];
+
+        int x = 0;
+        int y = 0;
+
+        int mark = 0;//位移标记
+        for(int i=0;i<m*n;++i){
+            mm[x][y] =1;
+            ans.push_back(matrix[x][y]);
+            if((x+xx>=n||x+xx<0)||(y+yy>=m||y+yy<0)||mm[x+xx][y+yy]) ++mark;
+            xx = dx[mark%4];
+            yy = dy[mark%4];
+            x+=xx;
+            y+=yy;
+        }
+
+        return ans;
+    }
+};
+```
+
+
+
+## [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)
+
+```c++
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        //dp
+        //dp[i]表示能否到达i
+        
+        int n = nums.size();
+
+        int farest = 0;
+        
+        for(int i=0;i<n;++i){
+            if(farest>=i){
+                farest = max(i+nums[i],farest);
+            }
+            if(farest>=n-1) return true;
+        }
+
+        return false;
+    }
+};
+```
+
+
+
+## [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
+
+```c++
+class Solution {
+public:
+    bool judgeMerge(vector<int> a,vector<int> b){
+        return a[1]>=b[0];
+    }
+
+    vector<int> mm(vector<int> a,vector<int> b){
+        vector<int> ans;
+        // cout<<"mm"<<endl;
+        int l = min(a[0],b[0]);
+        int r = max(a[1],b[1]);
+        ans.push_back(l);
+        ans.push_back(r);
+        return ans;
+    }
+
+
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        //开头排序逐个合并
+        auto f = [&](vector<int> a,vector<int> b){
+            return a[0]<b[0];
+        };
+        sort(intervals.begin(),intervals.end(),f);
+        int n = intervals.size();
+        vector<vector<int>> ans;
+        ans.push_back(intervals[0]);
+        for(int i =1;i<n;++i){
+            if(judgeMerge(ans[ans.size()-1],intervals[i])){
+                vector<int> top = ans[ans.size()-1];
+                ans.pop_back();
+                ans.push_back(mm(top,intervals[i]));
+            }
+            else{
+                ans.push_back(intervals[i]);
+            }
+        }
+
+        return ans;
+    }
+};
+```
+
