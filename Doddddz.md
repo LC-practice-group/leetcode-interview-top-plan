@@ -894,3 +894,334 @@ class Solution {
 }
 ```
 
+## 070. 爬楼梯
+
+```java
+class Solution {
+    public int climbStairs(int n) {
+        int pre = 1, ptr = 1;
+
+        for (int i = 1; i < n; i++) {
+            int t = ptr;
+            ptr += pre;
+            pre = t;
+        }
+
+        return ptr;
+    }
+}
+```
+
+## 075. 颜色分类
+
+```java
+class Solution {
+    public void sortColors(int[] q) {
+        int l = 0, r = q.length - 1;
+        while (l < r && q[l] == 0) l++;
+        while (l < r && q[r] == 2) r--;  
+        for (int i = l; i <= r; i++) {
+            while (true) {
+                if (i <= r && q[i] == 0) swap(q, i++, l++);
+                else if (i <= r && q[i] == 2) swap(q, i, r--);
+                else break;
+            }
+        }
+    }
+
+    private void swap(int[] q, int l, int r) {
+        int t = q[l]; q[l] = q[r]; q[r] = t;
+    }
+}
+```
+
+## 076. 
+
+## 078. 子集
+
+```java
+class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+    private Deque<Integer> que = new ArrayDeque<>();
+
+    public List<List<Integer>> subsets(int[] q) {
+        if (q.length == 0) return ans;
+
+        dfs(0, q);
+
+        return ans;
+    }
+
+    public void dfs(int u, int[] q) {
+        if (u == q.length) {
+            ans.add(new ArrayList<>(que));
+            return;
+        }
+
+        for (int i = 0; i < 2; i++) {
+            dfs(u + 1, q);
+            que.add(q[u]);
+        }
+
+        for (int i = 0; i < 2; i++) que.removeLast();
+    }
+}
+```
+
+## 079. 单词搜索
+
+```java
+class Solution {
+    private final int[] dx = { 0, 1, 0, -1 }, dy = { 1, 0, -1, 0 };
+
+    public boolean exist(char[][] q, String s) {
+        if (q.length == 0 || q[0].length == 0) return false;
+        char[] c = s.toCharArray();
+
+        for (int i = 0; i < q.length; i++) {
+            for (int j = 0; j < q[0].length; j++) {
+                if (dfs(0, i, j, q, c)) return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean dfs(int u, int x, int y, char[][] q, char[] c) {
+        if (q[x][y] != c[u]) return false;
+        if (u == c.length - 1) return true;
+
+        char t = q[x][y];
+        q[x][y] = '*';
+
+        for (int i = 0; i < 4; i++) {
+            int a = x + dx[i], b = y + dy[i];
+            if (a > -1 && b > -1 && a < q.length && b < q[0].length && 
+                q[a][b] != '*' && dfs(u + 1, a, b, q, c)) 
+                return true;
+        }
+
+        q[x][y] = t;
+        return false;
+    }
+}
+```
+
+## 084. 
+
+```java
+
+```
+
+## 088. 合并两个有序数组
+
+```java
+class Solution {
+    public void merge(int[] l, int m, int[] r, int n) {
+        for (int i = l.length - 1; i > -1 && n != 0 && m != 0; i--) {
+            if (l[m - 1] > r[n - 1]) l[i] = l[--m];
+            else l[i] = r[--n];
+        }
+        if (m == 0) System.arraycopy(r, 0, l, 0, n);
+    }
+}
+```
+
+## 091. 解码方法
+
+```java
+class Solution {
+    public int numDecodings(String s) {
+        if (s.charAt(0) == '0') return 0;
+        char[] c = s.toCharArray();
+        int pre = 1, ptr = 1;
+        for (int i = 1; i < s.length(); i++) {
+            int t = ptr;
+            if (c[i] == '0') {
+                if (c[i - 1] == '1' || c[i - 1] == '2') ptr = pre;
+                else return 0;
+            } else if (c[i - 1] == '1' || (c[i - 1] == '2' && c[i] >= '1' && c[i] <= '6')) ptr += pre;
+            
+            pre = t;
+        }
+
+        return ptr;
+    }
+}
+```
+
+## 094. 二叉树的中序遍历
+
+```java
+class Solution {
+    private List<Integer> ans = new ArrayList<>();
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        TreeNode pre = null, ptr = root;
+        while (ptr != null) {
+            pre = ptr.left;
+            if (pre != null) {
+                while (pre.right != null && pre.right != ptr) pre = pre.right;
+                if (pre.right == null) {
+                    pre.right = ptr;
+                    ptr = ptr.left;
+                    continue;
+                } else {
+                    pre.right = null;
+                }
+            } 
+            ans.add(ptr.val);
+            ptr = ptr.right;
+            
+        }
+
+        return ans;
+    }
+}
+```
+
+## 098. 验证二叉搜索树
+
+```java
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        TreeNode pre = null, ptr = root, c = null;
+
+        while (ptr != null) {
+            pre = ptr.left;
+            if (pre != null) {
+                while (pre.right != null && pre.right != ptr) pre = pre.right;
+                if (pre.right == null) {
+                    pre.right = ptr;
+                    ptr = ptr.left;
+                    continue;
+                } else {
+                    pre.right = null;
+                }
+            }
+            if (c == null || ptr.val > c.val) c = ptr;
+            else return false;
+            ptr = ptr.right;
+        }
+
+        return true;
+    }
+}
+```
+
+## 101. 对称二叉树
+
+```java
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) return true;
+        return dfs(root.left, root.right);
+    }
+
+    private boolean dfs(TreeNode l, TreeNode r) {
+        if (l == null && r == null) return true;
+        if (l == null || r == null || l.val != r.val) return false;
+
+        return dfs(l.left, r.right) && dfs(l.right, r.left);
+    }
+}
+```
+
+## 102. 二叉树的层序遍历
+
+```java
+class Solution {
+    private List<List<Integer>> list = new ArrayList<>();
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        dfs(root, 0);
+        return list;
+    }
+
+    private void dfs(TreeNode node, int u) {
+        if (node != null) {
+            if (list.size() == u) list.add(new ArrayList<>());
+            list.get(u).add(node.val);
+            dfs(node.left, u + 1);
+            dfs(node.right, u + 1);
+        }
+    }
+}
+```
+
+## 103. 二叉树的锯齿形层序遍历
+
+```java
+class Solution {
+    private List<List<Integer>> list = new ArrayList<>();
+
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        dfs(root, 0);
+        return list;
+    }
+
+    private void dfs(TreeNode node, int u) {
+        if (node != null) {
+            if (list.size() == u) list.add(new ArrayList<>());
+            if ((u & 1) == 0) list.get(u).add(node.val);
+            else list.get(u).add(0, node.val);
+            dfs(node.left, u + 1);
+            dfs(node.right, u + 1);
+        }
+    }
+}
+```
+
+## 104. 二叉树的最大深度
+
+```java
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    }
+}
+```
+
+## 105. 从前序与中序遍历序列构造二叉树
+
+```java
+class Solution {
+    private Map<Integer, Integer> map = new HashMap<>();
+    private int[] pre;
+    public TreeNode buildTree(int[] pre, int[] in) {
+        for (int i = 0; i < in.length; i++) map.put(in[i], i);
+        this.pre = pre;
+        return dfs(0, in.length - 1, 0, in.length - 1);
+    }
+
+    private TreeNode dfs(int pl, int pr, int il, int ir) {
+        if (pl > pr) return null;
+        TreeNode t = new TreeNode(pre[pl]);
+        int k = map.get(t.val);
+        t.left = dfs(pl + 1, k - il + pl, il, k - 1);
+        t.right = dfs(k - il + pl + 1, pr, k + 1, ir);
+        return t;
+    }
+}
+```
+
+## 108. 将有序数组转换为二叉搜索树
+
+```java
+class Solution {
+    public TreeNode sortedArrayToBST(int[] q) {
+        return dfs(q, 0, q.length - 1);
+    }
+
+    public TreeNode dfs(int[] q, int l, int r) {
+        if (l > r) return null;
+        int mid = l + r >> 1;
+        TreeNode t = new TreeNode(q[mid]);
+        t.left = dfs(q, l, mid - 1);
+        t.right = dfs(q, mid + 1, r);
+        return t;
+    }
+}
+```
+

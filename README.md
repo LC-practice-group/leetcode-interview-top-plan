@@ -27,15 +27,15 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 20/100  | 23/100    | 29/100 | 32/100  |
+| all         | 20/100  | 23/100    | 29/100 | 45/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
 | 5/27        | 4       | 9         | 4      | 13      |
-| 5/28        | 4       | 4         | 2      |         |
+| 5/28        | 4       | 4         | 2      | 2       |
 | 5/29        | 2       |           | 2      |         |
 | 5/30        | 2       |           | 5      |         |
-| 5/31(today) |         | 3         |        |         |
+| 5/31(today) |         | 3         |        | 11      |
 | 6/1         |         |           |        |         |
 | 6/2         |         |           |        |         |
 | 6/3         |         |           |        |         |
@@ -112,76 +112,76 @@
 |      | [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) | 65.1%  | 中等 |         |           |       | ✔️       |
 |      | [66. 加一](https://leetcode-cn.com/problems/plus-one/)       | 45.7%  | 简单 | ✔️       |           |       | ✔️       |
 |      | [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 39.2%  | 简单 | ✔️       |           |       | ✔️       |
-|      | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | 52.0%  | 简单 |         |           |       |         |
+|      | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | 52.0%  | 简单 |         |           |       | ✔️       |
 |      | [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/) | 59.3%  | 中等 |         |           |       |         |
-|      | [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors/) | 58.6%  | 中等 |         |           |       |         |
+|      | [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors/) | 58.6%  | 中等 |         |           |       | ✔️       |
 |      | [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) | 41.4%  | 困难 |         |           |       |         |
-|      | [78. 子集](https://leetcode-cn.com/problems/subsets/)        | 79.8%  | 中等 |         |           |       |         |
-|      | [79. 单词搜索](https://leetcode-cn.com/problems/word-search/) | 45.0%  | 中等 | ✔️       |           |       |         |
+|      | [78. 子集](https://leetcode-cn.com/problems/subsets/)        | 79.8%  | 中等 |         |           |       | ❕✔️      |
+|      | [79. 单词搜索](https://leetcode-cn.com/problems/word-search/) | 45.0%  | 中等 | ✔️       |           |       | ❕✔️      |
 |      | [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/) | 42.9%  | 困难 |         |           |       |         |
-|      | [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | 50.9%  | 简单 | ✔️❤️      |           |       |         |
-|      | [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) | 29.5%  | 中等 |         |           |       |         |
-|      | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 75.4%  | 简单 | ✔️       |           |       |         |
-|      | [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/) | 34.3%  | 中等 |         |           |       |         |
+|      | [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | 50.9%  | 简单 | ✔️❤️      |           |       | ✔️       |
+|      | [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) | 29.5%  | 中等 |         |           |       | ❕✔️      |
+|      | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 75.4%  | 简单 | ✔️       |           |       | ✔️       |
+|      | [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/) | 34.3%  | 中等 |         |           |       | ✔️       |
 |      |                                                              |        |      |         |           |       |         |
 
 ## 2. 第二页
 
 
 
-|      | 题目                                                         | 通过率 | 难度 | okJiang | tanzhikun | chaos |
-| ---- | ------------------------------------------------------------ | ------ | ---- | ------- | --------- | ----- |
-|      | [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/) | 55.0%  | 简单 |         |           |       |
-|      | [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 64.1%  | 中等 |         |           |       |
-|      | [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/) | 57.1%  | 中等 |         |           |       |
-|      | [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | 76.2%  | 简单 |         |           |       |
-|      | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 69.7%  | 中等 |         |           |       |
-|      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 | ✔️       |           |       |
-|      | [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) | 69.5%  | 中等 |         |           |       |
-|      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           |       |
-|      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 | ✔️       |           |       |
-|      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 | ✔️       |           |       |
-|      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       |
-|      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           |       |
-|      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 | ❕✔️      |           |       |
-|      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 |         |           |       |
-|      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           |       |
-|      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           |       |
-|      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           |       |
-|      | [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/) | 71.5%  | 简单 |         |           |       |
-|      | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 61.4%  | 中等 |         |           |       |
-|      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |       |
-|      | [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/) | 46.2%  | 困难 |         |           |       |
-|      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           |       |
-|      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |       |
-|      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           |       |
-|      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           |       |
-|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 |         |           |       |
-|      | [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 41.5%  | 中等 |         |           |       |
-|      | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)   | 56.8%  | 简单 |         |           |       |
-|      | [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | 58.8%  | 简单 |         |           |       |
-|      | [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/) | 48.9%  | 中等 |         |           |       |
-|      | [163. 缺失的区间](https://leetcode-cn.com/problems/missing-ranges/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 30.7%  | 简单 |         |           |       |
-|      | [166. 分数到小数](https://leetcode-cn.com/problems/fraction-to-recurring-decimal/) | 29.4%  | 中等 |         |           |       |
-|      | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 66.0%  | 简单 |         |           |       |
-|      | [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/) | 69.2%  | 简单 |         |           |       |
-|      | [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/) | 43.0%  | 简单 |         |           |       |
-|      | [179. 最大数](https://leetcode-cn.com/problems/largest-number/) | 40.8%  | 中等 |         |           |       |
-|      | [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) | 45.7%  | 中等 |         |           |       |
-|      | [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/) | 68.8%  | 简单 |         |           |       |
-|      | [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/) | 74.0%  | 简单 |         |           |       |
-|      | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 49.6%  | 中等 |         | ✔️         |       |
-|      | [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 53.9%  | 中等 |         | ✔️         |       |
-|      | [202. 快乐数](https://leetcode-cn.com/problems/happy-number/) | 61.4%  | 简单 |         |           |       |
-|      | [204. 计数质数](https://leetcode-cn.com/problems/count-primes/) | 38.3%  | 简单 |         |           |       |
-|      | [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 71.7%  | 简单 |         |           |       |
-|      | [207. 课程表](https://leetcode-cn.com/problems/course-schedule/) | 54.6%  | 中等 |         |           |       |
-|      | [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/) | 71.6%  | 中等 |         | ✔️         |       |
-|      | [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | 53.4%  | 中等 |         | ✔️         |       |
-|      | [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/) | 45.4%  | 困难 |         |           |       |
-|      | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 64.6%  | 中等 |         | ✔️         |       |
-|      | [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/) | 55.8%  | 简单 |         | ✔️         |       |
-|      |                                                              |        |      |         |           |       |
+|      | 题目                                                         | 通过率 | 难度 | okJiang | tanzhikun | chaos | Doddddz |
+| ---- | ------------------------------------------------------------ | ------ | ---- | ------- | --------- | ----- | ------- |
+|      | [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/) | 55.0%  | 简单 |         |           |       | ✔️       |
+|      | [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 64.1%  | 中等 |         |           |       | ✔️       |
+|      | [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/) | 57.1%  | 中等 |         |           |       | ✔️       |
+|      | [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | 76.2%  | 简单 |         |           |       | ✔️       |
+|      | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 69.7%  | 中等 |         |           |       | ✔️       |
+|      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 | ✔️       |           |       | ❕✔️      |
+|      | [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) | 69.5%  | 中等 |         |           |       |         |
+|      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           |       |         |
+|      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 | ✔️       |           |       |         |
+|      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 | ✔️       |           |       |         |
+|      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       |         |
+|      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           |       |         |
+|      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 | ❕✔️      |           |       |         |
+|      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 |         |           |       |         |
+|      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           |       |         |
+|      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           |       |         |
+|      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           |       |         |
+|      | [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/) | 71.5%  | 简单 |         |           |       |         |
+|      | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 61.4%  | 中等 |         |           |       |         |
+|      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |       |         |
+|      | [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/) | 46.2%  | 困难 |         |           |       |         |
+|      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           |       |         |
+|      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |       |         |
+|      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           |       |         |
+|      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           |       |         |
+|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 |         |           |       |         |
+|      | [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 41.5%  | 中等 |         |           |       |         |
+|      | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)   | 56.8%  | 简单 |         |           |       |         |
+|      | [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | 58.8%  | 简单 |         |           |       |         |
+|      | [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/) | 48.9%  | 中等 |         |           |       |         |
+|      | [163. 缺失的区间](https://leetcode-cn.com/problems/missing-ranges/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 30.7%  | 简单 |         |           |       |         |
+|      | [166. 分数到小数](https://leetcode-cn.com/problems/fraction-to-recurring-decimal/) | 29.4%  | 中等 |         |           |       |         |
+|      | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 66.0%  | 简单 |         |           |       |         |
+|      | [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/) | 69.2%  | 简单 |         |           |       |         |
+|      | [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/) | 43.0%  | 简单 |         |           |       |         |
+|      | [179. 最大数](https://leetcode-cn.com/problems/largest-number/) | 40.8%  | 中等 |         |           |       |         |
+|      | [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) | 45.7%  | 中等 |         |           |       |         |
+|      | [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/) | 68.8%  | 简单 |         |           |       |         |
+|      | [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/) | 74.0%  | 简单 |         |           |       |         |
+|      | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 49.6%  | 中等 |         | ✔️         |       |         |
+|      | [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 53.9%  | 中等 |         | ✔️         |       |         |
+|      | [202. 快乐数](https://leetcode-cn.com/problems/happy-number/) | 61.4%  | 简单 |         |           |       |         |
+|      | [204. 计数质数](https://leetcode-cn.com/problems/count-primes/) | 38.3%  | 简单 |         |           |       |         |
+|      | [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 71.7%  | 简单 |         |           |       |         |
+|      | [207. 课程表](https://leetcode-cn.com/problems/course-schedule/) | 54.6%  | 中等 |         |           |       |         |
+|      | [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/) | 71.6%  | 中等 |         | ✔️         |       |         |
+|      | [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | 53.4%  | 中等 |         | ✔️         |       |         |
+|      | [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/) | 45.4%  | 困难 |         |           |       |         |
+|      | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 64.6%  | 中等 |         | ✔️         |       |         |
+|      | [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/) | 55.8%  | 简单 |         | ✔️         |       |         |
+|      |                                                              |        |      |         |           |       |         |
 
 ## 3. 第三页
 
