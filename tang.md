@@ -603,3 +603,131 @@ public:
  */
 ```
 
+## 210. 课程表II
+
+dfs拓扑排序
+
+先构造一个二维数组，存放每个点的出度，然后遍历所有的点进行dfs，需要记录每个点的遍历状态，未搜索，搜索中与搜索完毕，如果存在搜索中的点再次被搜索，那么说明成环了。使用stack来保存遍历后的点，先被遍历的点必须先学习，使用stack来记录学习顺序。
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> edges;
+    stack<int> stk;
+    vector<int> isVisited;
+    bool valid;
+    void dfs(int crs){
+        isVisited[crs] = 1;
+        for(int t: edges[crs]){
+            if(isVisited[t] == 0) {
+                dfs(t);
+                if(!valid) return;//如果有环，则直接返回 
+            }
+            else if(isVisited[t] == 1){//存在环
+                valid = false;
+                return;
+            }
+        }
+        stk.push(crs);
+        isVisited[crs] = 2;
+    }
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        valid = true;
+        isVisited = vector<int>(numCourses, 0);
+        edges = vector<vector<int>>(numCourses, vector<int>());
+        for(vector<int> temp : prerequisites){
+            edges[temp[1]].push_back(temp[0]);
+        }
+        for(int i = 0; i < numCourses; i++){
+            if(isVisited[i] == 0) dfs(i);
+        }
+        vector<int> res;
+        if(!valid) return res;
+        while(!stk.empty()){
+            res.push_back(stk.top());
+            stk.pop();
+        }
+        return res;
+    }
+};
+```
+
+bfs
+
+记录下所有点的入度，思路是先找到入度为0的点t，通过队列记录，然后对于所有入度有t的点，入度减一，直到入度为0， 这时候表示可以选课，那么直接放入队列，等待放入结果中，不能直接放入结果数组中，需要用队列去判断当前图中还有没有入度为0的点，如果没有，则跳出循环，再判断是否所有点都被放入结果数组。对于有环的图，无法实现入度为0，所有当有点未被记录到结果数据时，说明当前图中有环，则直接返回空数组。
+
+```C++
+class Solution {
+public:
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        queue<int> q;
+        vector<vector<int>> edges(numCourses, vector<int>());
+        vector<int> indeg(numCourses, 0);
+        for(vector<int> temp : prerequisites){
+            edges[temp[1]].push_back(temp[0]);
+            indeg[temp[0]] ++;
+        }
+        for(int i = 0; i < numCourses; i++){
+            if(indeg[i] == 0)
+                q.push(i);
+        }
+        vector<int> res;
+        while(!q.empty()){
+            int u = q.front();
+            q.pop();
+            res.push_back(u);
+            for(int temp : edges[u]){
+                indeg[temp]--;
+                if(indeg[temp] == 0)
+                    q.push(temp);
+            }
+        }
+        if(res.size() != numCourses) return vector<int>({});
+        return res;
+    }
+};
+```
+
+## 215. 数组中的第K大最大元素
+
+堆排序
+
+```C++
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for(int num : nums){
+            if(pq.size() < k){
+                pq.push(num);
+            }else if(num > pq.top()){
+                pq.pop();
+                pq.push(num);
+            }
+        }
+        return pq.top();
+    }
+};
+```
+
+## 217. 存在重复元素
+
+使用map
+
+```go
+func containsDuplicate(nums []int) bool {
+    m := make(map[int]int)
+    for i := range nums {
+        _, b := m[nums[i]]
+        if b == false {
+            m[nums[i]] = 1
+        }else{
+            return true;
+        }
+    } 
+    return false;
+}
+```
+
+
+

@@ -32,10 +32,10 @@
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
 | 5/27        | 4       | 9         | 4      | 13      |
-| 5/28        | 4       |           | 2      |         |
+| 5/28        | 4       | 4         | 2      |         |
 | 5/29        | 2       |           | 2      |         |
 | 5/30        | 2       |           | 5      |         |
-| 5/31(today) |         |           |        |         |
+| 5/31(today) |         | 3         |        |         |
 | 6/1         |         |           |        |         |
 | 6/2         |         |           |        |         |
 | 6/3         |         |           |        |         |
@@ -177,10 +177,10 @@
 |      | [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 71.7%  | 简单 |         |           |       |
 |      | [207. 课程表](https://leetcode-cn.com/problems/course-schedule/) | 54.6%  | 中等 |         |           |       |
 |      | [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/) | 71.6%  | 中等 |         | ✔️         |       |
-|      | [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | 53.4%  | 中等 |         |           |       |
+|      | [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | 53.4%  | 中等 |         | ✔️         |       |
 |      | [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/) | 45.4%  | 困难 |         |           |       |
-|      | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 64.6%  | 中等 |         |           |       |
-|      | [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/) | 55.8%  | 简单 |         |           |       |
+|      | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 64.6%  | 中等 |         | ✔️         |       |
+|      | [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/) | 55.8%  | 简单 |         | ✔️         |       |
 |      |                                                              |        |      |         |           |       |
 
 ## 3. 第三页
