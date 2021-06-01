@@ -864,5 +864,102 @@ public:
 };
 ```
 
+## 2021/6/1
+
+### [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+
+- dp
+
+  ```cpp
+  class Solution {
+  public:
+      int coinChange(vector<int>& coins, int amount) {
+          vector<int> dp(amount+1);
+          dp[0] = 0;
+          for (int i = 1; i < dp.size(); ++ i) {
+              int tmp = INT_MAX;
+              for (int j = 0; j < coins.size(); ++ j) {
+                  if (i >= coins[j]&&dp[i-coins[j]] != -1)
+                      tmp = min(tmp, dp[i-coins[j]]+1);
+              }
+              if (tmp != INT_MAX)
+                  dp[i] = tmp;
+              else 
+                  dp[i] = -1;
+          }
+          return dp.back();
+      }
+  };
+  ```
+
+### [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+
+```cpp
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long long m = n;
+        if (m < 0) {
+            x = 1/x;
+            m = -m;
+        }
+        double t = x;
+        x = 1;
+        while (m) {
+            long long i = 2;
+            double t2 = t;
+            while (i < m) {
+                i *= 2;
+                t2 *= t2;
+            }
+            m -= i/2;
+            x *= t2;
+        }
+        return x;
+    }
+};
+```
+
+### [326. 3的幂](https://leetcode-cn.com/problems/power-of-three/)
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        if (n <= 0) return false;
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+        if (n == 1) return true;
+        return false;
+    }
+};
+```
+
+### [204. 计数质数](https://leetcode-cn.com/problems/count-primes/)
+
+```cpp
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<int> isPrime(n, 1);
+        
+        int ans = 0;
+        for (int i = 2; i < n; i ++) {
+            if (isPrime[i]) {
+                ans ++;
+                isPrime[i] = 0;
+                if ((long long)i*i < n) {
+                    for (long long j = i*i; j < n; j += i) {
+                        isPrime[j] = 0;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
 
 
