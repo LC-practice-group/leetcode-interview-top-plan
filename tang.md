@@ -729,5 +729,75 @@ func containsDuplicate(nums []int) bool {
 }
 ```
 
+## 523. 连续的子数组和
 
+尝试使用前缀和，超时。
+
+```C++
+class Solution {
+public:
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> s(n + 1, 0);
+        s[1] = nums[0];
+        for(int i = 2; i <= n; i++){
+            s[i] = s[i - 1] + nums[i - 1];//前缀和 s[i] = nums[0] + nums[1] + ... + nums[i - 1]
+        }
+        for(int i = 0; i <= n - 2; i++){
+            for(int j = i + 2; j <= n; j++){
+                if((s[j] - s[i]) % k == 0)
+                    return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+使用unordered_set优化，利用s[i]与s[j]对k取余相同
+$$
+s[i]\%k=t
+$$
+
+$$
+s[j]\%k=t
+$$
+
+
+
+即
+$$
+s[i]=m*k+t
+$$
+
+$$
+s[j]=n*k+t
+$$
+
+两式相减，得到
+$$
+s[i]-s[j]=(m-n)*k
+$$
+如果$i-j>=2$，则为满足条件的子数组
+
+```C++
+class Solution {
+public:
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        int n = nums.size();
+        if(n < 2) return false;
+        vector<int> s(n + 1, 0);
+        s[1] = nums[0];
+        for(int i = 2; i <= n; i++){
+            s[i] = s[i - 1] + nums[i - 1];//前缀和 s[i] = nums[0] + nums[1] + ... + nums[i - 1]
+        }
+        unordered_set<int> hs;
+        for(int i = 2; i <= n; i++){
+            hs.insert(s[i - 2] % k);
+            if(hs.count(s[i] % k)) return true;
+        }
+        return false;
+    }
+};
+```
 
