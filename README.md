@@ -5,7 +5,7 @@
 >
 > 超额计划：6/30 前刷完 145 题
 >
-> 剩余：30 天
+> 剩余：28天
 
 ## 说明
 
@@ -27,7 +27,7 @@
 
 | 日期       | okJiang | tanzhikun | chaos  | Doddddz |
 | ---------- | ------- | --------- | ------ | ------- |
-| all        | 24/100  | 23/100    | 32/100 | 45/100  |
+| all        | 28/100  | 23/100    | 32/100 | 45/100  |
 | 5/24       | 2       |           |        |         |
 | 5/25       | 3       | 3         | 3      |         |
 | 5/26       | 3       | 4         | 13     | 19      |
@@ -36,9 +36,9 @@
 | 5/29       | 2       |           | 2      |         |
 | 5/30       | 2       |           | 5      |         |
 | 5/31       |         | 3         | 3      | 11      |
-| 6/1(today) | 4       |           |        |         |
-| 6/2        |         |           |        |         |
-| 6/3        |         |           |        |         |
+| 6/1        | 4       |           |        |         |
+| 6/2        | 4       |           |        |         |
+| 6/3(today) |         |           |        |         |
 | 6/4        |         |           |        |         |
 | 6/5        |         |           |        |         |
 | 6/6        |         |           |        |         |
@@ -93,7 +93,7 @@
 |      | [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) | 55.1%  | 困难 |         | ✔️         |       | ✔️       |
 |      | [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 54.0%  | 简单 |         | ✔️         | ✔️     | ✔️       |
 |      | [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/) | 40.7%  | 简单 |         | ✔️         | ✔️     |         |
-|      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 |         |           | ✔️⭐️    |         |
+|      | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 20.5%  | 中等 | ✔️       |           | ✔️⭐️    |         |
 |      | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 41.7%  | 中等 | ✔️       | ✔️         | ✔️     | ✔️       |
 |      | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 42.5%  | 中等 | ✔️       | ✔️         | ✔️     | ✔️       |
 |      | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 62.5%  | 中等 |         |           | ✔️     |         |
@@ -144,7 +144,7 @@
 |      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       |         |
 |      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           |       |         |
 |      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 | ❕✔️      |           |       |         |
-|      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 |         |           |       |         |
+|      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 | ✖️       |           |       |         |
 |      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           |       |         |
 |      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           |       |         |
 |      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           |       |         |
@@ -191,7 +191,7 @@
 |      | [227. 基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii/) | 43.4%  | 中等 |         |           |       |
 |      | [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | 73.5%  | 中等 | ✔️       |           |       |
 |      | [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) | 47.8%  | 简单 |         |           |       |
-|      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 |         |           |       |
+|      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 | ✔️       |           |       |
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |       |
 |      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 | ✖️       |           |       |
 |      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️❤️      |           |       |
@@ -199,7 +199,7 @@
 |      | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 63.9%  | 简单 |         |           |       |
 |      | [251. 展开二维向量](https://leetcode-cn.com/problems/flatten-2d-vector/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 53.7%  | 中等 |         |           |       |
 |      | [253. 会议室 II](https://leetcode-cn.com/problems/meeting-rooms-ii/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 48.6%  | 中等 |         |           |       |
-|      | [268. 丢失的数字](https://leetcode-cn.com/problems/missing-number/) | 61.1%  | 简单 |         |           |       |
+|      | [268. 丢失的数字](https://leetcode-cn.com/problems/missing-number/) | 61.1%  | 简单 | ✔️       |           |       |
 |      | [269. 火星词典](https://leetcode-cn.com/problems/alien-dictionary/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 33.8%  | 困难 |         |           |       |
 |      | [277. 搜寻名人](https://leetcode-cn.com/problems/find-the-celebrity/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 56.9%  | 中等 |         |           |       |
 |      | [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/) | 60.5%  | 中等 |         |           |       |

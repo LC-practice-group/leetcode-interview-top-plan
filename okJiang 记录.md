@@ -961,5 +961,143 @@ public:
 };
 ```
 
+## 2021/6/2
+
+### [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
+
+```cpp
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if (nums.empty()) return 0;
+        unordered_set<int> s;
+        for (int i = 0; i < nums.size(); ++ i) {
+            s.insert(nums[i]);
+        }
+        int ans = 1;
+        int cnt;
+        for (auto num: s) {
+            if (!s.count(num-1)) {
+                int t = 1;
+                while (s.count(num+t)) {
+                    t ++;
+                }
+                ans = max(ans, t);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/)
+
+```cpp
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        if (dividend == INT_MIN && divisor == -1) 
+            return INT_MAX;
+        if (divisor == INT_MIN) {
+            if (dividend == INT_MIN) return 1;
+            return 0;
+        }
+            
+        int isNegative = -1;
+        long long a, b; a = dividend; b = divisor;
+        if (a < 0) {
+            a = -a;
+            isNegative = -isNegative;
+        }
+        if (b < 0) {
+            b = -b;
+            isNegative = -isNegative;
+        }
+        long long nums = 1;
+        long long sum = b;
+        vector<pair<long long, long long>> vp;
+        vp.push_back({1, sum});
+        while (sum < a) {
+            sum = sum + sum;
+            nums = nums + nums;
+            vp.push_back({nums, sum});
+        }##
+        long long ans = 0;
+        for (int i = vp.size()-1; i >= 0; -- i) {
+            // cout << vp[i].second << ' ';
+            if (a < vp[i].second) continue;
+            a -= vp[i].second;
+            ans += vp[i].first;
+        }
+        if (isNegative == 1) ans = -ans;
+        return ans;
+    }
+};
+```
+
+### [268. 丢失的数字](https://leetcode-cn.com/problems/missing-number/)
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        
+        int n = nums.size();
+        while (1) {
+            int i;
+            for (i = 0; i < n; ++ i) {
+                if (nums[i] == i || nums[i] == n) continue;
+                break;
+            }
+            if (i == n) break;
+            while (nums[i] != i && nums[i] != n) {
+                swap(nums[i], nums[nums[i]]);
+            }
+        }
+        for (int i = 0; i < n; ++ i) {
+            if (nums[i] == n) return i;
+        }
+        return n;
+    }
+};
+```
+
+### [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (!root) return root;
+        if (root == p||root == q) return root;
+        
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        if (left != p && left != q && left != nullptr) return left;
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (right != p && right != q && right != nullptr) return right;
+        
+        bool leftIsPQ = false;
+        bool rightIsPQ = false;
+        if (left == p||left == q) leftIsPQ = true;
+        if (right == p||right == q) rightIsPQ = true;
+        
+        if (leftIsPQ && rightIsPQ) return root;
+        if (leftIsPQ) return left;
+        if (rightIsPQ) return right;
+        return nullptr;
+
+    }
+};
+```
+
 
 
