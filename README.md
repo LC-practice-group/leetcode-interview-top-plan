@@ -27,7 +27,7 @@
 
 | 日期       | okJiang | tanzhikun | chaos  | Doddddz |
 | ---------- | ------- | --------- | ------ | ------- |
-| all        | 28/100  | 23/100    | 42/100 | 45/100  |
+| all        | 28/100  | 23/100    | 42/100 | 51/100  |
 | 5/24       | 2       |           |        |         |
 | 5/25       | 3       | 3         | 3      |         |
 | 5/26       | 3       | 4         | 13     | 19      |
@@ -38,7 +38,7 @@
 | 5/31       |         | 3         | 3      | 11      |
 | 6/1        | 4       |           | 2      |         |
 | 6/2        | 4       | 1         | 4      |         |
-| 6/3(today) | 2       |           | 4      |         |
+| 6/3(today) | 2       |           | 4      | 6       |
 | 6/4        |         |           |        |         |
 | 6/5        |         |           |        |         |
 | 6/6        |         |           |        |         |
@@ -138,13 +138,13 @@
 |      | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 69.7%  | 中等 |         |           |       | ✔️       |
 |      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 | ✔️       |           |       | ❕✔️      |
 |      | [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) | 69.5%  | 中等 |         |           |       |         |
-|      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           |       |         |
-|      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 | ✔️       |           |       |         |
-|      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 | ✔️       |           |       |         |
-|      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       |         |
-|      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           |       |         |
+|      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           |       | ✔️       |
+|      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 | ✔️       |           |       | ✔️       |
+|      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 | ✔️       |           |       | ✔️       |
+|      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       | ✔️       |
+|      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           |       | ✔️       |
 |      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 | ❕✔️      |           |       |         |
-|      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 | ✖️       |           |       |         |
+|      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 | ✖️       |           |       | ✔️       |
 |      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           |       |         |
 |      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           |       |         |
 |      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           |       |         |

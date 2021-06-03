@@ -1225,3 +1225,160 @@ class Solution {
 }
 ```
 
+## 116. 
+
+```java
+
+```
+
+## 118. 杨辉三角
+
+```java
+class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+
+    public List<List<Integer>> generate(int k) {
+        int[][] q  = new int[k + 1][k + 1];
+        q[0][0] = 1;
+        
+        for (int i = 1; i <= k; i++) {
+            for (int j = 1; j <= i; j++) {
+                q[i][j] = q[i - 1][j - 1] + q[i - 1][j];
+            }
+        }
+
+        for (int i = 1; i <= k; i++) {
+            List<Integer> tmp = new ArrayList<>();
+            for (int j = 1; j <= i; j++) {
+                tmp.add(q[i][j]);
+            }
+            ans.add(tmp);
+        }
+
+        return ans;
+    }
+}
+```
+
+## 121. 买卖股票的最佳时机
+
+```java
+class Solution {
+    public int maxProfit(int[] q) {
+        int max = -0x3f3f3f3f, min = 0x3f3f3f3f;
+        
+        for (var i : q) {
+            min = Math.min(min, i);
+            max = Math.max(max, i - min);
+        }
+
+        return max;
+    }
+}
+```
+
+## 122. 买卖股票的最佳时机 II
+
+```java
+class Solution {
+    public int maxProfit(int[] q) {
+        int[][] dp = new int[q.length + 1][2];
+
+        dp[0][0] = 0; dp[0][1] = -0x3f3f3f3f;
+
+        for (int i = 1; i <= q.length; i++) {
+            for (int j = 0; j < 2; j++) {
+                dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - q[i - 1]);
+                dp[i][0] = Math.max(dp[i - 1][1] + q[i - 1], dp[i - 1][0]);
+            }
+        }
+
+        return dp[q.length][0];
+    }
+}
+```
+
+## 124. 二叉树中的最大路径和
+
+```java
+class Solution {
+    private int max = -0x3f3f3f3f;
+
+    public int maxPathSum(TreeNode root) {
+        dfs(root);
+
+        return max;
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null) return 0;
+
+        int l = dfs(node.left), r = dfs(node.right);
+        if (l + node.val > 0 && node.val + r > 0) {
+            max = Math.max(l + r + node.val, max);
+        } else if (l + node.val < 0 && r + node.val < 0) {
+            max = Math.max(max, node.val);
+            return 0;
+        } 
+        max = Math.max(Math.max(l + node.val, r + node.val), max);
+        return Math.max(node.val + l, node.val + r);
+    }
+}
+```
+
+## 125. 验证回文串
+
+```java
+class Solution {
+    public boolean isPalindrome(String s) {
+        char[] c = s.toCharArray();
+        int cnt = 0;
+        for (int i = 0; i < c.length; i++) {
+            if ((c[i] >= 'a' && c[i] <= 'z') ||(c[i] >= '0' && c[i] <= '9') || (c[i] >= 'A' && c[i] <= 'Z')) {
+                if (c[i] >= 'A' && c[i] <= 'Z') c[cnt++] = (char) (c[i] + 'a' - 'A');
+                else c[cnt++] = c[i];
+            }
+        }
+
+        int l = (cnt - 1) >> 1, r = l + 1;
+        if ((cnt & 1) == 1) {
+            l -= 1;
+        }
+        while (l > -1 && r < cnt && (c[l] == c[r])) {
+            l--; r++;
+        }
+
+        return l == -1;
+    }
+}
+```
+
+## 127. 
+
+```java
+
+```
+
+## 128. 最长连续序列
+
+```java
+class Solution {
+    private Set<Integer> set = new HashSet<>();
+
+    public int longestConsecutive(int[] q) {
+        int max = 0;
+        for (int i : q) set.add(i);
+
+        for (var i : q) {
+            if (set.contains(i) && !set.contains(i - 1)) {
+                int l = i, r = i;
+                while (set.contains(r)) set.remove(r++);
+                max = Math.max(max, r - l);
+            }
+        }
+
+        return max;
+    }
+}
+```
+
