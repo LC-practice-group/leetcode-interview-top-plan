@@ -1351,3 +1351,136 @@ public:
 };
 ```
 
+## [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
+
+```c++
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        int n  = s.size();
+        int nt = t.size();
+        if(n<nt) return "";
+        //滑动窗口+hash
+        unordered_map<char,int> mp;
+        for(auto ch:t){
+            mp[ch]++;
+        }
+
+        int cnt = nt;//还需要匹配的个数
+        //滑动窗口 
+        int l  =0;
+        int r = 0;
+
+        int L = 0;
+        int R = INT_MAX;//作为无匹配的区分边界
+
+        //滑动
+        while(r<n){
+            if(r<n&&mp[s[r]]>0) --cnt;
+            mp[s[r]]--;
+            ++r;//影响了最后的R-L不需要加1
+            while(cnt==0&&l<=r){
+                if(r-l<R-L){
+                    L = l;
+                    R = r;
+                }
+                if(mp.find(s[l])!=mp.end()&&mp[s[l]]==0) ++cnt;
+                if(mp.count(s[l])) mp[s[l]]++;
+                ++l;
+            }
+        }
+        return R==INT_MAX?"":s.substr(L,R-L);
+    }
+};
+```
+
+## [78. 子集](https://leetcode-cn.com/problems/subsets/)
+
+```c++
+class Solution {
+public: 
+    vector<vector<int>> ans;
+    void dfs(vector<int>& nums,int cur,vector<int>& now){
+        if(cur>nums.size()) return;
+        ans.push_back(now);
+        for(int i=cur;i<nums.size();++i){
+            now.push_back(nums[i]);
+            dfs(nums,i+1,now);
+            now.pop_back();
+        }
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        //dfs
+        vector<int> tmp;
+        dfs(nums,0,tmp);
+        return ans;
+    }
+};
+```
+
+## [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
+
+```c++
+class Solution {
+public:
+    bool bfs(vector<vector<char>>& board, string word,int cur,int i,int j,vector<vector<int>>& mark){
+        if(cur==word.size()) return true;
+        if(i<0||i>=board.size()) return false;
+        if(j<0||j>=board[0].size()) return false;
+        
+
+        if(board[i][j]!=word[cur]) return false;
+        if(mark[i][j]) return false;
+
+        mark[i][j] =1;
+        bool res = bfs(board,word,cur+1,i-1,j,mark)||
+            bfs(board,word,cur+1,i+1,j,mark)||
+            bfs(board,word,cur+1,i,j-1,mark)||
+            bfs(board,word,cur+1,i,j+1,mark);
+        mark[i][j] = 0;
+        return res;
+    }
+    bool exist(vector<vector<char>>& board, string word) {
+        //bfs四个方向搜 不允许重复使用
+        int n  = board.size();
+        int m  = board[0].size();
+        vector<vector<int>> mark(n,vector<int>(m,0));
+        for(int i = 0;i<n;++i){
+            for(int j =0;j<m;++j){
+                if(bfs(board,word,0,i,j,mark)) return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+## [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+
+```c++
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        //逆序 从后往前
+        int cur1 = m-1;
+        int cur2 = n-1;
+        while(cur1>=0&&cur2>=0){
+            if(nums1[cur1]>nums2[cur2]){
+                nums1[cur1+cur2+1] = nums1[cur1];
+                --cur1;
+            }
+            else{
+                nums1[cur1+cur2+1] = nums2[cur2];
+                --cur2;
+            }
+        }
+        if(cur1<0){
+            while(cur2>=0){
+                nums1[cur2]=nums2[cur2];
+                --cur2;
+            } 
+        }
+    }
+};
+```
+
