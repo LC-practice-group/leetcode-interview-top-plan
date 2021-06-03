@@ -1190,3 +1190,164 @@ public:
 };
 ```
 
+##　[62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
+
+```c++
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<vector<int>> dp(m,vector<int>(n,1));
+        
+        for(int i=1;i<m;++i){
+            for(int j=1;j<n;++j){
+                dp[i][j] = dp[i-1][j]+dp[i][j-1];
+            }
+        }
+        return dp[m-1][n-1];
+    }
+};
+```
+
+## [66. 加一](https://leetcode-cn.com/problems/plus-one/)
+
+```c++
+class Solution {
+public:
+    void add(int&a,int& flag){
+        if(a>=0&&a<=8){
+            ++a;
+            flag = 0;
+            return;
+        }
+        else {
+            a=0;
+            flag = 1;
+        }
+    }
+
+
+    vector<int> plusOne(vector<int>& digits) {
+        reverse(digits.begin(),digits.end());
+        int flag = 1;
+        int cur = 0;
+        int n = digits.size();  
+        while(flag&&cur<n){
+            add(digits[cur],flag);
+            ++cur;
+        }
+        if(flag==1){
+            digits.push_back(1);
+        }
+
+        reverse(digits.begin(),digits.end());
+        return digits;
+    }
+};
+```
+
+##　[69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)
+
+```c++
+class Solution {
+public:
+    int mySqrt(int x) {
+        long long l = 0;
+        long long r = x;
+        while(r>l){
+            long long mid = (l+r+1)/2;
+            if(mid*mid<=x) l = mid;  
+            else r = mid-1;
+        }
+        return l;
+    }
+};
+```
+
+## [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+
+```c++
+class Solution {
+public:
+    int climbStairs(int n) {
+        //状压dp
+        if(n==1) return 1;
+        if(n==2) return 2;
+        int prepre = 1;
+        int pre = 2;
+        for(int i=3;i<=n;++i){
+            int tmp = pre + prepre;
+            prepre = pre;
+            pre = tmp;
+        }
+        return pre;
+    }
+};
+```
+
+## [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/)
+
+```c++
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        //利用第一列的解法好好品一下
+        int row0 = 0;
+        int col0 = 0;
+        int r = matrix.size();
+        int c = matrix[0].size();
+
+        for(int i=0;i<r;++i){
+            if(matrix[i][0]==0) col0 = 1;
+        }
+
+        for(int i=1;i<r;++i){
+            for(int j=1;j<c;++j){
+                if(matrix[i][j]==0){
+                    matrix[0][j]=0;
+                    matrix[i][0]=0;
+                }
+            }
+        }
+
+        for(int i=r-1;i>=0;++i){
+            for(int j=1;j<c;++j){
+                if(matrix[0][j]==0||matrix[i][0]==0){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        if(col0){
+            for(int i=0;i<r;++i) matrix[i][0] = 0;
+        }
+    }
+};
+```
+
+## [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors/)
+
+```c++
+class Solution {
+public:
+    void quickSort(vector<int>& nums,int l,int r){
+        if(l>=r) return;
+        int s = l;
+        int e = r;
+        int piv = nums[l];
+        while(s<e){
+            while(s<e&&nums[e]>=piv) e--;
+            while(s<e&&nums[s]<=piv) s++;
+            if(s<e) swap(nums[s],nums[e]);
+        }
+        nums[l] = nums[s];
+        nums[s] = piv;
+        quickSort(nums,l,s-1);
+        quickSort(nums,s+1,r);
+        
+    }
+    void sortColors(vector<int>& nums) {
+        quickSort(nums,0,nums.size()-1);
+    }
+};
+```
+
