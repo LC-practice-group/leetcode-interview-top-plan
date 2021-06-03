@@ -38,7 +38,7 @@
 | 5/31       |         | 3         | 3      | 11      |
 | 6/1        | 4       |           | 2      |         |
 | 6/2        | 4       | 1         | 4      |         |
-| 6/3(today) |         |           | 4      |         |
+| 6/3(today) | 2       |           | 4      |         |
 | 6/4        |         |           |        |         |
 | 6/5        |         |           |        |         |
 | 6/6        |         |           |        |         |
@@ -180,7 +180,7 @@
 |      | [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | 53.4%  | 中等 |         | ✔️         |       |         |
 |      | [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/) | 45.4%  | 困难 |         |           |       |         |
 |      | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 64.6%  | 中等 |         | ✔️         |       |         |
-|      | [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/) | 55.8%  | 简单 |         | ✔️         |       |         |
+|      | [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/) | 55.8%  | 简单 | ✔️       | ✔️         |       |         |
 |      |                                                              |        |      |         |           |       |         |
 
 ## 3. 第三页
@@ -195,7 +195,7 @@
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |       |
 |      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 | ✖️       |           |       |
 |      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️❤️      |           |       |
-|      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 |         |           |       |
+|      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 | ✔️       |           |       |
 |      | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 63.9%  | 简单 |         |           |       |
 |      | [251. 展开二维向量](https://leetcode-cn.com/problems/flatten-2d-vector/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 53.7%  | 中等 |         |           |       |
 |      | [253. 会议室 II](https://leetcode-cn.com/problems/meeting-rooms-ii/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 48.6%  | 中等 |         |           |       |
