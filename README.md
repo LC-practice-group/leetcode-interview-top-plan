@@ -27,7 +27,7 @@
 
 | 日期       | okJiang | tanzhikun | chaos  | Doddddz |
 | ---------- | ------- | --------- | ------ | ------- |
-| all        | 28/100  | 23/100    | 46/100 | 51/100  |
+| all        | 28/100  | 23/100    | 52/100 | 51/100  |
 | 5/24       | 2       |           |        |         |
 | 5/25       | 3       | 3         | 3      |         |
 | 5/26       | 3       | 4         | 13     | 19      |
@@ -40,7 +40,7 @@
 | 6/2        | 4       | 1         | 4      |         |
 | 6/3(today) | 2       |           | 4      | 6       |
 | 6/4        |         |           | 4      |         |
-| 6/5        |         |           |        |         |
+| 6/5        |         |           | 6      |         |
 | 6/6        |         |           |        |         |
 | 6/7        |         |           |        |         |
 | 6/8        |         |           |        |         |
@@ -131,14 +131,14 @@
 
 |      | 题目                                                         | 通过率 | 难度 | okJiang | tanzhikun | chaos | Doddddz |
 | ---- | ------------------------------------------------------------ | ------ | ---- | ------- | --------- | ----- | ------- |
-|      | [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/) | 55.0%  | 简单 |         |           |       | ✔️       |
-|      | [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 64.1%  | 中等 |         |           |       | ✔️       |
-|      | [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/) | 57.1%  | 中等 |         |           |       | ✔️       |
-|      | [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | 76.2%  | 简单 |         |           |       | ✔️       |
+|      | [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/) | 55.0%  | 简单 |         |           | ✔️     | ✔️       |
+|      | [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 64.1%  | 中等 |         |           | ✔️     | ✔️       |
+|      | [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/) | 57.1%  | 中等 |         |           | ✔️     | ✔️       |
+|      | [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | 76.2%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 69.7%  | 中等 |         |           |       | ✔️       |
-|      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 | ✔️       |           |       | ❕✔️      |
+|      | [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | 75.3%  | 简单 | ✔️       |           | ✔️     | ❕✔️      |
 |      | [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/) | 69.5%  | 中等 |         |           |       |         |
-|      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           |       | ✔️       |
+|      | [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/) | 71.0%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | 56.8%  | 简单 | ✔️       |           |       | ✔️       |
 |      | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 67.7%  | 简单 | ✔️       |           |       | ✔️       |
 |      | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/) | 43.7%  | 困难 |         |           |       | ✔️       |

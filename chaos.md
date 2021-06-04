@@ -1712,3 +1712,236 @@ public:
 };
 ```
 
+## [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool judge(TreeNode* left,TreeNode* right){
+        if(!left&&!right) return true;
+        if(!right&&left) return false;
+        if(right&&!left) return false;
+        if(right->val!=left->val) return false; 
+        return judge(left->right,right->left)&&judge(left->left,right->right);
+    }
+    bool isSymmetric(TreeNode* root) {
+        if(!root) return true;
+        return judge(root->left,root->right);
+    }
+};
+```
+
+## [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if(!root) return {};
+        queue<TreeNode*> q;
+        vector<vector<int>> ans;
+        q.push(root);
+        while(!q.empty()){
+            int n = q.size();
+            vector<int> tmp;
+            for(int i =0;i<n;++i){
+                TreeNode* cur=q.front();
+                q.pop();
+                tmp.push_back(cur->val);
+                if(cur->left) q.push(cur->left);
+                if(cur->right) q.push(cur->right);
+            }
+            ans.push_back(tmp);
+        }
+        return ans;
+    }
+};
+```
+
+## [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if(!root) return {};
+        vector<vector<int>> ans;
+        deque<TreeNode*> q;
+        q.emplace_back(root);
+        int flag = 0;//标注顺序还是逆序
+        while(!q.empty()){
+            vector<int> tmp;
+            int n = q.size();
+            for(int i=0;i<n;++i){
+                TreeNode* cur = q.front();q.pop_front();
+                tmp.emplace_back(cur->val);
+                if(cur->left) q.emplace_back(cur->left);
+                if(cur->right) q.emplace_back(cur->right);
+            }
+            if(flag) reverse(tmp.begin(),tmp.end());
+            ans.emplace_back(tmp);
+            flag^=1;
+        }
+        return ans;
+    }
+};
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if(!root) return {};
+        vector<vector<int>> ans;
+        queue<TreeNode*> q;
+        q.emplace(root);
+        int flag = 0;//标注顺序还是逆序
+        while(!q.empty()){
+            deque<int> tmp;
+            int n = q.size();
+            for(int i=0;i<n;++i){
+                TreeNode* cur = q.front();q.pop();
+                if(!flag) tmp.emplace_back(cur->val);
+                else tmp.emplace_front(cur->val);
+                if(cur->left) q.emplace(cur->left);
+                if(cur->right) q.emplace(cur->right);
+            }
+            ans.emplace_back(vector<int>{tmp.begin(),tmp.end()});
+            flag^=1;
+        }
+        return ans;
+    }
+};
+```
+
+## [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int depth(TreeNode* cur,int d){
+        if(!cur) return d-1;
+        int ld= depth(cur->left,d+1);
+        int rd= depth(cur->right,d+1);
+        return max(ld,rd);
+        }
+    int maxDepth(TreeNode* root) {
+        return depth(root,1);
+    }
+};
+```
+
+## [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* build(vector<int>& nums,int l,int r){
+        if(r<l) return nullptr;
+        int mid = (l+r)>>1;
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->left = build(nums,l,mid-1);
+        root->right = build(nums,mid+1,r);
+        return root;
+    }
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        //找到中间数作为根，递归
+        int n = nums.size();
+        return build(nums,0,n-1);
+    }
+};
+```
+
+## [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/)
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> ans;
+        for(int i=1;i<=numRows;++i){
+            vector<int> row(i,1);
+            if(i==1){
+                ans.emplace_back(row);
+                continue;
+            }
+            else{
+                for(int j=0;j<i;++j){
+                    int pre = 0;
+                    int now = 0;
+                    if(j-1>=0) pre = ans[i-2][j-1];
+                    if(j<ans[i-2].size()) now = ans[i-2][j];
+                    row[j]  = pre+now;
+                }
+                ans.emplace_back(row);
+            }
+        }
+        return ans;
+    }
+};
+```
+
