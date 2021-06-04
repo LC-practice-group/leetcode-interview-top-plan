@@ -1455,6 +1455,42 @@ public:
 };
 ```
 
+## [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+
+```c++
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        //单调栈 维护一个单调递增的栈 有元素出栈时说明那些矩形无法向左和右延申了
+        int ans = 0;
+        stack<pair<int,int>> st;
+        heights.push_back(0);//哨兵
+        int n = heights.size();
+        for(int i=0;i<n;++i){
+            if(st.empty()) st.push(make_pair(heights[i],i));
+            else{
+                while(!st.empty()&&st.top().first>heights[i]){
+                    auto [top,idx] = st.top();
+                    if(heights[i]>=top) st.push(make_pair(heights[i],i)); 
+                    else{
+                        //说明有元素要出栈了
+                        st.pop();//出栈
+                        int pre = -1;//之前的下标
+                        if(!st.empty()) pre = st.top().second; 
+                        int tmp = top*(i-pre-1);
+                        ans = max(tmp,ans);
+                    }
+                }
+                st.push(make_pair(heights[i],i));
+            }
+        }
+        return ans;
+    }
+};
+```
+
+
+
 ## [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
 
 ```c++
@@ -1480,6 +1516,198 @@ public:
                 --cur2;
             } 
         }
+    }
+};
+```
+
+## [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/)
+
+```c++
+class Solution {
+public:
+    int numDecodings(string s) {
+        //dp dp[i]依赖dp[i-1]和dp[i-2]
+        //dp[i]表示到下标i位置的解码个数
+        int n = s.size();
+        vector<int> dp(n,0);
+        if(s[0]<='0'||s[0]>'9') return 0;
+        dp[0] =1;
+        if(n==1) return dp[0];
+        //n>=2
+        if(s[1]>='1'&&s[1]<='9') dp[1]++;
+        int two = (s[0]-'0')*10+s[1]-'0';
+        if(two>=1&&two<=26) dp[1]++;
+
+
+        for(int i=2;i<n;++i){
+            int pre = dp[i-1];
+            int prepre = dp[i-2];
+            //判断dp[i-1]的有效性
+            if(s[i]=='0') pre=0;
+            //判断dp[i-2]的有效性
+            int two = (s[i-1]-'0')*10+s[i]-'0';
+            if(s[i-1]=='0'||two<1||two>26) prepre=0;
+            dp[i] = pre+prepre;
+        }
+        return dp[n-1];
+    } 
+};
+```
+
+## [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+	//递归
+    vector<int> ans;
+    void dfs(TreeNode* root){
+        if(!root) return;
+        dfs(root->left);
+        ans.push_back(root->val);
+        dfs(root->right);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        dfs(root);
+        return ans;
+    }
+};
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    
+    vector<int> inorderTraversal(TreeNode* root) {
+        //非递归
+        if(!root) return {};
+        vector<int> ans;
+        stack<TreeNode*> st;
+        TreeNode* cur  = root;
+        while(!st.empty()||cur){
+            while(cur){
+                st.push(cur);
+                cur = cur->left;
+            }
+            cur = st.top();
+            st.pop();
+            ans.push_back(cur->val);
+            cur = cur->right;
+        }
+        return ans;
+    }
+};
+```
+
+## [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+
+```c++
+//1.
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool dfs(TreeNode* root,long long lower,long long upper){
+        //找到左树的最大值 和右树的最小值
+        if(!root) return true;
+        if(root->val<=lower||root->val>=upper) return false;
+        return dfs(root->left,lower,root->val)&&dfs(root->right,root->val,upper);
+    }
+    bool isValidBST(TreeNode* root) {
+        //递归
+        return dfs(root,LONG_MIN,LONG_MAX);
+    }
+};
+//2.
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    long long pre = LONG_MIN;
+    bool dfs(TreeNode* root){
+        //找到左树的最大值 和右树的最小值
+        if(!root) return true;
+        if(!dfs(root->left)) return false;
+        if(root->val<=pre) return false;
+        pre = root->val;
+        return dfs(root->right);
+    }
+    bool isValidBST(TreeNode* root) {
+        //中序过程中找答案
+        return dfs(root);
+    }
+};
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        //中序过程中找答案 非递归
+        if(!root) return true;
+        stack<TreeNode*> st;
+        TreeNode* cur = root;
+        long long pre = LONG_MIN;
+        while(!st.empty()||cur){
+            while(cur){
+                st.push(cur);
+                cur = cur->left;
+            }
+            cur = st.top();
+            st.pop();
+            if(cur->val<=pre) return false;
+            pre = cur->val;
+            cur = cur->right;
+        }
+        return true;
     }
 };
 ```
