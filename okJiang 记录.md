@@ -1099,5 +1099,48 @@ public:
 };
 ```
 
+## 2021/6/3
+
+### [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/)
+
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> s;
+        for (int i = 0; i < nums.size(); ++ i) {
+            if (s.count(nums[i]))
+                return true;
+            s.insert(nums[i]);
+        }
+        return false;
+    }
+};
+```
+
+### [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int col = matrix.size();
+        int row = matrix[0].size();
+        int x = 0; int y = row-1;
+        while (x < col && y >= 0) {
+            if (matrix[x][y] == target) {
+                return true;
+            }
+            if (matrix[x][y] > target) {
+                y --;
+            } else {
+                x ++;
+            }
+        }
+        return false;
+    }
+};
+```
+
 
 

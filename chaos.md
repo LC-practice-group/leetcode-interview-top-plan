@@ -1351,3 +1351,597 @@ public:
 };
 ```
 
+## [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
+
+```c++
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        int n  = s.size();
+        int nt = t.size();
+        if(n<nt) return "";
+        //滑动窗口+hash
+        unordered_map<char,int> mp;
+        for(auto ch:t){
+            mp[ch]++;
+        }
+
+        int cnt = nt;//还需要匹配的个数
+        //滑动窗口 
+        int l  =0;
+        int r = 0;
+
+        int L = 0;
+        int R = INT_MAX;//作为无匹配的区分边界
+
+        //滑动
+        while(r<n){
+            if(r<n&&mp[s[r]]>0) --cnt;
+            mp[s[r]]--;
+            ++r;//影响了最后的R-L不需要加1
+            while(cnt==0&&l<=r){
+                if(r-l<R-L){
+                    L = l;
+                    R = r;
+                }
+                if(mp.find(s[l])!=mp.end()&&mp[s[l]]==0) ++cnt;
+                if(mp.count(s[l])) mp[s[l]]++;
+                ++l;
+            }
+        }
+        return R==INT_MAX?"":s.substr(L,R-L);
+    }
+};
+```
+
+## [78. 子集](https://leetcode-cn.com/problems/subsets/)
+
+```c++
+class Solution {
+public: 
+    vector<vector<int>> ans;
+    void dfs(vector<int>& nums,int cur,vector<int>& now){
+        if(cur>nums.size()) return;
+        ans.push_back(now);
+        for(int i=cur;i<nums.size();++i){
+            now.push_back(nums[i]);
+            dfs(nums,i+1,now);
+            now.pop_back();
+        }
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        //dfs
+        vector<int> tmp;
+        dfs(nums,0,tmp);
+        return ans;
+    }
+};
+```
+
+## [79. 单词搜索](https://leetcode-cn.com/problems/word-search/)
+
+```c++
+class Solution {
+public:
+    bool bfs(vector<vector<char>>& board, string word,int cur,int i,int j,vector<vector<int>>& mark){
+        if(cur==word.size()) return true;
+        if(i<0||i>=board.size()) return false;
+        if(j<0||j>=board[0].size()) return false;
+        
+
+        if(board[i][j]!=word[cur]) return false;
+        if(mark[i][j]) return false;
+
+        mark[i][j] =1;
+        bool res = bfs(board,word,cur+1,i-1,j,mark)||
+            bfs(board,word,cur+1,i+1,j,mark)||
+            bfs(board,word,cur+1,i,j-1,mark)||
+            bfs(board,word,cur+1,i,j+1,mark);
+        mark[i][j] = 0;
+        return res;
+    }
+    bool exist(vector<vector<char>>& board, string word) {
+        //bfs四个方向搜 不允许重复使用
+        int n  = board.size();
+        int m  = board[0].size();
+        vector<vector<int>> mark(n,vector<int>(m,0));
+        for(int i = 0;i<n;++i){
+            for(int j =0;j<m;++j){
+                if(bfs(board,word,0,i,j,mark)) return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+## [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+
+```c++
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        //单调栈 维护一个单调递增的栈 有元素出栈时说明那些矩形无法向左和右延申了
+        int ans = 0;
+        stack<pair<int,int>> st;
+        heights.push_back(0);//哨兵
+        int n = heights.size();
+        for(int i=0;i<n;++i){
+            if(st.empty()) st.push(make_pair(heights[i],i));
+            else{
+                while(!st.empty()&&st.top().first>heights[i]){
+                    auto [top,idx] = st.top();
+                    if(heights[i]>=top) st.push(make_pair(heights[i],i)); 
+                    else{
+                        //说明有元素要出栈了
+                        st.pop();//出栈
+                        int pre = -1;//之前的下标
+                        if(!st.empty()) pre = st.top().second; 
+                        int tmp = top*(i-pre-1);
+                        ans = max(tmp,ans);
+                    }
+                }
+                st.push(make_pair(heights[i],i));
+            }
+        }
+        return ans;
+    }
+};
+```
+
+
+
+## [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+
+```c++
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        //逆序 从后往前
+        int cur1 = m-1;
+        int cur2 = n-1;
+        while(cur1>=0&&cur2>=0){
+            if(nums1[cur1]>nums2[cur2]){
+                nums1[cur1+cur2+1] = nums1[cur1];
+                --cur1;
+            }
+            else{
+                nums1[cur1+cur2+1] = nums2[cur2];
+                --cur2;
+            }
+        }
+        if(cur1<0){
+            while(cur2>=0){
+                nums1[cur2]=nums2[cur2];
+                --cur2;
+            } 
+        }
+    }
+};
+```
+
+## [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/)
+
+```c++
+class Solution {
+public:
+    int numDecodings(string s) {
+        //dp dp[i]依赖dp[i-1]和dp[i-2]
+        //dp[i]表示到下标i位置的解码个数
+        int n = s.size();
+        vector<int> dp(n,0);
+        if(s[0]<='0'||s[0]>'9') return 0;
+        dp[0] =1;
+        if(n==1) return dp[0];
+        //n>=2
+        if(s[1]>='1'&&s[1]<='9') dp[1]++;
+        int two = (s[0]-'0')*10+s[1]-'0';
+        if(two>=1&&two<=26) dp[1]++;
+
+
+        for(int i=2;i<n;++i){
+            int pre = dp[i-1];
+            int prepre = dp[i-2];
+            //判断dp[i-1]的有效性
+            if(s[i]=='0') pre=0;
+            //判断dp[i-2]的有效性
+            int two = (s[i-1]-'0')*10+s[i]-'0';
+            if(s[i-1]=='0'||two<1||two>26) prepre=0;
+            dp[i] = pre+prepre;
+        }
+        return dp[n-1];
+    } 
+};
+```
+
+## [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+	//递归
+    vector<int> ans;
+    void dfs(TreeNode* root){
+        if(!root) return;
+        dfs(root->left);
+        ans.push_back(root->val);
+        dfs(root->right);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        dfs(root);
+        return ans;
+    }
+};
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    
+    vector<int> inorderTraversal(TreeNode* root) {
+        //非递归
+        if(!root) return {};
+        vector<int> ans;
+        stack<TreeNode*> st;
+        TreeNode* cur  = root;
+        while(!st.empty()||cur){
+            while(cur){
+                st.push(cur);
+                cur = cur->left;
+            }
+            cur = st.top();
+            st.pop();
+            ans.push_back(cur->val);
+            cur = cur->right;
+        }
+        return ans;
+    }
+};
+```
+
+## [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+
+```c++
+//1.
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool dfs(TreeNode* root,long long lower,long long upper){
+        //找到左树的最大值 和右树的最小值
+        if(!root) return true;
+        if(root->val<=lower||root->val>=upper) return false;
+        return dfs(root->left,lower,root->val)&&dfs(root->right,root->val,upper);
+    }
+    bool isValidBST(TreeNode* root) {
+        //递归
+        return dfs(root,LONG_MIN,LONG_MAX);
+    }
+};
+//2.
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    long long pre = LONG_MIN;
+    bool dfs(TreeNode* root){
+        //找到左树的最大值 和右树的最小值
+        if(!root) return true;
+        if(!dfs(root->left)) return false;
+        if(root->val<=pre) return false;
+        pre = root->val;
+        return dfs(root->right);
+    }
+    bool isValidBST(TreeNode* root) {
+        //中序过程中找答案
+        return dfs(root);
+    }
+};
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        //中序过程中找答案 非递归
+        if(!root) return true;
+        stack<TreeNode*> st;
+        TreeNode* cur = root;
+        long long pre = LONG_MIN;
+        while(!st.empty()||cur){
+            while(cur){
+                st.push(cur);
+                cur = cur->left;
+            }
+            cur = st.top();
+            st.pop();
+            if(cur->val<=pre) return false;
+            pre = cur->val;
+            cur = cur->right;
+        }
+        return true;
+    }
+};
+```
+
+## [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool judge(TreeNode* left,TreeNode* right){
+        if(!left&&!right) return true;
+        if(!right&&left) return false;
+        if(right&&!left) return false;
+        if(right->val!=left->val) return false; 
+        return judge(left->right,right->left)&&judge(left->left,right->right);
+    }
+    bool isSymmetric(TreeNode* root) {
+        if(!root) return true;
+        return judge(root->left,root->right);
+    }
+};
+```
+
+## [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if(!root) return {};
+        queue<TreeNode*> q;
+        vector<vector<int>> ans;
+        q.push(root);
+        while(!q.empty()){
+            int n = q.size();
+            vector<int> tmp;
+            for(int i =0;i<n;++i){
+                TreeNode* cur=q.front();
+                q.pop();
+                tmp.push_back(cur->val);
+                if(cur->left) q.push(cur->left);
+                if(cur->right) q.push(cur->right);
+            }
+            ans.push_back(tmp);
+        }
+        return ans;
+    }
+};
+```
+
+## [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if(!root) return {};
+        vector<vector<int>> ans;
+        deque<TreeNode*> q;
+        q.emplace_back(root);
+        int flag = 0;//标注顺序还是逆序
+        while(!q.empty()){
+            vector<int> tmp;
+            int n = q.size();
+            for(int i=0;i<n;++i){
+                TreeNode* cur = q.front();q.pop_front();
+                tmp.emplace_back(cur->val);
+                if(cur->left) q.emplace_back(cur->left);
+                if(cur->right) q.emplace_back(cur->right);
+            }
+            if(flag) reverse(tmp.begin(),tmp.end());
+            ans.emplace_back(tmp);
+            flag^=1;
+        }
+        return ans;
+    }
+};
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if(!root) return {};
+        vector<vector<int>> ans;
+        queue<TreeNode*> q;
+        q.emplace(root);
+        int flag = 0;//标注顺序还是逆序
+        while(!q.empty()){
+            deque<int> tmp;
+            int n = q.size();
+            for(int i=0;i<n;++i){
+                TreeNode* cur = q.front();q.pop();
+                if(!flag) tmp.emplace_back(cur->val);
+                else tmp.emplace_front(cur->val);
+                if(cur->left) q.emplace(cur->left);
+                if(cur->right) q.emplace(cur->right);
+            }
+            ans.emplace_back(vector<int>{tmp.begin(),tmp.end()});
+            flag^=1;
+        }
+        return ans;
+    }
+};
+```
+
+## [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int depth(TreeNode* cur,int d){
+        if(!cur) return d-1;
+        int ld= depth(cur->left,d+1);
+        int rd= depth(cur->right,d+1);
+        return max(ld,rd);
+        }
+    int maxDepth(TreeNode* root) {
+        return depth(root,1);
+    }
+};
+```
+
+## [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* build(vector<int>& nums,int l,int r){
+        if(r<l) return nullptr;
+        int mid = (l+r)>>1;
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->left = build(nums,l,mid-1);
+        root->right = build(nums,mid+1,r);
+        return root;
+    }
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        //找到中间数作为根，递归
+        int n = nums.size();
+        return build(nums,0,n-1);
+    }
+};
+```
+
+## [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/)
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> ans;
+        for(int i=1;i<=numRows;++i){
+            vector<int> row(i,1);
+            if(i==1){
+                ans.emplace_back(row);
+                continue;
+            }
+            else{
+                for(int j=0;j<i;++j){
+                    int pre = 0;
+                    int now = 0;
+                    if(j-1>=0) pre = ans[i-2][j-1];
+                    if(j<ans[i-2].size()) now = ans[i-2][j];
+                    row[j]  = pre+now;
+                }
+                ans.emplace_back(row);
+            }
+        }
+        return ans;
+    }
+};
+```
+
