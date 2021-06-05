@@ -801,3 +801,185 @@ public:
 };
 ```
 
+## 230. 二叉搜索树中第K小的元素
+
+中序遍历，二叉搜索树的中序遍历的有序的，因此只需要中序遍历，到第k个节点时返回节点值。
+
+```C++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int kthSmallest(TreeNode* root, int k) {
+        stack<TreeNode*> stk;
+        while(root || !stk.empty()){
+            while(root){
+                stk.push(root);
+                root = root->left;
+            }
+            root = stk.top(); stk.pop();
+            if(--k == 0) return root->val;
+            root = root->right;
+        }
+        return -1;
+    }
+};
+```
+
+## 236.二叉树的最近公共祖先
+
+dfs，找到满足条件的两种情况，
+
+1. p,q分别在root的左右子树内
+2. p,q其中之一为root，另一个为root的子树之一。
+
+```C++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* res;
+    bool dfs(TreeNode* root, TreeNode* p, TreeNode* q){
+        if(!root) return false;
+        bool lson = dfs(root->left, p, q);
+        bool rson = dfs(root->right, p, q);
+        if((lson && rson) || ((root->val == p->val || root->val == q->val) && (lson || rson)))
+            res = root;
+        return lson || rson || root->val == p->val || root->val == q->val;
+    }
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        dfs(root, p, q);
+        return res;
+    }
+};
+```
+
+## 238.  除自身以外数组的乘积
+
+连续子数组求和求积问题都可以用前缀和思想实现
+$$
+lq[i] = nums[0]*nums[1]*...*num[i-1]
+$$
+
+$$
+rq[i] = nums[n -1]*nums[n-2]*...*nums[i+1]
+$$
+
+需要的结果是除``nums[i]``以外的积，因此
+$$
+res[i] = nums[0]*...*nums[i-1]*nums[i+1]*...*nums[n-1]
+$$
+即
+$$
+res[i] = lq[i]*rq[i]
+$$
+
+```C++
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> lq(n), rq(n), res(n);
+        lq[0] = 1; rq[n - 1] = 1;
+        for(int i = 1; i < n ; i++)
+            lq[i] = lq[i - 1] * nums[i - 1];
+        for(int i = n - 2; i >= 0; i--)
+            rq[i] = rq[i + 1] * nums[i + 1];
+        for(int i  = 0; i < n; i++)
+            res[i] = lq[i] * rq[i];
+        return res;
+    }
+};
+```
+
+空间复杂度为O(1)的优化
+
+```C++
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> res(n);
+        res[0] = 1;
+        for(int i = 1; i < n; i++)
+            res[i] = res[i - 1] * nums[i - 1];
+        int temp = 1;
+        for(int i = n - 2; i >= 0; i--){
+            temp *= nums[i + 1];
+            res[i] *= temp; 
+        }
+        return res;
+    }
+};
+```
+
+## 239. 滑动窗口最大值
+
+对于求区间内的最大最小值这一类问题，利用``priority_queue<pair<int, int>>``数据结构，实现了对于数的index与value的同时记录，每次查看pq的顶部的数是否在窗口内，如果不在则pop掉，直到该最大值在窗口内。
+
+```C++
+class Solution {
+public:
+    struct cmp{
+        bool operator()(pair<int, int> a, pair<int, int> b){
+            return a.first < b.first;//大顶堆
+        }
+    };
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> pq;
+        for(int i = 0; i < k; i++)
+            pq.push(make_pair(nums[i], i));
+        int n = nums.size();
+        vector<int> res(n - k + 1);
+        for(int i = 0; i <= n - k; i++){
+            pair<int, int> temp = pq.top();
+            while(temp.second < i){//区间边界为[i, i + k)
+                pq.pop();
+                temp = pq.top();
+            }
+            res[i] = temp.first;
+            if(i != n - k) pq.push(make_pair(nums[i + k], i + k));//当最后一组取完值之后就不需要再往pq里添加数了
+        }
+        return res;
+    }
+};
+```
+
+类似的题目还有求数组满足最大值与最小值之差小于k的最长子数组。
+
+## 240.搜索二维矩阵II
+
+从左下角，``i = m - 1, j = 0``的位置开始搜索，若大于target则``i--``，否则``j++``。
+
+```C++
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int i = m - 1, j = 0;
+        while(i >= 0 && j < n){
+            if(matrix[i][j] == target) return true;
+            else if(matrix[i][j] > target) i--;
+            else j++;
+        }
+        return false;
+    }
+};
+```
+

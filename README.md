@@ -27,7 +27,7 @@
 
 | 日期       | okJiang | tanzhikun | chaos  | Doddddz |
 | ---------- | ------- | --------- | ------ | ------- |
-| all        | 28/100  | 23/100    | 38/100 | 45/100  |
+| all        | 28/100  | 29/100    | 38/100 | 45/100  |
 | 5/24       | 2       |           |        |         |
 | 5/25       | 3       | 3         | 3      |         |
 | 5/26       | 3       | 4         | 13     | 19      |
@@ -38,7 +38,7 @@
 | 5/31       |         | 3         | 3      | 11      |
 | 6/1        | 4       |           | 2      |         |
 | 6/2        | 4       | 1         | 4      |         |
-| 6/3(today) |         |           |        |         |
+| 6/3(today) |         | 5         |        |         |
 | 6/4        |         |           |        |         |
 | 6/5        |         |           |        |         |
 | 6/6        |         |           |        |         |
@@ -188,14 +188,14 @@
 |      | 题目                                                         | 通过率 | 难度 | okJiang | tanzhikun | chaos |
 | ---- | ------------------------------------------------------------ | ------ | ---- | ------- | --------- | ----- |
 |      | [218. 天际线问题](https://leetcode-cn.com/problems/the-skyline-problem/) | 46.9%  | 困难 |         |           |       |
-|      | [227. 基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii/) | 43.4%  | 中等 |         |           |       |
-|      | [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | 73.5%  | 中等 | ✔️       |           |       |
+|      | [227. 基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii/) | 43.4%  | 中等 |         | ✔️         |       |
+|      | [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | 73.5%  | 中等 | ✔️       | ✔️         |       |
 |      | [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) | 47.8%  | 简单 |         |           |       |
-|      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 | ✔️       |           |       |
+|      | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 67.2%  | 中等 | ✔️       | ✔️         |       |
 |      | [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) | 84.5%  | 简单 |         |           |       |
-|      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 | ✖️       |           |       |
-|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️❤️      |           |       |
-|      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 |         |           |       |
+|      | [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/) | 71.8%  | 中等 | ✖️       | ✔️         |       |
+|      | [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 49.5%  | 困难 | ✔️❤️      | ✔️         |       |
+|      | [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | 45.9%  | 中等 |         | ✔️         |       |
 |      | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 63.9%  | 简单 |         |           |       |
 |      | [251. 展开二维向量](https://leetcode-cn.com/problems/flatten-2d-vector/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 53.7%  | 中等 |         |           |       |
 |      | [253. 会议室 II](https://leetcode-cn.com/problems/meeting-rooms-ii/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 48.6%  | 中等 |         |           |       |
