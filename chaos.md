@@ -1884,6 +1884,51 @@ public:
 };
 ```
 
+## [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_map<int,int> mp;//优化中序查询
+
+    TreeNode* build(vector<int>& preorder,vector<int>& inorder,int ps,int pe,int is,int ie){
+        //递归 按序号进行切分
+        //出口
+        if(ps>pe||is>ie) return nullptr;
+        //1.前序的开头是根
+        int n = preorder.size();//总长度
+        int rval = preorder[ps];
+        TreeNode* root = new TreeNode(rval);
+        int iidx = mp[rval];
+        int lpLen = iidx-is;//左部分的长度
+
+        root->left  = build(preorder,inorder,ps+1,ps+lpLen,is,iidx-1);
+        root->right = build(preorder,inorder,ps+lpLen+1,pe,iidx+1,ie);
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        int n = preorder.size();
+        for(int i=0;i<n;++i){
+            mp[inorder[i]] = i;
+        }
+        return build(preorder,inorder,0,n-1,0,n-1);
+    }
+};
+```
+
+
+
 ## [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/)
 
 ```c++
@@ -1916,6 +1961,114 @@ public:
 };
 ```
 
+## [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/)
+
+```c++
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* next;
+
+    Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val, Node* _left, Node* _right, Node* _next)
+        : val(_val), left(_left), right(_right), next(_next) {}
+};
+*/
+
+class Solution {
+public:
+    void dfs1(Node* root){
+        if(!root) return;
+        if(root->left&&root->right){
+            root->left->next=root->right;//只处理自己的两个子树
+            root->right->next = nullptr;//处理每行最右边的
+        }
+        dfs1(root->left);
+        dfs1(root->right);
+    }
+
+    void dfs2(Node* l,Node* r){
+        //由于是完美二叉树 要么都存在要么都不存在
+        if(!l||!r) return;
+        // cout<<l->val<<endl;
+        // cout<<r->val<<endl;
+        if(l->right&&r->left){
+            (l->right)->next = r->left;//跨父的处理
+        }
+        dfs2(l->left,l->right);
+        dfs2(l->right,r->left);//这里极容易错
+        dfs2(r->left,r->right);
+    }
+
+
+
+    Node* connect(Node* root) {
+        //想法1 层次遍历完事 空间 O(n)
+        //想法2 双递归 一个处理自己的子树 一个处理跨父子树
+        if(!root) return root;
+        //先处理根
+        root->next = nullptr;
+        dfs1(root);
+        dfs2(root->left,root->right);
+        return root;  
+    }
+};
+
+
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* next;
+
+    Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val, Node* _left, Node* _right, Node* _next)
+        : val(_val), left(_left), right(_right), next(_next) {}
+};
+*/
+
+class Solution {
+public:
+    Node* connect(Node* root) {
+        //想法1 层次遍历完事 空间 O(n)
+        //想法2 双递归 一个处理自己的子树 一个处理跨父子树
+        //想法3 利用连接好的next指针 在n-1层完成对n层的连接 跳树的体会
+        if(!root) return root;
+        //先处理根
+        root->next = nullptr;
+        Node* leftmost = root;
+        while(leftmost){
+            Node* head  = leftmost;
+            while(head){
+                if(!head->left||!head->right) return root;
+                //同父
+                head->left->next = head->right;
+                //异父
+                if(head->next){   //要有另一个父才能走这个分支不然报错
+                head->right->next = head->next->left;
+                }
+                head = head->next;
+            }
+            leftmost = leftmost->left;
+        }
+        return root;  
+    }
+};
+```
+
 ## [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/)
 
 ```c++
@@ -1944,4 +2097,136 @@ public:
     }
 };
 ```
+
+## [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
+
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        //记录i之前的最小值
+        int minP = INT_MAX;
+        int ans = INT_MIN;
+        for(auto p:prices){
+            minP = min(minP,p);
+            ans = max(ans,p-minP);
+        }
+        return ans;
+    }
+};
+```
+
+## [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        //找到所有上升区间的端点 由于上升区间是连续的 可以每次只看后面一个
+        int ans = 0;
+        int n = prices.size();
+        for(int i =0;i<n-1;++i){
+            if(prices[i+1]>prices[i]) ans += prices[i+1]-prices[i];
+        }
+        return ans;
+    }
+};
+```
+
+## [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans  = INT_MIN;//结果
+    int dfs(TreeNode* root){
+        if(!root) return 0;
+        int l = dfs(root->left);
+        int r = dfs(root->right);
+        int val = root->val;
+        ans = max({ans,l+r+val,l+val,r+val,val});//最大值有可能在两个分支中产生
+        return max({l+val,r+val,val});//只能走一个分支
+    }
+    int maxPathSum(TreeNode* root) {
+        //递归找左半和右半的最大路径和加起来
+        dfs(root);
+        return ans;
+    }
+};
+```
+
+## [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
+
+```c++
+class Solution {
+public:
+    bool judge(char c){
+        if('0'<=c&&c<='9'||'a'<=c&&c<='z'||'A'<=c&&c<='Z') return true;
+        return false;
+    }
+    char trans(char c){
+        if('0'<=c&&c<='9'||'a'<=c&&c<='z') return c;
+        if('A'<=c&&c<='Z') return c-'A'+'a';
+        return c;
+    }
+    bool isPalindrome(string s) {
+        //双指针 遇到非法跳过合法比较
+        if(!s.size()) return true;
+        int n = s.size();
+        int l = 0;
+        int r = n-1;
+
+        while(l<r){
+            while(l<r&&!judge(s[l])) ++l;
+            while(l<r&&!judge(s[r])) --r;
+            if(l<r&&trans(s[l])!=trans(s[r])) return false;
+            ++l;
+            --r;
+        }
+        return true;
+    }
+};
+```
+
+## [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
+
+```c++
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        //哈希表
+        unordered_set<int> s;
+        int ans = 0;//处理空数组
+
+        for(auto n:nums){
+            s.insert(n);
+        }
+        for(auto n:s){
+            if(s.count(n-1)) continue;//之前已经被查找过了
+            int now = 1;
+            int cur = n;
+            while(s.count(cur+1)){
+                ++now;
+                ++cur;
+            }
+            ans = max(ans,now);
+        }
+        return ans;
+
+    }
+};
+```
+
+
 
