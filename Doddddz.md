@@ -1382,3 +1382,106 @@ class Solution {
 }
 ```
 
+## 131. 分割回文串
+
+```java
+class Solution {
+    private List<List<String>> ans = new ArrayList<>();
+    private Deque<String> que = new ArrayDeque<>();
+
+    public List<List<String>> partition(String s) {
+        dfs(0, s);
+        return ans;
+    }
+
+    private void dfs(int u, String s) {
+        if (u == s.length()) {
+            boolean st = true;
+            for (var i : que) {
+                if (i.length() == 1) continue;
+                else {
+                    int l = (i.length() - 1) >> 1, r = l + 1;
+                    if ((i.length() & 1) == 1) l -= 1;
+                    while (l > -1 && r < i.length() && i.charAt(l) == i.charAt(r)) { l--; r++; }
+                    if (l != -1) {
+                        st = false;
+                        break;
+                    }
+                }
+            }
+            if (st) ans.add(new ArrayList<>(que));
+            return;
+        }
+
+        for (int i = u + 1; i <= s.length(); i++) {
+            que.add(s.substring(u, i));
+            dfs(i, s);
+            que.removeLast();
+        }
+    }
+}
+```
+
+## 134. 
+
+```java
+
+```
+
+## 136. 只出现一次的数字
+
+```java
+class Solution {
+    public int singleNumber(int[] q) {
+        for (int i = 1; i < q.length; i++) q[i] ^= q[i - 1];
+        return q[q.length - 1];
+    }
+}
+```
+
+## 138. 复制带随机指针的链表
+
+```java
+class Solution {
+    public Node copyRandomList(Node head) {
+        Node dummy = new Node(-1), t = dummy;
+
+        for (Node node = head; node != null; node = node.next.next) {
+            Node tmp = new Node(node.val);
+            tmp.next = node.next;
+            node.next = tmp;
+        }
+
+        for (Node node = head; node != null; node = node.next.next) {
+            if (node.random != null) node.next.random = node.random.next;
+        }
+
+        for (Node node = head; node != null; node = node.next) {
+            t = t.next = node.next;
+            node.next = node.next.next;
+        }
+
+        return dummy.next;
+    }
+}
+```
+
+## 141. 环形链表
+
+```java
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode pre = head, ptr = head;
+        while (pre != null && ptr != null) {
+            pre = pre.next; ptr = ptr.next;
+            if (ptr != null) {
+                ptr = ptr.next;
+            } else return false;
+            if (pre == ptr) return true;
+        }
+
+        return false;
+    }
+}
+```
+
