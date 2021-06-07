@@ -2228,5 +2228,52 @@ public:
 };
 ```
 
+## [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/)
+
+```c++
+class Solution {
+public:
+    void bfs(vector<vector<char>>& tmp,vector<vector<int>>& mark,int i,int j,char to){
+        int n = tmp.size();
+        int m = tmp[0].size();
+        if(i<0||i>=n||j<0||j>=m) return;//递归出口
+        if(mark[i][j]) return;//遍历过了
+        if(tmp[i][j]!='O') return;//不是O也出
+        mark[i][j]=1;
+        tmp[i][j] = to;
+        bfs(tmp,mark,i+1,j,to);
+        bfs(tmp,mark,i-1,j,to);
+        bfs(tmp,mark,i,j+1,to);
+        bfs(tmp,mark,i,j-1,to);
+    }
+    void solve(vector<vector<char>>& board) {
+        //关键是处理边界上的 可以扩边
+        int m = board.size();
+        int n = board[0].size();
+        vector<vector<char>> tmp(m+2,vector<char>(n+2,'O'));
+        vector<vector<int>> mark(m+2,vector<int>(n+2,0));
+        for(int i=0;i<m;++i){
+            for(int j=0;j<n;++j){
+                tmp[i+1][j+1] = board[i][j];
+            }
+        }
+        //bfs 处理tmp
+        for(int i=0;i<m+2;++i){
+            for(int j=0;j<n+2;++j){
+                if(i==0&&j==0) bfs(tmp,mark,0,0,'#');
+                else bfs(tmp,mark,i,j,'X');
+            }
+        }
+
+        for(int i=1;i<m+1;++i){
+            for(int j=1;j<n+1;++j){
+                if(tmp[i][j]=='#') board[i-1][j-1]='O';
+                else board[i-1][j-1]=tmp[i][j];
+            }
+        }
+    }
+};
+```
+
 
 

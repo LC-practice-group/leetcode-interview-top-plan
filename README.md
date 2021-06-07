@@ -27,7 +27,7 @@
 
 | 日期       | okJiang | tanzhikun | chaos  | Doddddz |
 | ---------- | ------- | --------- | ------ | ------- |
-| all        | 28/100  | 23/100    | 59/100 | 63/100  |
+| all        | 28/100  | 23/100    | 60/100 | 63/100  |
 | 5/24       | 2       |           |        |         |
 | 5/25       | 3       | 3         | 3      |         |
 | 5/26       | 3       | 4         | 13     | 19      |
@@ -42,7 +42,7 @@
 | 6/4        |         |           | 4      | 2       |
 | 6/5        |         |           | 6      | 3       |
 | 6/6        |         |           | 7      | 7       |
-| 6/7        |         |           |        |         |
+| 6/7        |         |           | 1      |         |
 | 6/8        |         |           |        |         |
 | 6/9        |         |           |        |         |
 | 6/10       |         |           |        |         |
@@ -145,7 +145,7 @@
 |      | [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) | 47.2%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 46.4%  | 困难 | ❕✔️      |           |       |         |
 |      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 | ✖️       |           | ✔️⭐️    | ✔️       |
-|      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           |       |         |
+|      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           | ✔️     |         |
 |      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           |       | ✔️       |
 |      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           |       |         |
 |      | [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/) | 71.5%  | 简单 |         |           |       | ✔️       |
