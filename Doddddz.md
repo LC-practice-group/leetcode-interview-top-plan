@@ -1485,3 +1485,223 @@ public class Solution {
 }
 ```
 
+## 146. LRU 缓存机制
+
+```java
+class LRUCache {
+    private static class Node {
+        public Node pre, net;
+        public int key, val;
+
+        public Node(int key, int val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    private Map<Integer, Node> map = new HashMap<>();
+    private final Node L = new Node(-1, -1), R = new Node(-1, -1);
+    private int cnt = 0, cap = 0;
+
+    public LRUCache(int capacity) {
+        L.net = R;
+        R.pre = L;
+        cap = capacity;
+    }
+
+    private void insert(Node node) {
+        node.pre = L;
+        node.net = L.net;
+        L.net.pre = node;
+        L.net = node;
+    }
+    
+    private void delete(Node node) {
+        node.pre.net = node.net;
+        node.net.pre = node.pre;
+    }
+
+    public int get(int key) {
+        if (map.get(key) == null) return -1;
+        Node node = map.get(key);
+        delete(node);
+        insert(node);
+        return node.val;
+    }
+    
+    public void put(int key, int value) {
+        if (map.get(key) != null) {
+            var node = map.get(key);
+            node.val = value;
+            delete(node);
+            insert(node);
+        } else {
+            if (map.size() == cap) {
+                var node = R.pre;
+                delete(node);
+                map.remove(node.key);
+            }
+            var node = new Node(key, value);
+            map.put(key, node);
+            insert(node);
+        }
+    }
+}
+```
+
+## 148. 
+
+```java
+
+```
+
+## 149. 
+
+```java
+
+```
+
+## 150. 逆波兰表达式求值
+
+```java
+class Solution {
+    private int[] val = new int[5010];
+    private int cap = -1;
+
+    public int evalRPN(String[] tokens) {
+        for (String s : tokens) {
+            if (s.equals("+")) {
+                int r = val[cap--], l = val[cap--];
+                val[++cap] = l + r;
+            } else if (s.equals("-")) {
+                int r = val[cap--], l = val[cap--];
+                val[++cap] = l - r;
+            } else if (s.equals("*")) {
+                int r = val[cap--], l = val[cap--];
+                val[++cap] = l * r;
+            } else if (s.equals("/")) {
+                int r = val[cap--], l = val[cap--];
+                val[++cap] = l / r;
+            } else {
+                val[++cap] = Integer.parseInt(s);
+            }
+        }
+
+        return val[0];
+    }
+}
+```
+
+## 152. 
+
+```java
+
+```
+
+## 155. 最小栈
+
+```java
+class MinStack {
+    private final int CAP = 10010;
+    private int[] stk = new int[CAP], min = new int[CAP];
+    private int sc = -1, mc = -1;
+    
+    public void push(int val) {
+        stk[++sc] = val;
+        if (mc == -1 || min[mc] >= val) min[++mc] = val;
+    }
+    
+    public void pop() {
+        if (stk[sc--] == min[mc]) mc--;
+    }
+    
+    public int top() {
+        return stk[sc];
+    }
+    
+    public int getMin() {
+        return min[mc];
+    }
+}
+```
+
+## 160. 相交链表
+
+```java
+public class Solution {
+    public ListNode getIntersectionNode(ListNode l, ListNode r) {
+        ListNode i = l, j = r;
+        while (i != j) {
+            if (i != null) i = i.next;
+            else i = r;
+            if (j != null) j = j.next;
+            else j = l;
+        }
+
+        return i != null && j != null ? i : null;
+    }
+}
+```
+
+## 162. 寻找峰值
+
+```java
+class Solution {
+    public int findPeakElement(int[] q) {
+        int l = 0, r = q.length - 1;
+
+        while (l < r) {
+            int mid = l + r + 1 >> 1;
+            if (q[mid] > q[mid - 1]) l = mid;
+            else r = mid - 1;
+        }
+
+        return l;
+    }
+}
+```
+
+## 166. 
+
+```java
+
+```
+
+## 169. 多数元素
+
+```java
+class Solution {
+    public int majorityElement(int[] q) {
+        int cap = 0, val = 0;
+        for (int i : q) {
+            if (cap == 0) {
+                cap = 1;
+                val = i;
+            } else if (i == val) {
+                cap++;
+            } else {
+                cap--;
+            }
+        }
+
+        return val;
+    }
+}
+```
+
+## 171. Excel 表列序号
+
+```java
+class Solution {
+    public int titleToNumber(String s) {
+        int val = 0;
+        char[] c = s.toCharArray();
+        for (int i = 0; i < c.length; i++) {
+            val = val * 26 + c[i] - 'A' + 1;
+        }
+
+        return val;
+    }
+}
+```
+

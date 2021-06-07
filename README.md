@@ -41,7 +41,7 @@
 | 6/3(today) | 2       |           | 4      | 6       |
 | 6/4        |         |           | 4      | 2       |
 | 6/5        |         |           | 6      | 3       |
-| 6/6        |         |           | 7      |         |
+| 6/6        |         |           | 7      | 7       |
 | 6/7        |         |           |        |         |
 | 6/8        |         |           |        |         |
 | 6/9        |         |           |        |         |
@@ -153,18 +153,18 @@
 |      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |       |         |
 |      | [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/) | 46.2%  | 困难 |         |           |       |         |
 |      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           |       | ✔️       |
-|      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |       |         |
+|      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |       | ❕✔️      |
 |      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           |       |         |
 |      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           |       |         |
-|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 |         |           |       |         |
+|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 |         |           |       | ✔️       |
 |      | [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 41.5%  | 中等 |         |           |       |         |
-|      | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)   | 56.8%  | 简单 |         |           |       |         |
-|      | [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | 58.8%  | 简单 |         |           |       |         |
-|      | [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/) | 48.9%  | 中等 |         |           |       |         |
+|      | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)   | 56.8%  | 简单 |         |           |       | ✔️       |
+|      | [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | 58.8%  | 简单 |         |           |       | ✔️       |
+|      | [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/) | 48.9%  | 中等 |         |           |       | ✔️       |
 |      | [163. 缺失的区间](https://leetcode-cn.com/problems/missing-ranges/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 30.7%  | 简单 |         |           |       |         |
 |      | [166. 分数到小数](https://leetcode-cn.com/problems/fraction-to-recurring-decimal/) | 29.4%  | 中等 |         |           |       |         |
-|      | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 66.0%  | 简单 |         |           |       |         |
-|      | [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/) | 69.2%  | 简单 |         |           |       |         |
+|      | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 66.0%  | 简单 |         |           |       | ✔️       |
+|      | [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/) | 69.2%  | 简单 |         |           |       | ✔️       |
 |      | [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/) | 43.0%  | 简单 |         |           |       |         |
 |      | [179. 最大数](https://leetcode-cn.com/problems/largest-number/) | 40.8%  | 中等 |         |           |       |         |
 |      | [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) | 45.7%  | 中等 |         |           |       |         |
