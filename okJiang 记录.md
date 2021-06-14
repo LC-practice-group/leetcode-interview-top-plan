@@ -1142,5 +1142,177 @@ public:
 };
 ```
 
+## 2021/6/14
+
+### [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+
+```cpp
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        if (nums.size() == 1) return 0;
+        int l = 0;
+        int r = nums.size()-1;
+        
+        while (l < r) {
+            if (nums[l] > nums[l+1]) return l;
+            if (nums[r] > nums[r-1]) return r;
+            int mid = (l+r) >> 1;
+            if (nums[mid] > nums[mid-1] && nums[mid] > nums[mid+1]) {
+                return mid;
+            } else if (nums[mid] < nums[mid-1]) {
+                r = mid;
+            } else {
+                l = mid;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+
+```cpp
+class Solution {
+public:
+    int climbStairs(int n) {
+        int a = 0, b = 1;
+        for (int i = 0; i < n; ++ i) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
+```
+
+### [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/)
+
+```cpp
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        long long ans = 0;
+        for (int i = 0; i < columnTitle.length(); ++ i) {
+            ans = ans*26 + columnTitle[i]-'A'+1;
+        }
+        return ans;
+    }
+};
+```
+
+### [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+
+```cpp
+class Solution {
+public:
+    bool check(string s) {
+        if (s.length() != 1) return false;
+        if (s[0] != '/'&&s[0] != '*'&&s[0] != '+'&&s[0] != '-')
+            return false;
+        return true;
+    }
+    int evalRPN(vector<string>& tokens) {
+        stack<long long> sll;
+        for (auto s: tokens) {
+            if (!check(s)) {
+                sll.push(stoi(s));
+                continue;
+            }
+            if (sll.empty()) {
+                cout << "符号数目与数字数目不匹配";
+                return 0;
+            }
+            int b = sll.top();
+            sll.pop();
+            if (sll.empty()) {
+                cout << "符号数目与数字数目不匹配";
+                return 0;
+            }
+            int a = sll.top();
+            sll.pop();
+            int c;
+            if (s[0] == '/') {
+                c = a/b;
+            } else if (s[0] == '*') {
+                c = a*b;
+            } else if (s[0] == '+') {
+                c = a+b;
+            } else if (s[0] == '-') {
+                c = a-b;
+            }
+            // cout << c << ' ';
+            sll.push(c);
+        }
+        return sll.top();
+    }
+};
+```
+
+### [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int sum = 0;
+        int candidate = nums[0];
+        for (int i = 0; i < nums.size(); ++ i) {
+            if (sum == 0) candidate = nums[i];
+            if (nums[i] == candidate) {
+                sum ++;
+            } else {
+                sum --;
+            }
+        }
+        return candidate;
+    }
+};
+```
+
+### [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)
+
+- 逐位移动
+
+  ```cpp
+  class Solution {
+  public:
+      uint32_t reverseBits(uint32_t n) {
+          uint32_t ans = 0;
+          for (int i = 0; i < 32; ++ i) {
+              ans = ans << 1;
+              ans |= n&1;
+              n = n >> 1;
+          }
+          return ans;
+      }
+  };
+  ```
+
+- 分治
+
+  ```cpp
+  class Solution {
+  public:
+      const uint32_t M1 = 0x55555555;
+      const uint32_t M2 = 0x33333333;
+      const uint32_t M4 = 0x0f0f0f0f;
+      const uint32_t M8 = 0x00ff00ff;
+      
+      uint32_t reverseBits(uint32_t n) {
+          n = n >> 1 & M1 | (n & M1) << 1;
+          n = n >> 2 & M2 | (n & M2) << 2;
+          n = n >> 4 & M4 | (n & M4) << 4;
+          n = n >> 8 & M8 | (n & M8) << 8;
+          
+          return n >> 16 | n << 16;
+      }
+  };
+  ```
+
+  
+
 
 

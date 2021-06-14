@@ -5,7 +5,7 @@
 >
 > 超额计划：6/30 前刷完 145 题
 >
-> 剩余：28天
+> 剩余：16天
 
 ## 说明
 
@@ -25,47 +25,47 @@
 
 ## 进度
 
-| 日期       | okJiang | tanzhikun | chaos  | Doddddz |
-| ---------- | ------- | --------- | ------ | ------- |
-| all        | 28/100  | 23/100    | 60/100 | 63/100  |
-| 5/24       | 2       |           |        |         |
-| 5/25       | 3       | 3         | 3      |         |
-| 5/26       | 3       | 4         | 13     | 19      |
-| 5/27       | 4       | 9         | 4      | 13      |
-| 5/28       | 4       | 4         | 2      | 2       |
-| 5/29       | 2       |           | 2      |         |
-| 5/30       | 2       |           | 5      |         |
-| 5/31       |         | 3         | 3      | 11      |
-| 6/1        | 4       |           | 2      |         |
-| 6/2        | 4       | 1         | 4      |         |
-| 6/3(today) | 2       |           | 4      | 6       |
-| 6/4        |         |           | 4      | 2       |
-| 6/5        |         |           | 6      | 3       |
-| 6/6        |         |           | 7      | 7       |
-| 6/7        |         |           | 1      |         |
-| 6/8        |         |           |        |         |
-| 6/9        |         |           |        |         |
-| 6/10       |         |           |        |         |
-| 6/11       |         |           |        |         |
-| 6/12       |         |           |        |         |
-| 6/13       |         |           |        |         |
-| 6/14       |         |           |        |         |
-| 6/15       |         |           |        |         |
-| 6/16       |         |           |        |         |
-| 6/17       |         |           |        |         |
-| 6/18       |         |           |        |         |
-| 6/19       |         |           |        |         |
-| 6/20       |         |           |        |         |
-| 6/21       |         |           |        |         |
-| 6/22       |         |           |        |         |
-| 6/23       |         |           |        |         |
-| 6/24       |         |           |        |         |
-| 6/25       |         |           |        |         |
-| 6/26       |         |           |        |         |
-| 6/27       |         |           |        |         |
-| 6/28       |         |           |        |         |
-| 6/29       |         |           |        |         |
-| 6/30       |         |           |        |         |
+| 日期        | okJiang | tanzhikun | chaos  | Doddddz |
+| ----------- | ------- | --------- | ------ | ------- |
+| all         | 34/100  | 23/100    | 60/100 | 63/100  |
+| 5/24        | 2       |           |        |         |
+| 5/25        | 3       | 3         | 3      |         |
+| 5/26        | 3       | 4         | 13     | 19      |
+| 5/27        | 4       | 9         | 4      | 13      |
+| 5/28        | 4       | 4         | 2      | 2       |
+| 5/29        | 2       |           | 2      |         |
+| 5/30        | 2       |           | 5      |         |
+| 5/31        |         | 3         | 3      | 11      |
+| 6/1         | 4       |           | 2      |         |
+| 6/2         | 4       | 1         | 4      |         |
+| 6/3         | 2       |           | 4      | 6       |
+| 6/4         |         |           | 4      | 2       |
+| 6/5         |         |           | 6      | 3       |
+| 6/6         |         |           | 7      | 7       |
+| 6/7         |         |           | 1      |         |
+| 6/8         |         |           |        |         |
+| 6/9         |         |           |        |         |
+| 6/10        |         |           |        |         |
+| 6/11        |         |           |        |         |
+| 6/12        |         |           |        |         |
+| 6/13        |         |           |        |         |
+| 6/14(today) | 6       |           |        |         |
+| 6/15        |         |           |        |         |
+| 6/16        |         |           |        |         |
+| 6/17        |         |           |        |         |
+| 6/18        |         |           |        |         |
+| 6/19        |         |           |        |         |
+| 6/20        |         |           |        |         |
+| 6/21        |         |           |        |         |
+| 6/22        |         |           |        |         |
+| 6/23        |         |           |        |         |
+| 6/24        |         |           |        |         |
+| 6/25        |         |           |        |         |
+| 6/26        |         |           |        |         |
+| 6/27        |         |           |        |         |
+| 6/28        |         |           |        |         |
+| 6/29        |         |           |        |         |
+| 6/30        |         |           |        |         |
 
 
 
@@ -112,7 +112,7 @@
 |      | [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) | 65.1%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [66. 加一](https://leetcode-cn.com/problems/plus-one/)       | 45.7%  | 简单 | ✔️       |           | ✔️     | ✔️       |
 |      | [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 39.2%  | 简单 | ✔️       |           | ✔️     | ✔️       |
-|      | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | 52.0%  | 简单 |         |           | ✔️     | ✔️       |
+|      | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | 52.0%  | 简单 | ✔️       |           | ✔️     | ✔️       |
 |      | [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/) | 59.3%  | 中等 |         |           | ✔️⭐️    |         |
 |      | [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors/) | 58.6%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) | 41.4%  | 困难 |         |           | ✔️     |         |
@@ -156,19 +156,19 @@
 |      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |       | ❕✔️      |
 |      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           |       |         |
 |      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           |       |         |
-|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 |         |           |       | ✔️       |
+|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 | ✔️       |           |       | ✔️       |
 |      | [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 41.5%  | 中等 |         |           |       |         |
 |      | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)   | 56.8%  | 简单 |         |           |       | ✔️       |
 |      | [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | 58.8%  | 简单 |         |           |       | ✔️       |
-|      | [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/) | 48.9%  | 中等 |         |           |       | ✔️       |
+|      | [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/) | 48.9%  | 中等 | ✔️       |           |       | ✔️       |
 |      | [163. 缺失的区间](https://leetcode-cn.com/problems/missing-ranges/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 30.7%  | 简单 |         |           |       |         |
 |      | [166. 分数到小数](https://leetcode-cn.com/problems/fraction-to-recurring-decimal/) | 29.4%  | 中等 |         |           |       |         |
-|      | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 66.0%  | 简单 |         |           |       | ✔️       |
-|      | [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/) | 69.2%  | 简单 |         |           |       | ✔️       |
+|      | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 66.0%  | 简单 | ✔️❤️      |           |       | ✔️       |
+|      | [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/) | 69.2%  | 简单 | ✔️       |           |       | ✔️       |
 |      | [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/) | 43.0%  | 简单 |         |           |       |         |
 |      | [179. 最大数](https://leetcode-cn.com/problems/largest-number/) | 40.8%  | 中等 |         |           |       |         |
 |      | [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) | 45.7%  | 中等 |         |           |       |         |
-|      | [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/) | 68.8%  | 简单 |         |           |       |         |
+|      | [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/) | 68.8%  | 简单 | ✔️❤️      |           |       |         |
 |      | [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/) | 74.0%  | 简单 |         |           |       |         |
 |      | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 49.6%  | 中等 |         | ✔️         |       |         |
 |      | [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 53.9%  | 中等 |         | ✔️         |       |         |
