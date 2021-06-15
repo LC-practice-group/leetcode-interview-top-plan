@@ -27,7 +27,7 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 34/100  | 23/100    | 60/100 | 63/100  |
+| all         | 34/100  | 23/100    | 62/100 | 63/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
@@ -50,7 +50,7 @@
 | 6/12        |         |           |        |         |
 | 6/13        |         |           |        |         |
 | 6/14(today) | 6       |           |        |         |
-| 6/15        |         |           |        |         |
+| 6/15        |         |           | 2      |         |
 | 6/16        |         |           |        |         |
 | 6/17        |         |           |        |         |
 | 6/18        |         |           |        |         |
@@ -148,11 +148,11 @@
 |      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           | ✔️     |         |
 |      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           |       | ✔️       |
 |      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           |       |         |
-|      | [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/) | 71.5%  | 简单 |         |           |       | ✔️       |
+|      | [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/) | 71.5%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 61.4%  | 中等 |         |           |       | ✔️       |
 |      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |       |         |
 |      | [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/) | 46.2%  | 困难 |         |           |       |         |
-|      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           |       | ✔️       |
+|      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           | ✔️     | ✔️       |
 |      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |       | ❕✔️      |
 |      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           |       |         |
 |      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           |       |         |

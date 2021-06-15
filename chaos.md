@@ -2275,5 +2275,46 @@ public:
 };
 ```
 
+## [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
 
+```c++
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int i = 0;
+        for(auto n:nums){
+            i^=n;
+        }
+        return i;
+    }
+};
+```
+
+## [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(!head) return false;
+        //快慢指针
+        ListNode* s = head;
+        ListNode* f = head->next;
+        while(f&&f->next){
+            if(s==f) return true;
+            s = s->next;
+            f = f->next->next;
+        }
+        return false;
+    }
+};
+```
 
