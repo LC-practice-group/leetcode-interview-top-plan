@@ -2275,6 +2275,50 @@ public:
 };
 ```
 
+## [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/)
+
+```c++
+class Solution {
+public:
+    vector<vector<string>> ans;
+    vector<string> tmp;
+
+    void dfs(string s,int cur,vector<vector<int>> dp){
+        int n = s.size();
+        if(cur == n){
+            ans.push_back(tmp);
+            return;
+        }
+        for(int j=cur;j<n;++j){
+            if(dp[cur][j]){
+                tmp.push_back(s.substr(cur,j-cur+1));
+                dfs(s,j+1,dp);
+                tmp.pop_back();
+            }
+        }
+    }
+
+    vector<vector<string>> partition(string s) {
+        //找所有情况显然是回溯
+        //但是枚举下一个回文串的位置需要双指针 会产生重复计算
+        //dp 预处理出所有位置的回文串情况
+        int n = s.size();
+        vector<vector<int>> dp(n,vector<int>(n,true));
+
+        //预处理
+        for(int i=n-1;i>=0;--i){
+            for(int j=i+1;j<n;++j){
+                dp[i][j]=(s[i]==s[j])&&dp[i+1][j-1];
+            }
+        }
+        dfs(s,0,dp);
+        return ans;
+    }
+};
+```
+
+
+
 ## [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
 
 ```c++
