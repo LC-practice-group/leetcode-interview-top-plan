@@ -27,7 +27,7 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 34/100  | 23/100    | 63/100 | 63/100  |
+| all         | 34/100  | 23/100    | 64/100 | 63/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
@@ -54,7 +54,7 @@
 | 6/16        |         |           |        |         |
 | 6/17        |         |           | 1      |         |
 | 6/18        |         |           |        |         |
-| 6/19        |         |           |        |         |
+| 6/19        |         |           | 1      |         |
 | 6/20        |         |           |        |         |
 | 6/21        |         |           |        |         |
 | 6/22        |         |           |        |         |
@@ -147,7 +147,7 @@
 |      | [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 53.7%  | 困难 | ✖️       |           | ✔️⭐️    | ✔️       |
 |      | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 43.3%  | 中等 |         |           | ✔️     |         |
 |      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           | ✔️⭐️    | ✔️       |
-|      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           |       |         |
+|      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           | ✔️⭐️    |         |
 |      | [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/) | 71.5%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 61.4%  | 中等 |         |           |       | ✔️       |
 |      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |       |         |

@@ -2317,6 +2317,41 @@ public:
 };
 ```
 
+## [134. 加油站](https://leetcode-cn.com/problems/gas-station/)
+
+```c++
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        //如果从x到不了y+1,说明x-y中的任何一点都到不了y+1
+        //那么直接从y+1开始下轮查找
+        int n = gas.size();
+        int sum = 0;//现在的油量
+        int num = 0;//现在跑过的站点数
+        int cur = -1;
+
+        for(int i=0;i<n;++i){
+            if(sum+gas[i]-cost[i]<0) continue;
+            else {
+                for(int j=0;j<n;j++){
+                if(sum+gas[(i+j)%n]-cost[(i+j)%n]<0){
+                    i = i+j;
+                    sum=0;
+                    break;
+                }
+                else sum=sum+gas[(i+j)%n]-cost[(i+j)%n];
+                if(j==n-1){
+                    // cout<<i<<endl;
+                    cur = i;
+                }
+            }
+            }
+        }
+        return cur;
+    }
+};
+```
+
 
 
 ## [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
