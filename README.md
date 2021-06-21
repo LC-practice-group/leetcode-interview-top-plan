@@ -27,7 +27,7 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 34/100  | 23/100    | 64/100 | 63/100  |
+| all         | 34/100  | 23/100    | 66/100 | 63/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
@@ -56,7 +56,7 @@
 | 6/18        |         |           |        |         |
 | 6/19        |         |           | 1      |         |
 | 6/20        |         |           |        |         |
-| 6/21        |         |           |        |         |
+| 6/21        |         |           | 2      |         |
 | 6/22        |         |           |        |         |
 | 6/23        |         |           |        |         |
 | 6/24        |         |           |        |         |
@@ -80,7 +80,7 @@
 |      | [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | 34.3%  | 中等 |         | ✔️         | ✔️     | ✔️       |
 |      | [7. 整数反转](https://leetcode-cn.com/problems/reverse-integer/) | 35.4%  | 简单 |         | ✔️         | ✔️     | ✔️       |
 |      | [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | 21.5%  | 中等 |         | ✔️         | ✔️     | ✔️       |
-|      | [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/) | 31.2%  | 困难 |         |           |       |         |
+|      | [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/) | 31.2%  | 困难 |         |           | ✔️     |         |
 |      | [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 64.0%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer/) | 63.3%  | 简单 |         |           | ✔️     |         |
 |      | [14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/) | 39.7%  | 简单 |         |           | ✔️     | ✔️       |
@@ -149,7 +149,7 @@
 |      | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 72.5%  | 中等 |         |           | ✔️⭐️    | ✔️       |
 |      | [134. 加油站](https://leetcode-cn.com/problems/gas-station/) | 57.1%  | 中等 |         |           | ✔️⭐️    |         |
 |      | [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/) | 71.5%  | 简单 |         |           | ✔️     | ✔️       |
-|      | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 61.4%  | 中等 |         |           |       | ✔️       |
+|      | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 61.4%  | 中等 |         |           | ✔️     | ✔️       |
 |      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |       |         |
 |      | [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/) | 46.2%  | 困难 |         |           |       |         |
 |      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           | ✔️     | ✔️       |

@@ -239,8 +239,37 @@ public:
 
 ## [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
 
-```
+```c++
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        //dp
+        int n = s.size();
+        int m = p.size();
 
+        vector<vector<int>> dp(n+1,vector<int>(m+1,0));
+
+        dp[0][0]=true;
+
+		//非常易错 补齐了0 i也要从0开始 因为 * 可以匹配空串 不能忽略
+        for(int i=0;i<=n;++i){
+            for(int j=1;j<=m;++j){
+                if(p[j-1]!='*'){
+                    if(i>=1&&(p[j-1]=='.'||s[i-1]==p[j-1])) dp[i][j]=dp[i-1][j-1];
+                }
+                else{
+                    //匹配0个
+                    dp[i][j] = dp[i][j-2];
+                    //匹配上了 0个或者多个
+                    if(i>=1&&(p[j-2]=='.'||s[i-1]==p[j-2])) dp[i][j] = dp[i-1][j]|dp[i][j-2];
+                    }
+            }
+        }
+
+        return dp[n][m];
+
+    }
+};
 ```
 
 
@@ -2368,6 +2397,14 @@ public:
     }
 };
 ```
+
+## [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)
+
+```c++
+在公司电脑上
+```
+
+
 
 ## [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 
