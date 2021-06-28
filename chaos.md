@@ -2404,6 +2404,34 @@ public:
 在公司电脑上
 ```
 
+## [139. 单词拆分](https://leetcode-cn.com/problems/word-break/)
+
+```c++
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        unordered_set<string> sm;
+        for(auto w:wordDict){
+            sm.insert(w);
+        }
+        
+        int n = s.size();
+        vector<int> dp(n+1,0);
+        dp[0] = true;
+        for(int i=0;i<=n;++i){
+            for(int j=0;j<i;++j){
+                if(dp[j]&&sm.find(s.substr(j,i-j))!=sm.end()){
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[n];
+
+    }
+};
+```
+
 
 
 ## [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
