@@ -2462,3 +2462,336 @@ public:
 };
 ```
 
+## [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
+
+```c++
+class LRUCache {
+public:
+    struct Node{
+        int key;
+        int val;
+        Node* next;
+        Node* pre;
+    };
+    
+    int cap;//指明容量
+    int len;//指明现在的容量
+    unordered_map<int,Node*> mp;  // 用来查找
+    Node* hair;//虚头
+    Node* tail;//虚尾
+    
+    Node* del(Node* node){
+    
+        if(node->pre&&node->next){
+            node->pre->next= node->next;
+            node->next->pre = node->pre;
+        }
+
+        return node;
+    }
+    
+    void addToHead(Node* node){  //把给定节点移动到链表头
+        node->next = hair->next;
+        node->pre = hair;
+        hair->next = node;
+        node->next->pre = node;
+    }
+    
+    void moveToHead(Node* node){
+        del(node);
+        addToHead(node);
+    }
+    
+    LRUCache(int capacity) {
+        cap = capacity;
+        len = 0;
+        hair = new Node();
+        tail = new Node();
+        hair->next = tail;
+        tail->pre = hair;
+    }
+    
+    int get(int key) {
+        if(mp.count(key)){
+            moveToHead(mp[key]);
+            return mp[key]->val;
+        }
+        else return -1;
+    }
+    
+    void put(int key, int value) { //分cap满了和没满的情况
+        if(mp.count(key)){
+            mp[key]->val = value;
+            
+            moveToHead(mp[key]);
+        }
+        else{
+            Node* newNode = new Node();
+            newNode->key = key;
+            newNode->val = value;
+            mp[key] = newNode;
+            
+            if(len<cap){
+                moveToHead(newNode);
+                ++len;
+                // cout<<len<<endl;
+            }
+            else{
+                Node* last = del(tail->pre);
+                mp.erase(last->key);
+                // cout<<last->key<<endl;
+                moveToHead(newNode);
+            }
+        }
+        
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
+```
+
+## [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
+
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        //链表归并 
+        //找到中间 断开 两边分别排序 然后归并
+        
+        // cout<<head->val<<endl;
+        if(!head) return head;
+        if(!head->next) {
+           // cout<<head->val<<endl;
+            return head;
+            
+        }
+
+        
+        //断开
+        ListNode* f = head;
+        ListNode* s= head;
+        ListNode* pre = nullptr;
+        while(f&&f->next){
+            f = f->next->next;
+            pre = s;
+            s = s->next;
+        }//s处断开
+
+        pre->next = nullptr;
+        ListNode* mid = s;
+
+        head = sortList(head);
+        mid =sortList(mid);
+        
+        //合并
+        ListNode* res_head = new ListNode();
+        ListNode* res_cur = res_head;
+        
+        
+        // cout<<"head:"<<head->val<<endl;
+        // cout<<"mid:"<<mid->val<<endl;
+
+        while(head&&mid){
+            if(head->val<=mid->val){
+                res_cur->next = head;
+                head = head->next;
+            }
+            else {
+                // cout<<"choose mid:"<<mid->val<<endl;
+                res_cur->next = mid;
+                mid = mid->next;
+            }
+            
+            res_cur = res_cur->next;
+        }
+        
+        
+        if(head){
+            res_cur->next = head;
+        }
+        
+        if(mid){
+           res_cur->next = mid;
+        }
+        
+        
+        // cout<<"head:"<<res_head->next->val<<endl;
+        return res_head->next;
+ 
+    }
+};
+```
+
+## [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/)
+
+```c++
+class Solution {
+public:
+    int findgcd(int x,int y){
+        return y?findgcd(y,x%y):x;
+    }
+    
+    int maxPoints(vector<vector<int>>& points) {
+        //表示斜率 不能用除法 应该用二元组 (mx,my)化简到最简形式
+        //由于dx dy符号可能相反 需要规定x>0 
+        int n = points.size();
+        if(n==1) return 1;
+        int ans=0;
+        for(int i=0;i<n;++i){
+            unordered_map<int,int> k;
+            for(int j =i+1;j<n;++j){
+                int dx = points[j][0] - points[i][0];
+                int dy = points[j][1] - points[i][1];
+                if(dx<0){
+                    dx = -dx;
+                    dy = -dy;
+                }
+                if(dx==0){
+                    dy=1;
+                }
+                if(dy==0){
+                    dx=1;
+                }
+                int gcd = findgcd(abs(dx),abs(dy));
+                dx /= gcd;
+                dy /= gcd;
+                int dk = dx*20001+dy;
+                k[dk]++;
+                ans = max(ans,k[dk]+1);
+}
+        }
+        return ans;
+    }
+};
+```
+
+## [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+
+```c++
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        //栈 
+        stack<int> st;
+        for(auto c:tokens){
+            if(isNumber(c)) st.push(stoi(c));
+            else{
+                int second = st.top();
+                st.pop();
+                int first = st.top();
+                st.pop();
+                switch(c[0]){
+                    case '+':
+                        st.push(first+second);
+                        break;
+                    case '-':
+                        st.push(first-second);
+                        break;
+                    case '*':
+                        st.push(first*second);
+                        break;
+                    case '/':
+                        st.push(first/second);
+                        break;
+                }
+            }
+        }
+        return st.top();
+    }
+    
+    bool isNumber(string& token) {
+        return !(token == "+" || token == "-" || token == "*" || token == "/");
+    }
+};
+```
+
+## [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
+
+```c++
+class MinStack:
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.stack = []
+        self.min_value = -1
+
+    def push(self, x: int) -> None:
+        if not self.stack:
+            self.stack.append(0)
+            self.min_value = x
+        else:
+            diff = x-self.min_value
+            self.stack.append(diff)
+            self.min_value = self.min_value if diff > 0 else x
+
+    def pop(self) -> None:
+        if self.stack:
+            diff = self.stack.pop()
+            if diff < 0:
+                top = self.min_value
+                self.min_value = top - diff
+            else:
+                top = self.min_value + diff
+            return top
+
+    def top(self) -> int:
+        return self.min_value if self.stack[-1] < 0 else self.stack[-1] + self.min_value
+
+    def getMin(self) -> int:
+        return self.min_value if self.stack else -1
+```
+
+## [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)
+
+```c++
+class MinStack:
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.stack = []
+        self.min_value = -1
+
+    def push(self, x: int) -> None:
+        if not self.stack:
+            self.stack.append(0)
+            self.min_value = x
+        else:
+            diff = x-self.min_value
+            self.stack.append(diff)
+            self.min_value = self.min_value if diff > 0 else x
+
+    def pop(self) -> None:
+        if self.stack:
+            diff = self.stack.pop()
+            if diff < 0:
+                top = self.min_value
+                self.min_value = top - diff
+            else:
+                top = self.min_value + diff
+            return top
+
+    def top(self) -> int:
+        return self.min_value if self.stack[-1] < 0 else self.stack[-1] + self.min_value
+
+    def getMin(self) -> int:
+        return self.min_value if self.stack else -1
+```
+

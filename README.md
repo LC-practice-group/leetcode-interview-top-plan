@@ -27,7 +27,7 @@
 
 | 日期        | okJiang | tanzhikun | chaos  | Doddddz |
 | ----------- | ------- | --------- | ------ | ------- |
-| all         | 34/100  | 23/100    | 67/100 | 63/100  |
+| all         | 34/100  | 23/100    | 73/100 | 63/100  |
 | 5/24        | 2       |           |        |         |
 | 5/25        | 3       | 3         | 3      |         |
 | 5/26        | 3       | 4         | 13     | 19      |
@@ -153,12 +153,12 @@
 |      | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) | 50.2%  | 中等 |         |           |       |         |
 |      | [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/) | 46.2%  | 困难 |         |           |       |         |
 |      | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 51.0%  | 简单 | ✔️       |           | ✔️     | ✔️       |
-|      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           |       | ❕✔️      |
-|      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           |       |         |
-|      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           |       |         |
-|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 | ✔️       |           |       | ✔️       |
-|      | [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 41.5%  | 中等 |         |           |       |         |
-|      | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)   | 56.8%  | 简单 |         |           |       | ✔️       |
+|      | [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 52.4%  | 中等 |         |           | ✔️     | ❕✔️      |
+|      | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 66.9%  | 中等 |         |           | ✔️     |         |
+|      | [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line/) | 25.3%  | 困难 |         |           | ✔️     |         |
+|      | [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) | 53.8%  | 中等 | ✔️       |           | ✔️     | ✔️       |
+|      | [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 41.5%  | 中等 |         |           | ✔️     |         |
+|      | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)   | 56.8%  | 简单 |         |           | ✔️     | ✔️       |
 |      | [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | 58.8%  | 简单 |         |           |       | ✔️       |
 |      | [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/) | 48.9%  | 中等 | ✔️       |           |       | ✔️       |
 |      | [163. 缺失的区间](https://leetcode-cn.com/problems/missing-ranges/)![plus](https://static.leetcode-cn.com/cn-mono-assets/production/assets/plus.31398c34.svg) | 30.7%  | 简单 |         |           |       |         |
